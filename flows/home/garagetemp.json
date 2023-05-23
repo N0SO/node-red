@@ -1,0 +1,187 @@
+[
+    {
+        "id": "5a05ed61d60d7222",
+        "type": "tab",
+        "label": "Garage Temperture",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "6d309fb6c270fb12",
+        "type": "inject",
+        "z": "5a05ed61d60d7222",
+        "name": "Start",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "10",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "",
+        "topic": "",
+        "payload": "F",
+        "payloadType": "str",
+        "x": 90,
+        "y": 140,
+        "wires": [
+            [
+                "c25f12ab07c62972",
+                "3fcfdb23680bf6be"
+            ]
+        ]
+    },
+    {
+        "id": "c25f12ab07c62972",
+        "type": "tcp request",
+        "z": "5a05ed61d60d7222",
+        "name": "Request",
+        "server": "Picam01",
+        "port": "20010",
+        "out": "time",
+        "ret": "buffer",
+        "splitc": "0",
+        "newline": "",
+        "trim": false,
+        "tls": "",
+        "x": 260,
+        "y": 140,
+        "wires": [
+            [
+                "8058199a09dfd360",
+                "eaa53848f9b47fb2",
+                "c91830c963135c64"
+            ]
+        ]
+    },
+    {
+        "id": "3fcfdb23680bf6be",
+        "type": "debug",
+        "z": "5a05ed61d60d7222",
+        "name": "debug 1",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 260,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "8058199a09dfd360",
+        "type": "debug",
+        "z": "5a05ed61d60d7222",
+        "name": "debug 2",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 440,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "eaa53848f9b47fb2",
+        "type": "ui_gauge",
+        "z": "5a05ed61d60d7222",
+        "name": "",
+        "group": "6794e3172f263e46",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Garage Temperature",
+        "label": "F",
+        "format": "{{value}}",
+        "min": "-20",
+        "max": "130",
+        "colors": [
+            "#97efff",
+            "#33c759",
+            "#ca3838"
+        ],
+        "seg1": "69",
+        "seg2": "79",
+        "diff": false,
+        "className": "",
+        "x": 480,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "c91830c963135c64",
+        "type": "ui_chart",
+        "z": "5a05ed61d60d7222",
+        "name": "",
+        "group": "6794e3172f263e46",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "label": "History",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "12",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 460,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6794e3172f263e46",
+        "type": "ui_group",
+        "name": "Garage Temperature",
+        "tab": "d08e06b5cdc29e38",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "d08e06b5cdc29e38",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "Garage Doors",
+        "disabled": false,
+        "hidden": false
+    }
+]

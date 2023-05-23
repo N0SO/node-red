@@ -1,0 +1,366 @@
+[
+    {
+        "id": "3be07d732bf413d7",
+        "type": "tab",
+        "label": "GDOOR",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "3bc852b3a1fa578d",
+        "type": "http request",
+        "z": "3be07d732bf413d7",
+        "name": "Request Left",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "gdoor.attlocal.net:20073/L",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 1010,
+        "y": 220,
+        "wires": [
+            [
+                "181f343dd10dadb7"
+            ]
+        ]
+    },
+    {
+        "id": "fa398f4c7a5bf658",
+        "type": "ui_dropdown",
+        "z": "3be07d732bf413d7",
+        "name": "Select Door",
+        "label": "Select Door:",
+        "tooltip": "Select door to open/close. Door will not move until 'CONFIRM' is selected.",
+        "place": "Select option",
+        "group": "cec2a533433a7642",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "multiple": false,
+        "options": [
+            {
+                "label": "Accord",
+                "value": "L",
+                "type": "str"
+            },
+            {
+                "label": "Pilot",
+                "value": "R",
+                "type": "str"
+            },
+            {
+                "label": "Both",
+                "value": "B",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "topic",
+        "topicType": "msg",
+        "className": "",
+        "x": 70,
+        "y": 280,
+        "wires": [
+            [
+                "e2992f0bb8fa3a76",
+                "60caf8c869e1612e"
+            ]
+        ]
+    },
+    {
+        "id": "e2992f0bb8fa3a76",
+        "type": "debug",
+        "z": "3be07d732bf413d7",
+        "name": "debug 3",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 240,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "528682532c9c3f46",
+        "type": "ui_button",
+        "z": "3be07d732bf413d7",
+        "name": "ConfirmBtn",
+        "group": "cec2a533433a7642",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Confirm",
+        "tooltip": "Sends command to open or close the door.",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "Topic",
+        "topicType": "msg",
+        "x": 470,
+        "y": 280,
+        "wires": [
+            [
+                "2fba8e11124b1cf9",
+                "b28351cb70acd271"
+            ]
+        ]
+    },
+    {
+        "id": "ddb08ae2dd1d78b7",
+        "type": "debug",
+        "z": "3be07d732bf413d7",
+        "name": "debug 5",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 640,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "2fba8e11124b1cf9",
+        "type": "debug",
+        "z": "3be07d732bf413d7",
+        "name": "debug 4",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 600,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "99f1b71f9563581e",
+        "type": "debug",
+        "z": "3be07d732bf413d7",
+        "name": "debug 6",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 440,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "60caf8c869e1612e",
+        "type": "change",
+        "z": "3be07d732bf413d7",
+        "name": "Save URL",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 260,
+        "y": 280,
+        "wires": [
+            [
+                "99f1b71f9563581e",
+                "528682532c9c3f46"
+            ]
+        ]
+    },
+    {
+        "id": "b28351cb70acd271",
+        "type": "change",
+        "z": "3be07d732bf413d7",
+        "name": "Restore URL",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 650,
+        "y": 280,
+        "wires": [
+            [
+                "ddb08ae2dd1d78b7",
+                "5a8bfaca4237b075"
+            ]
+        ]
+    },
+    {
+        "id": "181f343dd10dadb7",
+        "type": "debug",
+        "z": "3be07d732bf413d7",
+        "name": "debug 7",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1240,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "5a8bfaca4237b075",
+        "type": "switch",
+        "z": "3be07d732bf413d7",
+        "name": "Command",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "L",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "R",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "B",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 3,
+        "x": 830,
+        "y": 280,
+        "wires": [
+            [
+                "3bc852b3a1fa578d"
+            ],
+            [
+                "68e5e145b46f3e6f"
+            ],
+            [
+                "414d74967ce8ec0b"
+            ]
+        ]
+    },
+    {
+        "id": "68e5e145b46f3e6f",
+        "type": "http request",
+        "z": "3be07d732bf413d7",
+        "name": "Request Right",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "gdoor.attlocal.net:20073/R",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 1020,
+        "y": 280,
+        "wires": [
+            [
+                "181f343dd10dadb7"
+            ]
+        ]
+    },
+    {
+        "id": "414d74967ce8ec0b",
+        "type": "http request",
+        "z": "3be07d732bf413d7",
+        "name": "Request Both",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "gdoor.attlocal.net:20073/B",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 1020,
+        "y": 340,
+        "wires": [
+            [
+                "181f343dd10dadb7"
+            ]
+        ]
+    },
+    {
+        "id": "ed1f86226c26e1df",
+        "type": "ui_spacer",
+        "z": "3be07d732bf413d7",
+        "name": "spacer",
+        "group": "cec2a533433a7642",
+        "order": 2,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "cec2a533433a7642",
+        "type": "ui_group",
+        "name": "Garage Doors",
+        "tab": "d08e06b5cdc29e38",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "d08e06b5cdc29e38",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "Garage Doors",
+        "disabled": false,
+        "hidden": false
+    }
+]
