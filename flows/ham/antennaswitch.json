@@ -1,0 +1,392 @@
+[
+    {
+        "id": "2a3822a1822c7ce1",
+        "type": "tab",
+        "label": "Antenna Switch",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "883955c3b90f53c0",
+        "type": "ui_switch",
+        "z": "2a3822a1822c7ce1",
+        "name": "",
+        "label": "HF Antenna Connect",
+        "tooltip": "Connects the main HF antenna to the station.",
+        "group": "31c46312f6b0af61",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 220,
+        "y": 100,
+        "wires": [
+            [
+                "6767341b87eeea8d"
+            ]
+        ]
+    },
+    {
+        "id": "ba5a7ce8a75aac68",
+        "type": "http request",
+        "z": "2a3822a1822c7ce1",
+        "name": "Connect ",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "192.168.1.199/FF0701",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 600,
+        "y": 80,
+        "wires": [
+            [
+                "614de6d356e1e87b"
+            ]
+        ]
+    },
+    {
+        "id": "614de6d356e1e87b",
+        "type": "debug",
+        "z": "2a3822a1822c7ce1",
+        "name": "debug Paradan",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 860,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "6767341b87eeea8d",
+        "type": "switch",
+        "z": "2a3822a1822c7ce1",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 410,
+        "y": 100,
+        "wires": [
+            [
+                "ba5a7ce8a75aac68"
+            ],
+            [
+                "61b889c3092c8464"
+            ]
+        ]
+    },
+    {
+        "id": "61b889c3092c8464",
+        "type": "http request",
+        "z": "2a3822a1822c7ce1",
+        "name": "Disconnect",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "192.168.1.199/FF0700",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 610,
+        "y": 140,
+        "wires": [
+            [
+                "614de6d356e1e87b"
+            ]
+        ]
+    },
+    {
+        "id": "781cbf4fa5ab2625",
+        "type": "ui_switch",
+        "z": "2a3822a1822c7ce1",
+        "name": "",
+        "label": "6M Dipole",
+        "tooltip": "Switches to the 6M dipole.",
+        "group": "31c46312f6b0af61",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 190,
+        "y": 300,
+        "wires": [
+            [
+                "96402a146b86caca"
+            ]
+        ]
+    },
+    {
+        "id": "96402a146b86caca",
+        "type": "switch",
+        "z": "2a3822a1822c7ce1",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 410,
+        "y": 300,
+        "wires": [
+            [
+                "c6f974d2d7287a4b"
+            ],
+            [
+                "38c7aa630e62efe9"
+            ]
+        ]
+    },
+    {
+        "id": "c6f974d2d7287a4b",
+        "type": "http request",
+        "z": "2a3822a1822c7ce1",
+        "name": "Connect ",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "192.168.1.199/FF0801",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 560,
+        "y": 280,
+        "wires": [
+            [
+                "8bddfee0fce61cc1"
+            ]
+        ]
+    },
+    {
+        "id": "38c7aa630e62efe9",
+        "type": "http request",
+        "z": "2a3822a1822c7ce1",
+        "name": "Disconnect",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "192.168.1.199/FF0800",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 570,
+        "y": 320,
+        "wires": [
+            [
+                "8bddfee0fce61cc1"
+            ]
+        ]
+    },
+    {
+        "id": "8bddfee0fce61cc1",
+        "type": "debug",
+        "z": "2a3822a1822c7ce1",
+        "name": "debug 6M Switch",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 770,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "63eaba5b35fe528e",
+        "type": "flexradio-discovery",
+        "z": "2a3822a1822c7ce1",
+        "name": "",
+        "port": 4992,
+        "x": 210,
+        "y": 460,
+        "wires": [
+            [
+                "02e0229c70ca7e7a",
+                "7e0ab30f44578097",
+                "e25991b878de2bcb",
+                "577f3e8702a1c4f0"
+            ]
+        ]
+    },
+    {
+        "id": "02e0229c70ca7e7a",
+        "type": "debug",
+        "z": "2a3822a1822c7ce1",
+        "name": "debug 8",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 480,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "7e0ab30f44578097",
+        "type": "ui_text",
+        "z": "2a3822a1822c7ce1",
+        "group": "2c0a446bc85b71bf",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Radio Data",
+        "format": "{{msg.payload.model}}",
+        "layout": "row-left",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 490,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "e25991b878de2bcb",
+        "type": "ui_text",
+        "z": "2a3822a1822c7ce1",
+        "group": "2c0a446bc85b71bf",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Radio IP",
+        "format": "{{msg.payload.ip}}",
+        "layout": "row-left",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 480,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "577f3e8702a1c4f0",
+        "type": "ui_text",
+        "z": "2a3822a1822c7ce1",
+        "group": "2c0a446bc85b71bf",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Radio Version",
+        "format": "{{msg.payload.version}}",
+        "layout": "row-left",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 500,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "31c46312f6b0af61",
+        "type": "ui_group",
+        "name": "Antenna",
+        "tab": "2f150eb340621efc",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "2c0a446bc85b71bf",
+        "type": "ui_group",
+        "name": "Radio Discovery",
+        "tab": "2f150eb340621efc",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "2f150eb340621efc",
+        "type": "ui_tab",
+        "name": "HamShack",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]

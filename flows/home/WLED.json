@@ -1,0 +1,177 @@
+[
+    {
+        "id": "abe7718d682c2675",
+        "type": "tab",
+        "label": "WLED Test",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "754361729b1074d9",
+        "type": "wled",
+        "z": "abe7718d682c2675",
+        "name": "WORKBENCH",
+        "address": "192.168.1.248",
+        "interval": 0,
+        "x": 540,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "f282793fe0d84309",
+        "type": "ui_switch",
+        "z": "abe7718d682c2675",
+        "name": "",
+        "label": "Shack Bench",
+        "tooltip": "",
+        "group": "f57646e009934699",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 330,
+        "y": 100,
+        "wires": [
+            [
+                "754361729b1074d9"
+            ]
+        ]
+    },
+    {
+        "id": "53850c52d5d0c475",
+        "type": "inject",
+        "z": "abe7718d682c2675",
+        "name": "Test",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 328,
+        "y": 37,
+        "wires": [
+            [
+                "f282793fe0d84309"
+            ]
+        ]
+    },
+    {
+        "id": "bf7725419935e497",
+        "type": "ui_switch",
+        "z": "abe7718d682c2675",
+        "name": "",
+        "label": "Shack Desk",
+        "tooltip": "",
+        "group": "f57646e009934699",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 320,
+        "y": 260,
+        "wires": [
+            [
+                "82a52e79414c9f53"
+            ]
+        ]
+    },
+    {
+        "id": "c1a05d30b88657b8",
+        "type": "inject",
+        "z": "abe7718d682c2675",
+        "name": "Test",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 298,
+        "y": 197,
+        "wires": [
+            [
+                "bf7725419935e497"
+            ]
+        ]
+    },
+    {
+        "id": "82a52e79414c9f53",
+        "type": "wled",
+        "z": "abe7718d682c2675",
+        "name": "SHACKDESK",
+        "address": "192.168.1.247",
+        "interval": 0,
+        "x": 540,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "f57646e009934699",
+        "type": "ui_group",
+        "name": "Lights",
+        "tab": "2f150eb340621efc",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "2f150eb340621efc",
+        "type": "ui_tab",
+        "name": "HamShack",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
