@@ -1,0 +1,75 @@
+#!/usr/bin/env python3
+import os.path
+import sys
+
+whereami = os.path.split( os.path.realpath(__file__) )
+pathsplit = os.path.split(whereami[0])
+#print("here I am :\n{}\n{}".format(whereami, pathsplit))
+
+DEVMODPATH = [pathsplit[0]]
+#print('Using DEVMODPATH=',DEVMODPATH)
+#os.chdir(pathsplit[0])
+
+for mypath in DEVMODPATH:
+        if ( os.path.exists(mypath) and \
+          (os.path.isfile(mypath) == False) ):
+            sys.path.insert(0, mypath)
+
+import argparse
+from __init__ import VERSION
+from stationswitch import stationSwitch
+
+USAGE = \
+"""
+switchstatus <options> 
+"""
+
+DESCRIPTION = \
+"""
+Show and/or modify the state of N0SO station switches.
+"""
+
+EPILOG = \
+"""
+Running will display status with no action.
+"""
+
+def parseMyArgs():
+    parser = argparse.ArgumentParser(\
+                    description = DESCRIPTION, usage = USAGE)
+    parser.add_argument('-v', '--version', 
+                        action='version', 
+                        version = VERSION)
+    
+    parser.add_argument('-d', '--displaystat',
+        action = 'store_true', default = False,
+        help="""Display current status of station switches.""")
+        
+    parser.add_argument('-c', '--closeswitch', default=None, 
+        help="""Set the specified switch state to CLOSED.""")
+
+    parser.add_argument('-o', '--openswitch', default=None, 
+        help="""Set the specified switch state to OPEN.""")
+
+    parser.add_argument('-t', '--toggleswitch', default=None, 
+        help="""Toggle the state of the specified switch state from OPEN to CLOSED,
+                or CLOSED to OPEN.""")
+
+    args = parser.parse_args()
+    return args
+
+if __name__ == '__main__':
+    args = parseMyArgs()
+    #print(args)
+    s = stationSwitch()
+
+    if args.closeswitch:
+        s.closeSwitch(args.closeswitch)
+    elif args.openswitch:
+        s.openSwitch(args.openswitch)
+    if args.displaystat:
+        s.showStat()
+        
+        
+        
+
