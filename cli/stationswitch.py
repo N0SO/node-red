@@ -77,7 +77,10 @@ class stationSwitch():
     def closeSwitch(self, switch):
         relay = self._selectSwitch(switch)
         if relay:
-            status = self.changeStat(relay+'01')
+            if (switch == 'all'):
+                status = self.changeStat(relay)
+            else:
+                status = self.changeStat(relay+'01')
         else:
             print('{}: Not a valid switch designation.'.format(switch))
             status = None
@@ -87,7 +90,10 @@ class stationSwitch():
     def openSwitch(self, switch):
         relay = self._selectSwitch(switch)
         if relay:
-            status = self.changeStat(relay+'00')
+            if switch == 'all':
+                status = self.changeStat(relay)
+            else:
+                status = self.changeStat(relay+'00')
         else:
             print('{}: Not a valid switch designation.'.format(switch))
             status = None
