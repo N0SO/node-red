@@ -1,18 +1,25 @@
 [
     {
-        "id": "aa18075d2a591236",
-        "type": "debug",
+        "id": "17790841e75ba594",
+        "type": "function",
         "z": "77743ea34f0de5c7",
-        "name": "debug 10",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 840,
-        "y": 80,
-        "wires": []
+        "name": "SelectedAntennaStatus",
+        "func": "var msgText = msg.payload;\n\nif (msgText.includes(\"HF Antenna Connect: 1\")) {\n    if (msgText.includes(\"6M Dipole Select:   1\")) {\n        msg.payload = 2;\n    } else {\n        msg.payload = 1;\n    }\n} else {\n    msg.payload = 0;\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 510,
+        "y": 220,
+        "wires": [
+            [
+                "aa18075d2a591236",
+                "bc44abebd1113613",
+                "f10b34e5869adf5f",
+                "741121889fd20c9b"
+            ]
+        ],
+        "info": "INPUT: Status string from python script switchstatus.\n\nOUTPUT:\n    0 - HF Antenna disconnected.\n    1 - HF antenna connected, HF vertical selected.\n    2 - HF antenna connected, 6M dipole selected.\n\nExpects to be passed in the status output string from \nthe python script switchstatus. The string is parsed to\ndetermine:\n   1. Is the HF antenna connected? \n   2. If HF antenna is not connected, pass along value\n    of 0 (zero).\n   3. If HF antenna is connected, is the 6M dipole also\n      connected? If not, pass along value of 1. If the 6M\n      dipole is also connected, pass along value of 2.   "
     }
 ]
