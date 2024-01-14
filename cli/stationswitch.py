@@ -4,6 +4,7 @@ from __init__ import VERSION, CALLSIGN, SWITCH_URL
 
 VALIDSWITCHNAMES = [\
                      '1','flex6600pwr',
+                     '3','flex6300pwr',
                      '7','hfantenna',
                      '8','6mantenna',
                      'all'
@@ -49,10 +50,12 @@ class stationSwitch():
     def showStat(self):
         print ("""Station Relay Status:
               Relays:             {}
-              Flex 6600 Power:    {} 
+              Flex 6600 Power:    {}
+              Flex 6300 Power:    {} 
               HF Antenna Connect: {}
               6M Dipole Select:   {}""".format(self.relays,
                                                 self.relays[0],
+                                                self.relays[2],
                                                 self.relays[6],
                                                 self.relays[7]))
         return True
@@ -62,6 +65,8 @@ class stationSwitch():
             print('Valid switch: {}.'.format(switch))
             if (switch == '1') or (switch == 'flex6600pwr'):
                 relay = 'FF01'
+            if (switch == '3') or (switch == 'flex6300pwr'):
+                relay = 'FF03'
             elif (switch=='7') or (switch == 'hfantenna'):
                 relay = 'FF07'
             elif (switch=='8') or (switch == '6mantenna'):
