@@ -1,14 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
-from __init__ import VERSION, CALLSIGN, SWITCH_URL
-
-VALIDSWITCHNAMES = [\
-                     '1','flex6600pwr',
-                     '3','flex6300pwr',
-                     '7','hfantenna',
-                     '8','6mantenna',
-                     'all'
-                   ]
+from __init__ import VERSION, CALLSIGN, SWITCH_URL, VALIDSWITCHNAMES
 
 
 class stationSwitch():

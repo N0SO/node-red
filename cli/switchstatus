@@ -16,7 +16,7 @@ for mypath in DEVMODPATH:
             sys.path.insert(0, mypath)
 
 import argparse
-from __init__ import VERSION
+from __init__ import VERSION, VALIDSWITCHNAMES
 from stationswitch import stationSwitch
 
 USAGE = \
@@ -46,9 +46,11 @@ def parseMyArgs():
         help="""Display current status of station switches.""")
         
     parser.add_argument('-c', '--closeswitch', default=None, 
+                         choices = VALIDSWITCHNAMES, 
         help="""Set the specified switch state to CLOSED.""")
 
-    parser.add_argument('-o', '--openswitch', default=None, 
+    parser.add_argument('-o', '--openswitch', default=None,
+                         choices = VALIDSWITCHNAMES, 
         help="""Set the specified switch state to OPEN.""")
 
     parser.add_argument('-t', '--toggleswitch', default=None, 
