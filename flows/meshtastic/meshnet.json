@@ -1,0 +1,1423 @@
+[
+    {
+        "id": "73985711936f4789",
+        "type": "tab",
+        "label": "Meshnet",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "1abc97b684bd556b",
+        "type": "aedes broker",
+        "z": "73985711936f4789",
+        "name": "Meshtastic Broker",
+        "mqtt_port": "1883",
+        "mqtt_ws_bind": "port",
+        "mqtt_ws_port": "",
+        "mqtt_ws_path": "",
+        "cert": "",
+        "key": "",
+        "certname": "",
+        "keyname": "",
+        "persistence_bind": "memory",
+        "dburl": "",
+        "usetls": false,
+        "x": 110,
+        "y": 240,
+        "wires": [
+            [
+                "39af5e0387139a15"
+            ],
+            [
+                "10d81c1976c3c7ca",
+                "9963368201847241"
+            ]
+        ]
+    },
+    {
+        "id": "39af5e0387139a15",
+        "type": "debug",
+        "z": "73985711936f4789",
+        "name": "Raw MQTT subscribe",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 360,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "10d81c1976c3c7ca",
+        "type": "debug",
+        "z": "73985711936f4789",
+        "name": "debug 45",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 320,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "069974b6b4f3408e",
+        "type": "mqtt out",
+        "z": "73985711936f4789",
+        "name": "Test In",
+        "topic": "nrwx",
+        "qos": "0",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "8c811775c529ae50",
+        "x": 330,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "c1793ea7fe655965",
+        "type": "inject",
+        "z": "73985711936f4789",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 140,
+        "y": 360,
+        "wires": [
+            [
+                "069974b6b4f3408e"
+            ]
+        ]
+    },
+    {
+        "id": "699ced49570e98da",
+        "type": "debug",
+        "z": "73985711936f4789",
+        "name": "Decoded mesh data client",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 340,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "40da4f812c3a964a",
+        "type": "mqtt in",
+        "z": "73985711936f4789",
+        "name": "nrwx/2/e/LongFast/!4359dad4",
+        "topic": "nrwx/2/e/Telemetry/!4359dad4",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "8c811775c529ae50",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 220,
+        "y": 540,
+        "wires": [
+            [
+                "c1d8b9b83c767704",
+                "466f38e5cff00deb"
+            ]
+        ]
+    },
+    {
+        "id": "c1d8b9b83c767704",
+        "type": "debug",
+        "z": "73985711936f4789",
+        "name": "Raw mesh MQTT client",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 430,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "ec13e16c93b60485",
+        "type": "debug",
+        "z": "73985711936f4789",
+        "name": "debug 51",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1000,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "d33133d4b8ab2ab2",
+        "type": "ui_gauge",
+        "z": "73985711936f4789",
+        "name": "",
+        "group": "a904c647809db2d2",
+        "order": 8,
+        "width": "3",
+        "height": "3",
+        "gtype": "gage",
+        "title": "Battery Voltage",
+        "label": "VDC",
+        "format": "{{value | number:1}}",
+        "min": 0,
+        "max": "5.5",
+        "colors": [
+            "#eb4d3d",
+            "#e6e600",
+            "#64c466"
+        ],
+        "seg1": "3.3",
+        "seg2": "3.6",
+        "diff": false,
+        "className": "",
+        "x": 1020,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "34eabb11f7bfbd2c",
+        "type": "ui_chart",
+        "z": "73985711936f4789",
+        "name": "Battery History",
+        "group": "a904c647809db2d2",
+        "order": 10,
+        "width": 0,
+        "height": 0,
+        "label": "",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1020,
+        "y": 540,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "466f38e5cff00deb",
+        "type": "decode",
+        "z": "73985711936f4789",
+        "name": "",
+        "x": 140,
+        "y": 480,
+        "wires": [
+            [
+                "702ef296cfa6019f",
+                "699ced49570e98da"
+            ]
+        ]
+    },
+    {
+        "id": "77c6762b5efc574a",
+        "type": "debug",
+        "z": "73985711936f4789",
+        "name": "debug 52",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 600,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "9963368201847241",
+        "type": "decode",
+        "z": "73985711936f4789",
+        "name": "",
+        "x": 320,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "aa7b9e42549b5a76",
+        "type": "switch",
+        "z": "73985711936f4789",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "cont",
+                "v": "payload.packet.decoded.payload.environmentMetrics",
+                "vt": "msg"
+            },
+            {
+                "t": "cont",
+                "v": "payload.packet.decoded.payload.deviceMetrics",
+                "vt": "msg"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 3,
+        "x": 590,
+        "y": 400,
+        "wires": [
+            [
+                "a33810545c05df77",
+                "2781508cafdb5710",
+                "38aa98508f15196a"
+            ],
+            [
+                "fa38fe4a1cebd07b",
+                "90d1cfb0e1ea03e6"
+            ],
+            [
+                "77c6762b5efc574a"
+            ]
+        ]
+    },
+    {
+        "id": "a33810545c05df77",
+        "type": "change",
+        "z": "73985711936f4789",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.packet.decoded.payload.environmentMetrics.temperature",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 800,
+        "y": 260,
+        "wires": [
+            [
+                "27e0dd7b3376fde1",
+                "1a681ca8202261be"
+            ]
+        ]
+    },
+    {
+        "id": "27e0dd7b3376fde1",
+        "type": "ui_text",
+        "z": "73985711936f4789",
+        "group": "a904c647809db2d2",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Temp",
+        "format": "{{value *1.8+32| number:1}}F",
+        "layout": "row-left",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 990,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "2781508cafdb5710",
+        "type": "change",
+        "z": "73985711936f4789",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.packet.decoded.payload.environmentMetrics.relativeHumidity",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 800,
+        "y": 320,
+        "wires": [
+            [
+                "72cd094ac80d36f0",
+                "7b71e5e2bafa854f"
+            ]
+        ]
+    },
+    {
+        "id": "72cd094ac80d36f0",
+        "type": "ui_text",
+        "z": "73985711936f4789",
+        "group": "a904c647809db2d2",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Humidity",
+        "format": "{{value | number:1}}%",
+        "layout": "row-left",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 1000,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "38aa98508f15196a",
+        "type": "change",
+        "z": "73985711936f4789",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.packet.decoded.payload.environmentMetrics.barometricPressure",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 800,
+        "y": 380,
+        "wires": [
+            [
+                "75cc9373ee473264",
+                "a8d27bb0782f6f4a",
+                "d8fd3a07bc6556f9"
+            ]
+        ]
+    },
+    {
+        "id": "a8d27bb0782f6f4a",
+        "type": "ui_text",
+        "z": "73985711936f4789",
+        "group": "a904c647809db2d2",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Barometric Pressure",
+        "format": "{{value | number:1}} hPa",
+        "layout": "row-left",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 1040,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "83374b22246f7ece",
+        "type": "debug",
+        "z": "73985711936f4789",
+        "name": "debug 56",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 560,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "fa38fe4a1cebd07b",
+        "type": "change",
+        "z": "73985711936f4789",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.packet.decoded.payload.deviceMetrics.voltage",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 800,
+        "y": 420,
+        "wires": [
+            [
+                "34eabb11f7bfbd2c",
+                "ec13e16c93b60485",
+                "d33133d4b8ab2ab2"
+            ]
+        ]
+    },
+    {
+        "id": "90d1cfb0e1ea03e6",
+        "type": "change",
+        "z": "73985711936f4789",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.packet.decoded.payload.deviceMetrics.batteryLevel",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 800,
+        "y": 640,
+        "wires": [
+            [
+                "3a762f08d1fcf442"
+            ]
+        ]
+    },
+    {
+        "id": "3a762f08d1fcf442",
+        "type": "ui_gauge",
+        "z": "73985711936f4789",
+        "name": "DAD4 Battery Level",
+        "group": "a904c647809db2d2",
+        "order": 9,
+        "width": "3",
+        "height": "3",
+        "gtype": "donut",
+        "title": "Battery Level",
+        "label": "%",
+        "format": "{{value | number:1}}",
+        "min": 0,
+        "max": "105",
+        "colors": [
+            "#eb4d3d",
+            "#e6e600",
+            "#64c466"
+        ],
+        "seg1": "33",
+        "seg2": "66",
+        "diff": false,
+        "className": "",
+        "x": 1030,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "75cc9373ee473264",
+        "type": "ui_chart",
+        "z": "73985711936f4789",
+        "name": "Pressure History",
+        "group": "a904c647809db2d2",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "label": "",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "12",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1020,
+        "y": 420,
+        "wires": [
+            [
+                "7c5281d7c40b01d4"
+            ]
+        ]
+    },
+    {
+        "id": "702ef296cfa6019f",
+        "type": "switch",
+        "z": "73985711936f4789",
+        "name": "",
+        "property": "payload.packet.from",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "1129962196",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "1129873220",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "1129925212",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "115503498",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "4041244642",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "1659227119",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "60474044",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 8,
+        "x": 430,
+        "y": 480,
+        "wires": [
+            [
+                "83374b22246f7ece",
+                "aa7b9e42549b5a76"
+            ],
+            [
+                "3253617f413c8442"
+            ],
+            [
+                "11bc1c4ce497ed37"
+            ],
+            [
+                "9840c8c6b1e97a4d",
+                "09704ae66c285310"
+            ],
+            [
+                "bbad3d33b62b70ad"
+            ],
+            [
+                "5d444a7a7fa7b952"
+            ],
+            [
+                "48cb62492d81c98b"
+            ],
+            [
+                "b878c09d01e55055"
+            ]
+        ]
+    },
+    {
+        "id": "24618f7725fb155b",
+        "type": "change",
+        "z": "73985711936f4789",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.packet.decoded.payload.deviceMetrics.voltage",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 800,
+        "y": 680,
+        "wires": [
+            [
+                "d84d137bb7b63373",
+                "584d9f8db2b56c36",
+                "35c616189dc6e199"
+            ]
+        ]
+    },
+    {
+        "id": "584d9f8db2b56c36",
+        "type": "debug",
+        "z": "73985711936f4789",
+        "name": "debug 51",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1000,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "35c616189dc6e199",
+        "type": "ui_gauge",
+        "z": "73985711936f4789",
+        "name": "",
+        "group": "40fd4e4f54522cdb",
+        "order": 1,
+        "width": "3",
+        "height": "3",
+        "gtype": "gage",
+        "title": "Battery Voltage",
+        "label": "VDC",
+        "format": "{{value | number:1}}",
+        "min": 0,
+        "max": "5.5",
+        "colors": [
+            "#eb4d3d",
+            "#e6e600",
+            "#64c466"
+        ],
+        "seg1": "3.3",
+        "seg2": "3.6",
+        "diff": false,
+        "className": "",
+        "x": 1020,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "d84d137bb7b63373",
+        "type": "ui_chart",
+        "z": "73985711936f4789",
+        "name": "",
+        "group": "40fd4e4f54522cdb",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "label": "",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "12",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 990,
+        "y": 720,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3253617f413c8442",
+        "type": "switch",
+        "z": "73985711936f4789",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "cont",
+                "v": "payload.packet.decoded.payload.environmentMetrics",
+                "vt": "msg"
+            },
+            {
+                "t": "cont",
+                "v": "payload.packet.decoded.payload.deviceMetrics",
+                "vt": "msg"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 3,
+        "x": 610,
+        "y": 680,
+        "wires": [
+            [],
+            [
+                "24618f7725fb155b",
+                "669c542a087d3fbd"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "669c542a087d3fbd",
+        "type": "change",
+        "z": "73985711936f4789",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.packet.decoded.payload.deviceMetrics.batteryLevel",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 800,
+        "y": 800,
+        "wires": [
+            [
+                "6c60278f5ff0c4d9"
+            ]
+        ]
+    },
+    {
+        "id": "6c60278f5ff0c4d9",
+        "type": "ui_gauge",
+        "z": "73985711936f4789",
+        "name": "Battery Level",
+        "group": "40fd4e4f54522cdb",
+        "order": 2,
+        "width": "3",
+        "height": "3",
+        "gtype": "donut",
+        "title": "Battery Level",
+        "label": "%",
+        "format": "{{value | number:1}}",
+        "min": 0,
+        "max": "105",
+        "colors": [
+            "#eb4d3d",
+            "#e6e600",
+            "#64c466"
+        ],
+        "seg1": "33",
+        "seg2": "66",
+        "diff": false,
+        "className": "",
+        "x": 1020,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "11bc1c4ce497ed37",
+        "type": "switch",
+        "z": "73985711936f4789",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "cont",
+                "v": "payload.packet.decoded.payload.environmentMetrics",
+                "vt": "msg"
+            },
+            {
+                "t": "cont",
+                "v": "payload.packet.decoded.payload.deviceMetrics",
+                "vt": "msg"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 3,
+        "x": 600,
+        "y": 940,
+        "wires": [
+            [],
+            [
+                "3d1d06dae4616a6c",
+                "f6eb2a3441be046e"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "3d1d06dae4616a6c",
+        "type": "change",
+        "z": "73985711936f4789",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.packet.decoded.payload.deviceMetrics.voltage",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 820,
+        "y": 940,
+        "wires": [
+            [
+                "cc196545dde6588a",
+                "831a70163f6224e0",
+                "abdf297beed95a2e"
+            ]
+        ]
+    },
+    {
+        "id": "f6eb2a3441be046e",
+        "type": "change",
+        "z": "73985711936f4789",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.packet.decoded.payload.deviceMetrics.batteryLevel",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 820,
+        "y": 1060,
+        "wires": [
+            [
+                "3bc971dc492c3ec4"
+            ]
+        ]
+    },
+    {
+        "id": "3bc971dc492c3ec4",
+        "type": "ui_gauge",
+        "z": "73985711936f4789",
+        "name": "Battery Level",
+        "group": "91a0c90f80d82e2a",
+        "order": 2,
+        "width": "3",
+        "height": "3",
+        "gtype": "donut",
+        "title": "Battery Level",
+        "label": "%",
+        "format": "{{value | number:1}}",
+        "min": 0,
+        "max": "105",
+        "colors": [
+            "#eb4d3d",
+            "#e6e600",
+            "#64c466"
+        ],
+        "seg1": "33",
+        "seg2": "66",
+        "diff": false,
+        "className": "",
+        "x": 1030,
+        "y": 1060,
+        "wires": []
+    },
+    {
+        "id": "cc196545dde6588a",
+        "type": "ui_chart",
+        "z": "73985711936f4789",
+        "name": "",
+        "group": "91a0c90f80d82e2a",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "label": "",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "12",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1010,
+        "y": 980,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "abdf297beed95a2e",
+        "type": "ui_gauge",
+        "z": "73985711936f4789",
+        "name": "",
+        "group": "91a0c90f80d82e2a",
+        "order": 1,
+        "width": "3",
+        "height": "3",
+        "gtype": "gage",
+        "title": "Battery Voltage",
+        "label": "VDC",
+        "format": "{{value | number:1}}",
+        "min": 0,
+        "max": "5.5",
+        "colors": [
+            "#eb4d3d",
+            "#e6e600",
+            "#64c466"
+        ],
+        "seg1": "3.3",
+        "seg2": "3.6",
+        "diff": false,
+        "className": "",
+        "x": 1040,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "831a70163f6224e0",
+        "type": "debug",
+        "z": "73985711936f4789",
+        "name": "debug 60",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1020,
+        "y": 900,
+        "wires": []
+    },
+    {
+        "id": "d8fd3a07bc6556f9",
+        "type": "ui_text",
+        "z": "73985711936f4789",
+        "group": "a904c647809db2d2",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Barometric Pressure",
+        "format": "{{value * .0295| number:1}} inHg",
+        "layout": "row-left",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 1220,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "7c5281d7c40b01d4",
+        "type": "debug",
+        "z": "73985711936f4789",
+        "name": "Raw Pressure Value",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1320,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "b878c09d01e55055",
+        "type": "debug",
+        "z": "73985711936f4789",
+        "name": "MQTT from unknown",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 700,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "9840c8c6b1e97a4d",
+        "type": "debug",
+        "z": "73985711936f4789",
+        "name": "debug RAK",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 370,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "5d444a7a7fa7b952",
+        "type": "link out",
+        "z": "73985711936f4789",
+        "name": "Sensor SO01 Data",
+        "mode": "link",
+        "links": [
+            "4a0fe03dccf68784"
+        ],
+        "x": 605,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "1a681ca8202261be",
+        "type": "ui_chart",
+        "z": "73985711936f4789",
+        "name": "Temp. History",
+        "group": "a904c647809db2d2",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "label": "",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "12",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1020,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7b71e5e2bafa854f",
+        "type": "ui_chart",
+        "z": "73985711936f4789",
+        "name": "Humidity History",
+        "group": "a904c647809db2d2",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "label": "",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "100",
+        "removeOlder": "12",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1030,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "48cb62492d81c98b",
+        "type": "link out",
+        "z": "73985711936f4789",
+        "name": "Sensor SOWX Data",
+        "mode": "link",
+        "links": [
+            "32d12a832e227111"
+        ],
+        "x": 605,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "09704ae66c285310",
+        "type": "link out",
+        "z": "73985711936f4789",
+        "name": "Garage Sensor Out",
+        "mode": "link",
+        "links": [
+            "8a3c6ef9dbe4113a"
+        ],
+        "x": 415,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "bbad3d33b62b70ad",
+        "type": "link out",
+        "z": "73985711936f4789",
+        "name": "SOA1 Out",
+        "mode": "link",
+        "links": [
+            "7ad879b5ed537972"
+        ],
+        "x": 605,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "8c811775c529ae50",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "localhost",
+        "port": "",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "birth",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "Aaaaa",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "a904c647809db2d2",
+        "type": "ui_group",
+        "name": "Node DAD4",
+        "tab": "358696b6c4ebb2ba",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "40fd4e4f54522cdb",
+        "type": "ui_group",
+        "name": "Node 7F44",
+        "tab": "358696b6c4ebb2ba",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "91a0c90f80d82e2a",
+        "type": "ui_group",
+        "name": "Node 4A5C",
+        "tab": "358696b6c4ebb2ba",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "358696b6c4ebb2ba",
+        "type": "ui_tab",
+        "name": "Sensors",
+        "icon": "dashboard",
+        "order": 2,
+        "disabled": false,
+        "hidden": false
+    }
+]

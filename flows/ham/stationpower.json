@@ -1,6 +1,6 @@
 [
     {
-        "id": "bb023bbdcb55a512",
+        "id": "8eef662251c0531b",
         "type": "tab",
         "label": "Station Power",
         "disabled": false,
@@ -8,13 +8,13 @@
         "env": []
     },
     {
-        "id": "22757beb4cb79553",
+        "id": "9bf064507738970d",
         "type": "ui_switch",
-        "z": "bb023bbdcb55a512",
+        "z": "8eef662251c0531b",
         "name": "",
         "label": "Flex 6600",
         "tooltip": "Applies / Removes Flex 6600 Power",
-        "group": "7c7defaf3327e409",
+        "group": "1b3ea183cb956faa",
         "order": 1,
         "width": 0,
         "height": 0,
@@ -37,14 +37,14 @@
         "y": 120,
         "wires": [
             [
-                "2ec9cb4da006e52f"
+                "dcb2b9c70757a279"
             ]
         ]
     },
     {
-        "id": "2ec9cb4da006e52f",
+        "id": "dcb2b9c70757a279",
         "type": "switch",
-        "z": "bb023bbdcb55a512",
+        "z": "8eef662251c0531b",
         "name": "",
         "property": "payload",
         "propertyType": "msg",
@@ -63,17 +63,17 @@
         "y": 120,
         "wires": [
             [
-                "e2af3cf20ea0a7a9"
+                "f22b2d4005b84c98"
             ],
             [
-                "04a7674cf6827f61"
+                "7a298908622521f7"
             ]
         ]
     },
     {
-        "id": "e2af3cf20ea0a7a9",
+        "id": "f22b2d4005b84c98",
         "type": "http request",
-        "z": "bb023bbdcb55a512",
+        "z": "8eef662251c0531b",
         "name": "Connect ",
         "method": "GET",
         "ret": "txt",
@@ -90,14 +90,14 @@
         "y": 100,
         "wires": [
             [
-                "5420d2907e518d9c"
+                "2ebac09b430fcefa"
             ]
         ]
     },
     {
-        "id": "04a7674cf6827f61",
+        "id": "7a298908622521f7",
         "type": "http request",
-        "z": "bb023bbdcb55a512",
+        "z": "8eef662251c0531b",
         "name": "Disconnect",
         "method": "GET",
         "ret": "txt",
@@ -114,14 +114,14 @@
         "y": 160,
         "wires": [
             [
-                "5420d2907e518d9c"
+                "2ebac09b430fcefa"
             ]
         ]
     },
     {
-        "id": "5420d2907e518d9c",
+        "id": "2ebac09b430fcefa",
         "type": "debug",
-        "z": "bb023bbdcb55a512",
+        "z": "8eef662251c0531b",
         "name": "debug 6600 Power",
         "active": false,
         "tosidebar": true,
@@ -136,14 +136,14 @@
         "wires": []
     },
     {
-        "id": "90cecb253fc9d45f",
+        "id": "825c0624923bb045",
         "type": "ui_switch",
-        "z": "bb023bbdcb55a512",
+        "z": "8eef662251c0531b",
         "name": "",
         "label": "Flex 6300",
-        "tooltip": "Applies / Removes Flex 6600 Power",
-        "group": "7c7defaf3327e409",
-        "order": 3,
+        "tooltip": "Applies / Removes Flex 6300 Power",
+        "group": "bc2d850f3f12f4ca",
+        "order": 1,
         "width": 0,
         "height": 0,
         "passthru": true,
@@ -165,14 +165,14 @@
         "y": 260,
         "wires": [
             [
-                "5b2fcbfab0d1a0fd"
+                "e7ee71c0fc8ed166"
             ]
         ]
     },
     {
-        "id": "5b2fcbfab0d1a0fd",
+        "id": "e7ee71c0fc8ed166",
         "type": "switch",
-        "z": "bb023bbdcb55a512",
+        "z": "8eef662251c0531b",
         "name": "",
         "property": "payload",
         "propertyType": "msg",
@@ -191,17 +191,17 @@
         "y": 260,
         "wires": [
             [
-                "f281e50eab61cb16"
+                "373c087b454cadb8"
             ],
             [
-                "328babdec2e538ba"
+                "b8fa7669e907f3b3"
             ]
         ]
     },
     {
-        "id": "f281e50eab61cb16",
+        "id": "373c087b454cadb8",
         "type": "http request",
-        "z": "bb023bbdcb55a512",
+        "z": "8eef662251c0531b",
         "name": "Connect ",
         "method": "GET",
         "ret": "txt",
@@ -218,14 +218,14 @@
         "y": 240,
         "wires": [
             [
-                "1f262290868cddfe"
+                "16eac3657916ead6"
             ]
         ]
     },
     {
-        "id": "328babdec2e538ba",
+        "id": "b8fa7669e907f3b3",
         "type": "http request",
-        "z": "bb023bbdcb55a512",
+        "z": "8eef662251c0531b",
         "name": "Disconnect",
         "method": "GET",
         "ret": "txt",
@@ -242,14 +242,14 @@
         "y": 300,
         "wires": [
             [
-                "1f262290868cddfe"
+                "16eac3657916ead6"
             ]
         ]
     },
     {
-        "id": "1f262290868cddfe",
+        "id": "16eac3657916ead6",
         "type": "debug",
-        "z": "bb023bbdcb55a512",
+        "z": "8eef662251c0531b",
         "name": "debug 6300 Power",
         "active": false,
         "tosidebar": true,
@@ -264,11 +264,22 @@
         "wires": []
     },
     {
-        "id": "7c7defaf3327e409",
+        "id": "1b3ea183cb956faa",
         "type": "ui_group",
-        "name": "Rig Power Control",
+        "name": "Flex 6600 Power Control",
         "tab": "2f150eb340621efc",
-        "order": 1,
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "bc2d850f3f12f4ca",
+        "type": "ui_group",
+        "name": "Flex 6300 Power Control",
+        "tab": "2f150eb340621efc",
+        "order": 3,
         "disp": true,
         "width": "6",
         "collapse": false,
@@ -279,6 +290,7 @@
         "type": "ui_tab",
         "name": "HamShack",
         "icon": "dashboard",
+        "order": 3,
         "disabled": false,
         "hidden": false
     }

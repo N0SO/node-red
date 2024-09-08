@@ -1,0 +1,208 @@
+[
+    {
+        "id": "9df70ce61c3cfb79",
+        "type": "tab",
+        "label": "RPi Status",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "d4a2e84e6a7293e7",
+        "type": "exec",
+        "z": "9df70ce61c3cfb79",
+        "command": "vcgencmd measure_temp",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 270,
+        "y": 140,
+        "wires": [
+            [
+                "fdab097664feb403",
+                "2ee0018ba1f30228"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "7add42966415f288",
+        "type": "inject",
+        "z": "9df70ce61c3cfb79",
+        "name": "Trigger",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "60",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 80,
+        "y": 140,
+        "wires": [
+            [
+                "d4a2e84e6a7293e7"
+            ]
+        ]
+    },
+    {
+        "id": "fdab097664feb403",
+        "type": "debug",
+        "z": "9df70ce61c3cfb79",
+        "name": "debug 24",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 500,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "2ee0018ba1f30228",
+        "type": "function",
+        "z": "9df70ce61c3cfb79",
+        "name": "S_to_Float",
+        "func": "var stgOnly = msg.payload;\nvar numOnly = stgOnly.match(/[+-]?\\d+\\.*\\d+/g);\nmsg.payload=numOnly[0];\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 510,
+        "y": 120,
+        "wires": [
+            [
+                "7f9aafebd47984bb",
+                "4dae5bba9d1c992b",
+                "965ad52d49dee2df"
+            ]
+        ]
+    },
+    {
+        "id": "7f9aafebd47984bb",
+        "type": "ui_gauge",
+        "z": "9df70ce61c3cfb79",
+        "name": "CPU Temp",
+        "group": "86dd895c94f5ee59",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Node-Red CPU Temperature",
+        "label": "C",
+        "format": "{{value}}",
+        "min": "20",
+        "max": "150",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "49",
+        "seg2": "99",
+        "diff": false,
+        "className": "",
+        "x": 710,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "4dae5bba9d1c992b",
+        "type": "debug",
+        "z": "9df70ce61c3cfb79",
+        "name": "debug 25",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 700,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "965ad52d49dee2df",
+        "type": "ui_chart",
+        "z": "9df70ce61c3cfb79",
+        "name": "",
+        "group": "86dd895c94f5ee59",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "Node-Red CPU Temperature",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 760,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "86dd895c94f5ee59",
+        "type": "ui_group",
+        "name": "CPU Params",
+        "tab": "2f150eb340621efc",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "2f150eb340621efc",
+        "type": "ui_tab",
+        "name": "HamShack",
+        "icon": "dashboard",
+        "order": 3,
+        "disabled": false,
+        "hidden": false
+    }
+]
