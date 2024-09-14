@@ -360,7 +360,7 @@
         "type": "debug",
         "z": "644a0e6589af788c",
         "name": "SOWX Data",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,

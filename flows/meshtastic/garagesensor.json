@@ -757,8 +757,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 440,
-        "y": 180,
+        "x": 300,
+        "y": 140,
         "wires": []
     },
     {
@@ -773,7 +773,8 @@
         "y": 320,
         "wires": [
             [
-                "96510c62304f1dfe"
+                "96510c62304f1dfe",
+                "5688141b7aae1e86"
             ]
         ]
     },
@@ -929,6 +930,23 @@
                 "bead58de18ec6890"
             ]
         ]
+    },
+    {
+        "id": "5688141b7aae1e86",
+        "type": "debug",
+        "z": "41f3b126c748d108",
+        "name": "All Garage Data",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 240,
+        "y": 100,
+        "wires": []
     },
     {
         "id": "7825e703afb2c79d",
