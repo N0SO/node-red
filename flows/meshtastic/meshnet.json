@@ -40,7 +40,7 @@
         "type": "debug",
         "z": "73985711936f4789",
         "name": "Raw MQTT subscribe",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -82,8 +82,8 @@
         "correl": "",
         "expiry": "",
         "broker": "8c811775c529ae50",
-        "x": 330,
-        "y": 360,
+        "x": 290,
+        "y": 340,
         "wires": []
     },
     {
@@ -108,7 +108,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 140,
-        "y": 360,
+        "y": 340,
         "wires": [
             [
                 "069974b6b4f3408e"
@@ -120,7 +120,7 @@
         "type": "debug",
         "z": "73985711936f4789",
         "name": "Decoded mesh data client",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -136,7 +136,7 @@
         "id": "40da4f812c3a964a",
         "type": "mqtt in",
         "z": "73985711936f4789",
-        "name": "nrwx/2/e/LongFast/!4359dad4",
+        "name": "MQTT data from Meshtastic Heltec Device",
         "topic": "nrwx/2/e/Telemetry/!4359dad4",
         "qos": "0",
         "datatype": "auto-detect",
@@ -145,8 +145,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 220,
-        "y": 540,
+        "x": 180,
+        "y": 560,
         "wires": [
             [
                 "c1d8b9b83c767704",
@@ -159,7 +159,7 @@
         "type": "debug",
         "z": "73985711936f4789",
         "name": "Raw mesh MQTT client",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -556,7 +556,7 @@
         "to": "",
         "reg": false,
         "x": 800,
-        "y": 640,
+        "y": 480,
         "wires": [
             [
                 "3a762f08d1fcf442"
@@ -662,7 +662,7 @@
             },
             {
                 "t": "eq",
-                "v": "115503498",
+                "v": "3699641369",
                 "vt": "str"
             },
             {
@@ -701,7 +701,6 @@
                 "11bc1c4ce497ed37"
             ],
             [
-                "9840c8c6b1e97a4d",
                 "09704ae66c285310"
             ],
             [
@@ -737,7 +736,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 800,
+        "x": 820,
         "y": 680,
         "wires": [
             [
@@ -860,7 +859,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 3,
-        "x": 610,
+        "x": 650,
         "y": 680,
         "wires": [
             [],
@@ -890,8 +889,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 800,
-        "y": 800,
+        "x": 820,
+        "y": 760,
         "wires": [
             [
                 "6c60278f5ff0c4d9"
@@ -922,8 +921,8 @@
         "seg2": "66",
         "diff": false,
         "className": "",
-        "x": 1020,
-        "y": 800,
+        "x": 1010,
+        "y": 760,
         "wires": []
     },
     {
@@ -1178,23 +1177,6 @@
         "type": "debug",
         "z": "73985711936f4789",
         "name": "MQTT from unknown",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 700,
-        "y": 600,
-        "wires": []
-    },
-    {
-        "id": "9840c8c6b1e97a4d",
-        "type": "debug",
-        "z": "73985711936f4789",
-        "name": "debug RAK",
         "active": false,
         "tosidebar": true,
         "console": false,
@@ -1203,8 +1185,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 370,
-        "y": 800,
+        "x": 440,
+        "y": 680,
         "wires": []
     },
     {
@@ -1217,7 +1199,7 @@
             "4a0fe03dccf68784"
         ],
         "x": 605,
-        "y": 520,
+        "y": 560,
         "wires": []
     },
     {
@@ -1318,7 +1300,7 @@
             "32d12a832e227111"
         ],
         "x": 605,
-        "y": 560,
+        "y": 600,
         "wires": []
     },
     {
@@ -1330,8 +1312,8 @@
         "links": [
             "8a3c6ef9dbe4113a"
         ],
-        "x": 415,
-        "y": 700,
+        "x": 605,
+        "y": 480,
         "wires": []
     },
     {
@@ -1344,7 +1326,27 @@
             "7ad879b5ed537972"
         ],
         "x": 605,
-        "y": 480,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "d3642c2a7927041c",
+        "type": "comment",
+        "z": "73985711936f4789",
+        "name": "Heltec Setup",
+        "info": "Point the MQTT server to the IP address\nthis Node Red instance is running on, port \n1883. Set root topic to nrwx. That is how \nthe node is currently configured. \n\nYou can change these, but the Heltec Device\nand the Node Red MQTT  nodes should match \nwhat you set below.",
+        "x": 110,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "d336938bb2587c5d",
+        "type": "comment",
+        "z": "73985711936f4789",
+        "name": "Heltec Configuration",
+        "info": "The first part of the topic needs to \nbe set to nrwx or whatever topic the \nMeshtastic device has set in MQTT \nconfiguration. You can start by setting\nthe topic to just nrwx (or what matches your\nstring set in the Meshtastic device. Then\nuse the debug node Raw mesh MQTT client to \ndetermine the whole string you need in \nthe topic.\n",
+        "x": 130,
+        "y": 620,
         "wires": []
     },
     {
@@ -1420,4 +1422,4 @@
         "disabled": false,
         "hidden": false
     }
-]
+] 
