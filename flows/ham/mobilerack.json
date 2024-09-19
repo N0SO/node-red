@@ -1,0 +1,575 @@
+[
+    {
+        "id": "cd6c87f32da04335",
+        "type": "tab",
+        "label": "Mobile Radio Rack",
+        "disabled": false,
+        "info": "Monitors and displays status of N0SO mobile\nradio rack. Monitors: \n   1. vehicle battery charge state.\n   2. rack battery (Bioenno 20aH LiFePo).\n   3. LiFePo battery temperature.\nThe rack contains a  West Mountain radio\nEpic Powergate to mitigate charging the \nLiFePo battery. The rack also contains a\nRaspberry Pi 2W, which runs the python\nscript epicmon to fetch the data being \ndisplayed from the Epic Powergate. See \ngithub  \nhttps://github.com/N0SO/epicmon.git",
+        "env": []
+    },
+    {
+        "id": "8de1e852c8a1156e",
+        "type": "debug",
+        "z": "cd6c87f32da04335",
+        "name": "debug 65",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 500,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "d4dcf8d35d744dc6",
+        "type": "inject",
+        "z": "cd6c87f32da04335",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "300",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 100,
+        "wires": [
+            [
+                "3b98dd4be6d55ed3"
+            ]
+        ]
+    },
+    {
+        "id": "3b98dd4be6d55ed3",
+        "type": "http request",
+        "z": "cd6c87f32da04335",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "pimobile.local:7373",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 310,
+        "y": 100,
+        "wires": [
+            [
+                "8de1e852c8a1156e",
+                "9787fb3ed597ab26"
+            ]
+        ]
+    },
+    {
+        "id": "e5747264f5ab8e5c",
+        "type": "debug",
+        "z": "cd6c87f32da04335",
+        "name": "debug 64",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 500,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "9787fb3ed597ab26",
+        "type": "html",
+        "z": "cd6c87f32da04335",
+        "name": "Select HTML Paragraphs <p>",
+        "property": "payload",
+        "outproperty": "payload",
+        "tag": "P",
+        "ret": "html",
+        "as": "single",
+        "chr": "_",
+        "x": 230,
+        "y": 160,
+        "wires": [
+            [
+                "e5747264f5ab8e5c",
+                "ce50b598e61acbe4"
+            ]
+        ]
+    },
+    {
+        "id": "ce50b598e61acbe4",
+        "type": "function",
+        "z": "cd6c87f32da04335",
+        "name": "function 1",
+        "func": "var msgText = msg.payload[2].replaceAll('<br/>','');\n//var loc1 = msgText.indexOf('Source Voltage:');\n//var temps = msgText.substring(loc1);\nvar msgLines=msgText.split('\\n')\nmsgLines[7]=msg.payload[0]\nmsg.payload = msgLines;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 200,
+        "y": 220,
+        "wires": [
+            [
+                "eade06f68b0f3ee3",
+                "350551711fdc574b",
+                "f379e53e034a6a91",
+                "acb4d311551c3705",
+                "1b118cb576ab352b",
+                "e1e59bd9758f80b3",
+                "b16f8ec359a84c79",
+                "674eb09c6d98eda8",
+                "de15d02d07e5c56e"
+            ]
+        ]
+    },
+    {
+        "id": "eade06f68b0f3ee3",
+        "type": "debug",
+        "z": "cd6c87f32da04335",
+        "name": "debug 66",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 500,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "350551711fdc574b",
+        "type": "change",
+        "z": "cd6c87f32da04335",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload[0]",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 400,
+        "y": 280,
+        "wires": [
+            [
+                "6bdd92534314526e"
+            ]
+        ]
+    },
+    {
+        "id": "6bdd92534314526e",
+        "type": "ui_text",
+        "z": "cd6c87f32da04335",
+        "group": "c917e31cf8297749",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 570,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "cca6615b80eafe69",
+        "type": "ui_text",
+        "z": "cd6c87f32da04335",
+        "group": "c917e31cf8297749",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 570,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "f379e53e034a6a91",
+        "type": "change",
+        "z": "cd6c87f32da04335",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload[1]",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 400,
+        "y": 320,
+        "wires": [
+            [
+                "cca6615b80eafe69"
+            ]
+        ]
+    },
+    {
+        "id": "acb4d311551c3705",
+        "type": "change",
+        "z": "cd6c87f32da04335",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload[2]",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 400,
+        "y": 360,
+        "wires": [
+            [
+                "d182a2b06d0469d6"
+            ]
+        ]
+    },
+    {
+        "id": "d182a2b06d0469d6",
+        "type": "ui_text",
+        "z": "cd6c87f32da04335",
+        "group": "c917e31cf8297749",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 570,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "09340ad9519b214d",
+        "type": "ui_text",
+        "z": "cd6c87f32da04335",
+        "group": "c917e31cf8297749",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 570,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "1b118cb576ab352b",
+        "type": "change",
+        "z": "cd6c87f32da04335",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload[3]",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 400,
+        "y": 400,
+        "wires": [
+            [
+                "09340ad9519b214d"
+            ]
+        ]
+    },
+    {
+        "id": "e1e59bd9758f80b3",
+        "type": "change",
+        "z": "cd6c87f32da04335",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload[4]",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 400,
+        "y": 440,
+        "wires": [
+            [
+                "143a75d6696934a7"
+            ]
+        ]
+    },
+    {
+        "id": "143a75d6696934a7",
+        "type": "ui_text",
+        "z": "cd6c87f32da04335",
+        "group": "c917e31cf8297749",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 570,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "5eaf31c8d413974a",
+        "type": "ui_text",
+        "z": "cd6c87f32da04335",
+        "group": "c917e31cf8297749",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 570,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "b16f8ec359a84c79",
+        "type": "change",
+        "z": "cd6c87f32da04335",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload[6]",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 400,
+        "y": 480,
+        "wires": [
+            [
+                "5eaf31c8d413974a"
+            ]
+        ]
+    },
+    {
+        "id": "674eb09c6d98eda8",
+        "type": "change",
+        "z": "cd6c87f32da04335",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload[7]",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 400,
+        "y": 520,
+        "wires": [
+            [
+                "17d4421bbe4c76d0"
+            ]
+        ]
+    },
+    {
+        "id": "17d4421bbe4c76d0",
+        "type": "ui_text",
+        "z": "cd6c87f32da04335",
+        "group": "c917e31cf8297749",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 570,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "22cd12e8aefa255b",
+        "type": "ui_text",
+        "z": "cd6c87f32da04335",
+        "group": "f57646e009934699",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Time:",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 570,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "de15d02d07e5c56e",
+        "type": "change",
+        "z": "cd6c87f32da04335",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload[7]",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 400,
+        "y": 560,
+        "wires": [
+            [
+                "22cd12e8aefa255b"
+            ]
+        ]
+    },
+    {
+        "id": "c917e31cf8297749",
+        "type": "ui_group",
+        "name": "Mobile Rack Status",
+        "tab": "2f150eb340621efc",
+        "order": 8,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "f57646e009934699",
+        "type": "ui_group",
+        "name": "Lights",
+        "tab": "2f150eb340621efc",
+        "order": 4,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "2f150eb340621efc",
+        "type": "ui_tab",
+        "name": "HamShack",
+        "icon": "dashboard",
+        "order": 3,
+        "disabled": false,
+        "hidden": false
+    }
+]
