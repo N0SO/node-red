@@ -1,788 +1,40 @@
 [
     {
-        "id": "41f3b126c748d108",
+        "id": "9df70ce61c3cfb79",
         "type": "tab",
-        "label": "Garage Sensor",
+        "label": "RPi Status",
         "disabled": false,
         "info": "",
         "env": []
     },
     {
-        "id": "96510c62304f1dfe",
-        "type": "switch",
-        "z": "41f3b126c748d108",
+        "id": "d4a2e84e6a7293e7",
+        "type": "exec",
+        "z": "9df70ce61c3cfb79",
+        "command": "vcgencmd measure_temp",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
         "name": "",
-        "property": "payload",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "cont",
-                "v": "payload.packet.decoded.payload.environmentMetrics",
-                "vt": "msg"
-            },
-            {
-                "t": "cont",
-                "v": "payload.packet.decoded.payload.deviceMetrics",
-                "vt": "msg"
-            },
-            {
-                "t": "else"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 3,
-        "x": 250,
-        "y": 320,
+        "x": 270,
+        "y": 140,
         "wires": [
             [
-                "43495242fec65b10",
-                "b1dc38cd213a7365",
-                "6f7469a1f2bac170",
-                "b1de1027b375204b",
-                "bf0fe41459d352c9",
-                "7066e5efad3c3ac9",
-                "bbdafa22c777244f"
+                "fdab097664feb403",
+                "2ee0018ba1f30228"
             ],
-            [
-                "24ea0f32b1c5aa3c",
-                "2b8590cc4bac68af"
-            ],
+            [],
             []
         ]
     },
     {
-        "id": "8fd563ed4ccd4fea",
-        "type": "ui_chart",
-        "z": "41f3b126c748d108",
-        "name": "Temp. History",
-        "group": "7825e703afb2c79d",
-        "order": 4,
-        "width": 0,
-        "height": 0,
-        "label": "",
-        "chartType": "line",
-        "legend": "false",
-        "xformat": "HH:mm:ss",
-        "interpolate": "linear",
-        "nodata": "",
-        "dot": false,
-        "ymin": "",
-        "ymax": "",
-        "removeOlder": "12",
-        "removeOlderPoints": "",
-        "removeOlderUnit": "3600",
-        "cutout": 0,
-        "useOneColor": false,
-        "useUTC": false,
-        "colors": [
-            "#1f77b4",
-            "#aec7e8",
-            "#ff7f0e",
-            "#2ca02c",
-            "#98df8a",
-            "#d62728",
-            "#ff9896",
-            "#9467bd",
-            "#c5b0d5"
-        ],
-        "outputs": 1,
-        "useDifferentColor": false,
-        "className": "",
-        "x": 1140,
-        "y": 20,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "693903f07db85687",
-        "type": "function",
-        "z": "41f3b126c748d108",
-        "name": "C2F",
-        "func": "{\n    var val = msg.payload;\n    var f = (val * 1.8) + 32;\n\n    msg.payload = parseFloat(f).toFixed(1)\n}\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 920,
-        "y": 100,
-        "wires": [
-            [
-                "7f13173dcf16d013",
-                "8fd563ed4ccd4fea"
-            ]
-        ]
-    },
-    {
-        "id": "7f13173dcf16d013",
-        "type": "ui_gauge",
-        "z": "41f3b126c748d108",
-        "name": "",
-        "group": "7825e703afb2c79d",
-        "order": 2,
-        "width": "0",
-        "height": "0",
-        "gtype": "gage",
-        "title": "Temperature",
-        "label": "F",
-        "format": "{{value | number:1}}",
-        "min": "-20",
-        "max": "120",
-        "colors": [
-            "#93e3fd",
-            "#64c466",
-            "#eb4d3d"
-        ],
-        "seg1": "65",
-        "seg2": "81",
-        "diff": false,
-        "className": "",
-        "x": 1120,
-        "y": 60,
-        "wires": []
-    },
-    {
-        "id": "bf213aa247bcaffc",
-        "type": "ui_text",
-        "z": "41f3b126c748d108",
-        "group": "7825e703afb2c79d",
-        "order": 5,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "Humidity",
-        "format": "{{value | number:1}}%",
-        "layout": "row-left",
-        "className": "",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#000000",
-        "x": 1100,
-        "y": 100,
-        "wires": []
-    },
-    {
-        "id": "3ed68e5cf68b808e",
-        "type": "ui_chart",
-        "z": "41f3b126c748d108",
-        "name": "Humidity History",
-        "group": "7825e703afb2c79d",
-        "order": 6,
-        "width": 0,
-        "height": 0,
-        "label": "",
-        "chartType": "line",
-        "legend": "false",
-        "xformat": "HH:mm:ss",
-        "interpolate": "linear",
-        "nodata": "",
-        "dot": false,
-        "ymin": "0",
-        "ymax": "100",
-        "removeOlder": "12",
-        "removeOlderPoints": "",
-        "removeOlderUnit": "3600",
-        "cutout": 0,
-        "useOneColor": false,
-        "useUTC": false,
-        "colors": [
-            "#1f77b4",
-            "#aec7e8",
-            "#ff7f0e",
-            "#2ca02c",
-            "#98df8a",
-            "#d62728",
-            "#ff9896",
-            "#9467bd",
-            "#c5b0d5"
-        ],
-        "outputs": 1,
-        "useDifferentColor": false,
-        "className": "",
-        "x": 1160,
-        "y": 140,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "7b87ca633dfb09e5",
-        "type": "ui_text",
-        "z": "41f3b126c748d108",
-        "group": "7825e703afb2c79d",
-        "order": 8,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "Barometric Pressure",
-        "format": "{{value | number:1}} hPa",
-        "layout": "row-left",
-        "className": "",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#000000",
-        "x": 1180,
-        "y": 180,
-        "wires": []
-    },
-    {
-        "id": "ae1bafbff536c685",
-        "type": "ui_text",
-        "z": "41f3b126c748d108",
-        "group": "7825e703afb2c79d",
-        "order": 7,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "Barometric Pressure",
-        "format": "{{value * .0295| number:1}} inHg",
-        "layout": "row-left",
-        "className": "",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#000000",
-        "x": 1180,
-        "y": 220,
-        "wires": []
-    },
-    {
-        "id": "951d6ad4624b8106",
-        "type": "ui_chart",
-        "z": "41f3b126c748d108",
-        "name": "Pressure History",
-        "group": "7825e703afb2c79d",
-        "order": 9,
-        "width": 0,
-        "height": 0,
-        "label": "",
-        "chartType": "line",
-        "legend": "false",
-        "xformat": "HH:mm:ss",
-        "interpolate": "linear",
-        "nodata": "",
-        "dot": false,
-        "ymin": "",
-        "ymax": "",
-        "removeOlder": "12",
-        "removeOlderPoints": "",
-        "removeOlderUnit": "3600",
-        "cutout": 0,
-        "useOneColor": false,
-        "useUTC": false,
-        "colors": [
-            "#1f77b4",
-            "#aec7e8",
-            "#ff7f0e",
-            "#2ca02c",
-            "#98df8a",
-            "#d62728",
-            "#ff9896",
-            "#9467bd",
-            "#c5b0d5"
-        ],
-        "outputs": 1,
-        "useDifferentColor": false,
-        "className": "",
-        "x": 1140,
-        "y": 260,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "53fdf2339b258f86",
-        "type": "ui_text",
-        "z": "41f3b126c748d108",
-        "d": true,
-        "group": "7825e703afb2c79d",
-        "order": 12,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "Voltage",
-        "format": "{{value | number:1}}V",
-        "layout": "row-left",
-        "className": "",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#000000",
-        "x": 1100,
-        "y": 300,
-        "wires": []
-    },
-    {
-        "id": "e8f5a8566e78ca66",
-        "type": "ui_text",
-        "z": "41f3b126c748d108",
-        "d": true,
-        "group": "7825e703afb2c79d",
-        "order": 13,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "Amps",
-        "format": "{{value | number:4}} mA",
-        "layout": "row-left",
-        "className": "",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#000000",
-        "x": 1080,
-        "y": 340,
-        "wires": []
-    },
-    {
-        "id": "37736d735f497948",
-        "type": "ui_text",
-        "z": "41f3b126c748d108",
-        "group": "7825e703afb2c79d",
-        "order": 10,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "Air Quality (Gas Res.):",
-        "format": "{{value | number:1}} Ohms",
-        "layout": "row-left",
-        "className": "",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#000000",
-        "x": 1180,
-        "y": 380,
-        "wires": []
-    },
-    {
-        "id": "2c948a919e79f190",
-        "type": "ui_chart",
-        "z": "41f3b126c748d108",
-        "name": "Gas Res History",
-        "group": "7825e703afb2c79d",
-        "order": 11,
-        "width": 0,
-        "height": 0,
-        "label": "",
-        "chartType": "line",
-        "legend": "false",
-        "xformat": "HH:mm:ss",
-        "interpolate": "linear",
-        "nodata": "",
-        "dot": false,
-        "ymin": "",
-        "ymax": "",
-        "removeOlder": "12",
-        "removeOlderPoints": "",
-        "removeOlderUnit": "3600",
-        "cutout": 0,
-        "useOneColor": false,
-        "useUTC": false,
-        "colors": [
-            "#1f77b4",
-            "#aec7e8",
-            "#ff7f0e",
-            "#2ca02c",
-            "#98df8a",
-            "#d62728",
-            "#ff9896",
-            "#9467bd",
-            "#c5b0d5"
-        ],
-        "outputs": 1,
-        "useDifferentColor": false,
-        "className": "",
-        "x": 1140,
-        "y": 420,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "bbdafa22c777244f",
-        "type": "change",
-        "z": "41f3b126c748d108",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "payload.packet.decoded.payload.environmentMetrics.gasResistance",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 920,
-        "y": 360,
-        "wires": [
-            [
-                "37736d735f497948",
-                "2c948a919e79f190"
-            ]
-        ]
-    },
-    {
-        "id": "bf0fe41459d352c9",
-        "type": "change",
-        "z": "41f3b126c748d108",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "payload.packet.decoded.payload.environmentMetrics.current",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 920,
-        "y": 300,
-        "wires": [
-            [
-                "e8f5a8566e78ca66"
-            ]
-        ]
-    },
-    {
-        "id": "b1de1027b375204b",
-        "type": "change",
-        "z": "41f3b126c748d108",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "payload.packet.decoded.payload.environmentMetrics.voltage",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 920,
-        "y": 260,
-        "wires": [
-            [
-                "53fdf2339b258f86"
-            ]
-        ]
-    },
-    {
-        "id": "6f7469a1f2bac170",
-        "type": "change",
-        "z": "41f3b126c748d108",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "payload.packet.decoded.payload.environmentMetrics.barometricPressure",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 920,
-        "y": 220,
-        "wires": [
-            [
-                "951d6ad4624b8106",
-                "7b87ca633dfb09e5",
-                "ae1bafbff536c685"
-            ]
-        ]
-    },
-    {
-        "id": "b1dc38cd213a7365",
-        "type": "change",
-        "z": "41f3b126c748d108",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "payload.packet.decoded.payload.environmentMetrics.relativeHumidity",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 920,
-        "y": 180,
-        "wires": [
-            [
-                "bf213aa247bcaffc",
-                "3ed68e5cf68b808e"
-            ]
-        ]
-    },
-    {
-        "id": "43495242fec65b10",
-        "type": "change",
-        "z": "41f3b126c748d108",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "payload.packet.decoded.payload.environmentMetrics.temperature",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 920,
-        "y": 140,
-        "wires": [
-            [
-                "693903f07db85687"
-            ]
-        ]
-    },
-    {
-        "id": "e81f135822d68b07",
-        "type": "ui_gauge",
-        "z": "41f3b126c748d108",
-        "name": "Battery Level",
-        "group": "7825e703afb2c79d",
-        "order": 15,
-        "width": "3",
-        "height": "3",
-        "gtype": "donut",
-        "title": "Battery Level",
-        "label": "%",
-        "format": "{{value | number:1}}",
-        "min": 0,
-        "max": "105",
-        "colors": [
-            "#eb4d3d",
-            "#e6e600",
-            "#64c466"
-        ],
-        "seg1": "33",
-        "seg2": "66",
-        "diff": false,
-        "className": "",
-        "x": 1290,
-        "y": 660,
-        "wires": []
-    },
-    {
-        "id": "e1e28e0736f4b75d",
-        "type": "ui_chart",
-        "z": "41f3b126c748d108",
-        "name": "Battery History",
-        "group": "7825e703afb2c79d",
-        "order": 16,
-        "width": 0,
-        "height": 0,
-        "label": "",
-        "chartType": "line",
-        "legend": "true",
-        "xformat": "HH:mm:ss",
-        "interpolate": "linear",
-        "nodata": "",
-        "dot": false,
-        "ymin": "",
-        "ymax": "",
-        "removeOlder": "12",
-        "removeOlderPoints": "",
-        "removeOlderUnit": "3600",
-        "cutout": 0,
-        "useOneColor": false,
-        "useUTC": false,
-        "colors": [
-            "#1f77b4",
-            "#aec7e8",
-            "#ff7f0e",
-            "#2ca02c",
-            "#98df8a",
-            "#d62728",
-            "#ff9896",
-            "#9467bd",
-            "#c5b0d5"
-        ],
-        "outputs": 1,
-        "useDifferentColor": false,
-        "className": "",
-        "x": 1180,
-        "y": 500,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "a07de08b4a764195",
-        "type": "ui_gauge",
-        "z": "41f3b126c748d108",
-        "name": "",
-        "group": "7825e703afb2c79d",
-        "order": 14,
-        "width": "3",
-        "height": "3",
-        "gtype": "gage",
-        "title": "Battery Voltage",
-        "label": "VDC",
-        "format": "{{value | number:1}}",
-        "min": 0,
-        "max": "5.5",
-        "colors": [
-            "#eb4d3d",
-            "#e6e600",
-            "#64c466"
-        ],
-        "seg1": "3.3",
-        "seg2": "3.6",
-        "diff": false,
-        "className": "",
-        "x": 1180,
-        "y": 460,
-        "wires": []
-    },
-    {
-        "id": "863730203258d94a",
-        "type": "debug",
-        "z": "41f3b126c748d108",
-        "name": "debug 62",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 920,
-        "y": 440,
-        "wires": []
-    },
-    {
-        "id": "24ea0f32b1c5aa3c",
-        "type": "change",
-        "z": "41f3b126c748d108",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "payload.packet.decoded.payload.deviceMetrics.voltage",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 900,
-        "y": 500,
-        "wires": [
-            [
-                "e1e28e0736f4b75d",
-                "863730203258d94a",
-                "a07de08b4a764195",
-                "dacfb94993c77356"
-            ]
-        ]
-    },
-    {
-        "id": "2b8590cc4bac68af",
-        "type": "change",
-        "z": "41f3b126c748d108",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "payload.packet.decoded.payload.deviceMetrics.batteryLevel",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 760,
-        "y": 660,
-        "wires": [
-            [
-                "e81f135822d68b07"
-            ]
-        ]
-    },
-    {
-        "id": "7066e5efad3c3ac9",
-        "type": "debug",
-        "z": "41f3b126c748d108",
-        "name": "Garage Environment ",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 300,
-        "y": 140,
-        "wires": []
-    },
-    {
-        "id": "8a3c6ef9dbe4113a",
-        "type": "link in",
-        "z": "41f3b126c748d108",
-        "name": "Garage Sensor In",
-        "links": [
-            "09704ae66c285310"
-        ],
-        "x": 155,
-        "y": 320,
-        "wires": [
-            [
-                "96510c62304f1dfe",
-                "5688141b7aae1e86"
-            ]
-        ]
-    },
-    {
-        "id": "320ceefa12ef268a",
+        "id": "7add42966415f288",
         "type": "inject",
-        "z": "41f3b126c748d108",
-        "name": "",
+        "z": "9df70ce61c3cfb79",
+        "name": "Trigger",
         "props": [
             {
                 "p": "payload"
@@ -792,186 +44,197 @@
                 "vt": "str"
             }
         ],
-        "repeat": "",
+        "repeat": "60",
         "crontab": "",
-        "once": false,
+        "once": true,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "3.25",
-        "payloadType": "num",
-        "x": 630,
-        "y": 520,
+        "payload": "",
+        "payloadType": "date",
+        "x": 80,
+        "y": 140,
         "wires": [
             [
-                "dacfb94993c77356"
+                "d4a2e84e6a7293e7"
             ]
         ]
     },
     {
-        "id": "33faa0d2c0c03cec",
-        "type": "meshtastic-msg-send",
-        "z": "41f3b126c748d108",
-        "name": "Low Voltage Alert",
-        "device": "907a3fd0216dbb85",
-        "x": 1310,
-        "y": 580,
+        "id": "fdab097664feb403",
+        "type": "debug",
+        "z": "9df70ce61c3cfb79",
+        "name": "debug 24",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 500,
+        "y": 80,
         "wires": []
     },
     {
-        "id": "541adf63729f8448",
-        "type": "ui_text",
-        "z": "41f3b126c748d108",
-        "group": "7825e703afb2c79d",
+        "id": "2ee0018ba1f30228",
+        "type": "function",
+        "z": "9df70ce61c3cfb79",
+        "name": "S_to_Float",
+        "func": "var stgOnly = msg.payload;\nvar numOnly = stgOnly.match(/[+-]?\\d+\\.*\\d+/g);\nmsg.payload=numOnly[0];\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 510,
+        "y": 120,
+        "wires": [
+            [
+                "7f9aafebd47984bb",
+                "4dae5bba9d1c992b",
+                "965ad52d49dee2df",
+                "021ca5dd21f7bf27"
+            ]
+        ]
+    },
+    {
+        "id": "7f9aafebd47984bb",
+        "type": "ui_gauge",
+        "z": "9df70ce61c3cfb79",
+        "name": "CPU Temp",
+        "group": "86dd895c94f5ee59",
         "order": 1,
-        "width": 0,
-        "height": 0,
-        "name": "Low Voltage Warning",
-        "label": "",
-        "format": "{{msg.payload}}",
-        "layout": "col-center",
+        "width": 4,
+        "height": 3,
+        "gtype": "gage",
+        "title": "Node-Red CPU Temperature",
+        "label": "C",
+        "format": "{{value}}",
+        "min": "20",
+        "max": "150",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "49",
+        "seg2": "99",
+        "diff": false,
+        "className": "",
+        "x": 710,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "4dae5bba9d1c992b",
+        "type": "debug",
+        "z": "9df70ce61c3cfb79",
+        "name": "debug 25",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 700,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "965ad52d49dee2df",
+        "type": "ui_chart",
+        "z": "9df70ce61c3cfb79",
+        "name": "",
+        "group": "86dd895c94f5ee59",
+        "order": 2,
+        "width": 12,
+        "height": 6,
+        "label": "Node-Red CPU Temperature History",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 790,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "021ca5dd21f7bf27",
+        "type": "ui_text",
+        "z": "9df70ce61c3cfb79",
+        "group": "7f9ce2c2b5876c23",
+        "order": 5,
+        "width": "3",
+        "height": 1,
+        "name": "",
+        "label": "NRCPU: ",
+        "format": "{{msg.payload}} C",
+        "layout": "row-left",
         "className": "",
         "style": false,
         "font": "",
         "fontSize": 16,
         "color": "#000000",
-        "x": 1320,
-        "y": 620,
+        "x": 690,
+        "y": 80,
         "wires": []
     },
     {
-        "id": "bead58de18ec6890",
-        "type": "change",
-        "z": "41f3b126c748d108",
-        "name": "Clear Low Voltage Alert",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 1050,
-        "y": 620,
-        "wires": [
-            [
-                "541adf63729f8448"
-            ]
-        ]
-    },
-    {
-        "id": "88579c54a6354a38",
-        "type": "change",
-        "z": "41f3b126c748d108",
-        "name": "Low Voltage Alert",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "M7 (garage) sensor battery voltage <= 3.25 VDC. Change battery soon!",
-                "tot": "str"
-            },
-            {
-                "t": "set",
-                "p": "channel",
-                "pt": "msg",
-                "to": "2",
-                "tot": "num"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 1030,
-        "y": 580,
-        "wires": [
-            [
-                "33faa0d2c0c03cec",
-                "541adf63729f8448"
-            ]
-        ]
-    },
-    {
-        "id": "dacfb94993c77356",
-        "type": "switch",
-        "z": "41f3b126c748d108",
-        "name": "Low Voltage Detection",
-        "property": "payload",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "lte",
-                "v": "3.25",
-                "vt": "num"
-            },
-            {
-                "t": "else"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 2,
-        "x": 760,
-        "y": 580,
-        "wires": [
-            [
-                "88579c54a6354a38"
-            ],
-            [
-                "bead58de18ec6890"
-            ]
-        ]
-    },
-    {
-        "id": "5688141b7aae1e86",
-        "type": "debug",
-        "z": "41f3b126c748d108",
-        "name": "All Garage Data",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 240,
-        "y": 100,
-        "wires": []
-    },
-    {
-        "id": "7825e703afb2c79d",
+        "id": "86dd895c94f5ee59",
         "type": "ui_group",
-        "name": "Garage Temperature",
-        "tab": "d08e06b5cdc29e38",
+        "name": "CPU Params",
+        "tab": "2f150eb340621efc",
+        "order": 7,
+        "disp": true,
+        "width": 16,
+        "collapse": true,
+        "className": ""
+    },
+    {
+        "id": "7f9ce2c2b5876c23",
+        "type": "ui_group",
+        "name": "Summary",
+        "tab": "2f150eb340621efc",
         "order": 1,
         "disp": true,
-        "width": "6",
+        "width": 16,
         "collapse": false,
         "className": ""
     },
     {
-        "id": "907a3fd0216dbb85",
-        "type": "meshtastic-msg-device",
-        "fetch_interval": "2000",
-        "tls": "false",
-        "ip_address": "meshtastic.local"
-    },
-    {
-        "id": "d08e06b5cdc29e38",
+        "id": "2f150eb340621efc",
         "type": "ui_tab",
-        "name": "Home",
+        "name": "HamShack",
         "icon": "dashboard",
-        "order": 1,
+        "order": 2,
         "disabled": false,
         "hidden": false
     }

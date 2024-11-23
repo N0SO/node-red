@@ -1,6 +1,6 @@
 [
     {
-        "id": "e1233e8f7f181c91",
+        "id": "537f14c91b13fa17",
         "type": "tab",
         "label": "Antenna Switch",
         "disabled": false,
@@ -8,16 +8,16 @@
         "env": []
     },
     {
-        "id": "14194a668302f07b",
+        "id": "2bbf55eb99f2c091",
         "type": "ui_switch",
-        "z": "e1233e8f7f181c91",
-        "name": "",
-        "label": "HF Antenna Connect",
+        "z": "537f14c91b13fa17",
+        "name": "HF Antenna Connect",
+        "label": "",
         "tooltip": "Connects the main HF antenna to the station.",
         "group": "30c71f768b286eca",
-        "order": 1,
-        "width": 0,
-        "height": 0,
+        "order": 5,
+        "width": 3,
+        "height": 1,
         "passthru": true,
         "decouple": "false",
         "topic": "topic",
@@ -25,26 +25,26 @@
         "style": "",
         "onvalue": "true",
         "onvalueType": "bool",
-        "onicon": "",
-        "oncolor": "",
+        "onicon": "fa-power-off",
+        "oncolor": "green",
         "offvalue": "false",
         "offvalueType": "bool",
-        "officon": "",
-        "offcolor": "",
+        "officon": "fa-power-off",
+        "offcolor": "grey",
         "animate": false,
         "className": "",
         "x": 220,
         "y": 100,
         "wires": [
             [
-                "f661384dd60f6dbe"
+                "8cec805fe2ce2b59"
             ]
         ]
     },
     {
-        "id": "3225cd0d797c9266",
+        "id": "ea5e4ba795737e0a",
         "type": "http request",
-        "z": "e1233e8f7f181c91",
+        "z": "537f14c91b13fa17",
         "name": "Connect ",
         "method": "GET",
         "ret": "txt",
@@ -57,18 +57,18 @@
         "authType": "",
         "senderr": false,
         "headers": [],
-        "x": 600,
+        "x": 580,
         "y": 80,
         "wires": [
             [
-                "3924dbd825dd8fc2"
+                "d004403c5a64f28a"
             ]
         ]
     },
     {
-        "id": "3924dbd825dd8fc2",
+        "id": "d004403c5a64f28a",
         "type": "debug",
-        "z": "e1233e8f7f181c91",
+        "z": "537f14c91b13fa17",
         "name": "debug Paradan",
         "active": false,
         "tosidebar": true,
@@ -83,9 +83,9 @@
         "wires": []
     },
     {
-        "id": "f661384dd60f6dbe",
+        "id": "8cec805fe2ce2b59",
         "type": "switch",
-        "z": "e1233e8f7f181c91",
+        "z": "537f14c91b13fa17",
         "name": "",
         "property": "payload",
         "propertyType": "msg",
@@ -104,17 +104,19 @@
         "y": 100,
         "wires": [
             [
-                "3225cd0d797c9266"
+                "ea5e4ba795737e0a",
+                "53a7c97fc0ee3630"
             ],
             [
-                "e8e01cf2263b8b7f"
+                "193d7b1b8518c61c",
+                "6d615a22af64b8d8"
             ]
         ]
     },
     {
-        "id": "e8e01cf2263b8b7f",
+        "id": "193d7b1b8518c61c",
         "type": "http request",
-        "z": "e1233e8f7f181c91",
+        "z": "537f14c91b13fa17",
         "name": "Disconnect",
         "method": "GET",
         "ret": "txt",
@@ -127,25 +129,25 @@
         "authType": "",
         "senderr": false,
         "headers": [],
-        "x": 610,
-        "y": 140,
+        "x": 590,
+        "y": 120,
         "wires": [
             [
-                "3924dbd825dd8fc2"
+                "d004403c5a64f28a"
             ]
         ]
     },
     {
-        "id": "4979d0b740bf13e1",
+        "id": "4ead748fd6a44927",
         "type": "ui_switch",
-        "z": "e1233e8f7f181c91",
-        "name": "",
-        "label": "6M Dipole",
+        "z": "537f14c91b13fa17",
+        "name": "Antenna Select",
+        "label": "",
         "tooltip": "Switches to the 6M dipole.",
         "group": "30c71f768b286eca",
-        "order": 2,
-        "width": 0,
-        "height": 0,
+        "order": 12,
+        "width": 3,
+        "height": 1,
         "passthru": true,
         "decouple": "false",
         "topic": "topic",
@@ -161,18 +163,18 @@
         "offcolor": "",
         "animate": false,
         "className": "",
-        "x": 190,
+        "x": 200,
         "y": 300,
         "wires": [
             [
-                "b77e3cb288df4195"
+                "7b8eecd92172a68e"
             ]
         ]
     },
     {
-        "id": "b77e3cb288df4195",
+        "id": "7b8eecd92172a68e",
         "type": "switch",
-        "z": "e1233e8f7f181c91",
+        "z": "537f14c91b13fa17",
         "name": "",
         "property": "payload",
         "propertyType": "msg",
@@ -191,17 +193,17 @@
         "y": 300,
         "wires": [
             [
-                "531e642edc4e9de7"
+                "814cdb161d8f7c68"
             ],
             [
-                "38695502f6691d59"
+                "6d18354051ad41fb"
             ]
         ]
     },
     {
-        "id": "531e642edc4e9de7",
+        "id": "814cdb161d8f7c68",
         "type": "http request",
-        "z": "e1233e8f7f181c91",
+        "z": "537f14c91b13fa17",
         "name": "Connect ",
         "method": "GET",
         "ret": "txt",
@@ -218,14 +220,14 @@
         "y": 280,
         "wires": [
             [
-                "053ee19e5604421a"
+                "4bcf0f7dbba2c05b"
             ]
         ]
     },
     {
-        "id": "38695502f6691d59",
+        "id": "6d18354051ad41fb",
         "type": "http request",
-        "z": "e1233e8f7f181c91",
+        "z": "537f14c91b13fa17",
         "name": "Disconnect",
         "method": "GET",
         "ret": "txt",
@@ -242,14 +244,14 @@
         "y": 320,
         "wires": [
             [
-                "053ee19e5604421a"
+                "4bcf0f7dbba2c05b"
             ]
         ]
     },
     {
-        "id": "053ee19e5604421a",
+        "id": "4bcf0f7dbba2c05b",
         "type": "debug",
-        "z": "e1233e8f7f181c91",
+        "z": "537f14c91b13fa17",
         "name": "debug 6M Switch",
         "active": false,
         "tosidebar": true,
@@ -264,13 +266,190 @@
         "wires": []
     },
     {
+        "id": "53a7c97fc0ee3630",
+        "type": "change",
+        "z": "537f14c91b13fa17",
+        "name": "SET DISCONNECT",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "DISCONNECT",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 410,
+        "y": 220,
+        "wires": [
+            [
+                "eaa4c15ce0dd04fc"
+            ]
+        ]
+    },
+    {
+        "id": "eaa4c15ce0dd04fc",
+        "type": "ui_text",
+        "z": "537f14c91b13fa17",
+        "group": "30c71f768b286eca",
+        "order": 2,
+        "width": 3,
+        "height": 1,
+        "name": "Switch Label",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 670,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "6d615a22af64b8d8",
+        "type": "change",
+        "z": "537f14c91b13fa17",
+        "name": "SET CONNECT",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "CONNECT",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 480,
+        "y": 180,
+        "wires": [
+            [
+                "eaa4c15ce0dd04fc"
+            ]
+        ]
+    },
+    {
+        "id": "0fc9bb9f54f1077e",
+        "type": "ui_text",
+        "z": "537f14c91b13fa17",
+        "group": "30c71f768b286eca",
+        "order": 8,
+        "width": 3,
+        "height": 1,
+        "name": "",
+        "label": "SELECT",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 340,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "43263ec1b4383841",
+        "type": "ui_text",
+        "z": "537f14c91b13fa17",
+        "group": "30c71f768b286eca",
+        "order": 13,
+        "width": 2,
+        "height": 1,
+        "name": "",
+        "label": "6M DIPOLE",
+        "format": "{{msg.payload}}",
+        "layout": "row-right",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 650,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "a4e928528c103412",
+        "type": "ui_text",
+        "z": "537f14c91b13fa17",
+        "group": "30c71f768b286eca",
+        "order": 11,
+        "width": 2,
+        "height": 1,
+        "name": "",
+        "label": "HF VERTICAL",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 490,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "98b9759f624b4edc",
+        "type": "inject",
+        "z": "537f14c91b13fa17",
+        "name": "Init To OFF",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "x": 170,
+        "y": 220,
+        "wires": [
+            [
+                "53a7c97fc0ee3630"
+            ]
+        ]
+    },
+    {
+        "id": "862a75e16c0c4447",
+        "type": "comment",
+        "z": "537f14c91b13fa17",
+        "name": "Used as dynamic dashboard labels",
+        "info": "",
+        "x": 500,
+        "y": 460,
+        "wires": []
+    },
+    {
         "id": "30c71f768b286eca",
         "type": "ui_group",
         "name": "Antenna",
         "tab": "2f150eb340621efc",
-        "order": 6,
+        "order": 2,
         "disp": true,
-        "width": "6",
+        "width": 16,
         "collapse": false,
         "className": ""
     },
@@ -279,7 +458,7 @@
         "type": "ui_tab",
         "name": "HamShack",
         "icon": "dashboard",
-        "order": 3,
+        "order": 2,
         "disabled": false,
         "hidden": false
     }

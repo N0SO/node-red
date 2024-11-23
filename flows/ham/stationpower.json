@@ -11,13 +11,13 @@
         "id": "9bf064507738970d",
         "type": "ui_switch",
         "z": "8eef662251c0531b",
-        "name": "",
-        "label": "Flex 6600",
+        "name": "Flex-8600 Power",
+        "label": "",
         "tooltip": "Applies / Removes Flex 6600 Power",
         "group": "1b3ea183cb956faa",
-        "order": 1,
-        "width": 0,
-        "height": 0,
+        "order": 2,
+        "width": 3,
+        "height": 1,
         "passthru": true,
         "decouple": "false",
         "topic": "topic",
@@ -25,15 +25,15 @@
         "style": "",
         "onvalue": "true",
         "onvalueType": "bool",
-        "onicon": "",
-        "oncolor": "",
+        "onicon": "fa-power-off",
+        "oncolor": "green",
         "offvalue": "false",
         "offvalueType": "bool",
-        "officon": "",
-        "offcolor": "",
-        "animate": false,
+        "officon": "fa-power-off",
+        "offcolor": "gray",
+        "animate": true,
         "className": "",
-        "x": 140,
+        "x": 170,
         "y": 120,
         "wires": [
             [
@@ -59,14 +59,16 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 290,
+        "x": 340,
         "y": 120,
         "wires": [
             [
-                "f22b2d4005b84c98"
+                "f22b2d4005b84c98",
+                "1c862cbebd8cc7b6"
             ],
             [
-                "7a298908622521f7"
+                "7a298908622521f7",
+                "5cd2119cb74a470c"
             ]
         ]
     },
@@ -86,7 +88,7 @@
         "authType": "",
         "senderr": false,
         "headers": [],
-        "x": 440,
+        "x": 490,
         "y": 100,
         "wires": [
             [
@@ -110,7 +112,7 @@
         "authType": "",
         "senderr": false,
         "headers": [],
-        "x": 450,
+        "x": 500,
         "y": 160,
         "wires": [
             [
@@ -122,7 +124,7 @@
         "id": "2ebac09b430fcefa",
         "type": "debug",
         "z": "8eef662251c0531b",
-        "name": "debug 6600 Power",
+        "name": "debug 8600 Power",
         "active": false,
         "tosidebar": true,
         "console": false,
@@ -131,7 +133,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 660,
+        "x": 710,
         "y": 100,
         "wires": []
     },
@@ -139,13 +141,13 @@
         "id": "825c0624923bb045",
         "type": "ui_switch",
         "z": "8eef662251c0531b",
-        "name": "",
-        "label": "Flex 6300",
+        "name": "Flex-6300 Power",
+        "label": "",
         "tooltip": "Applies / Removes Flex 6300 Power",
         "group": "bc2d850f3f12f4ca",
-        "order": 1,
-        "width": 0,
-        "height": 0,
+        "order": 2,
+        "width": 3,
+        "height": 1,
         "passthru": true,
         "decouple": "false",
         "topic": "topic",
@@ -153,16 +155,16 @@
         "style": "",
         "onvalue": "true",
         "onvalueType": "bool",
-        "onicon": "",
-        "oncolor": "",
+        "onicon": "fa-power-off",
+        "oncolor": "green",
         "offvalue": "false",
         "offvalueType": "bool",
-        "officon": "",
-        "offcolor": "",
-        "animate": false,
+        "officon": "fa-power-off",
+        "offcolor": "gray",
+        "animate": true,
         "className": "",
-        "x": 140,
-        "y": 260,
+        "x": 150,
+        "y": 540,
         "wires": [
             [
                 "e7ee71c0fc8ed166"
@@ -187,14 +189,16 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 290,
-        "y": 260,
+        "x": 320,
+        "y": 540,
         "wires": [
             [
-                "373c087b454cadb8"
+                "373c087b454cadb8",
+                "fdc9bf0c9ef288af"
             ],
             [
-                "b8fa7669e907f3b3"
+                "b8fa7669e907f3b3",
+                "e456409174c04434"
             ]
         ]
     },
@@ -214,8 +218,8 @@
         "authType": "",
         "senderr": false,
         "headers": [],
-        "x": 440,
-        "y": 240,
+        "x": 470,
+        "y": 520,
         "wires": [
             [
                 "16eac3657916ead6"
@@ -238,8 +242,8 @@
         "authType": "",
         "senderr": false,
         "headers": [],
-        "x": 450,
-        "y": 300,
+        "x": 480,
+        "y": 580,
         "wires": [
             [
                 "16eac3657916ead6"
@@ -259,18 +263,658 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 660,
+        "x": 690,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "fdc9bf0c9ef288af",
+        "type": "change",
+        "z": "8eef662251c0531b",
+        "name": "SET OFF",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "POWER OFF",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 480,
+        "y": 640,
+        "wires": [
+            [
+                "ece762912b6f8605"
+            ]
+        ]
+    },
+    {
+        "id": "e456409174c04434",
+        "type": "change",
+        "z": "8eef662251c0531b",
+        "name": "SET ON",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "POWER ON",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 480,
+        "y": 680,
+        "wires": [
+            [
+                "ece762912b6f8605"
+            ]
+        ]
+    },
+    {
+        "id": "ece762912b6f8605",
+        "type": "ui_text",
+        "z": "8eef662251c0531b",
+        "group": "bc2d850f3f12f4ca",
+        "order": 1,
+        "width": 3,
+        "height": 1,
+        "name": "6300 Label",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 670,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "dd682853eed435f8",
+        "type": "ui_text",
+        "z": "8eef662251c0531b",
+        "group": "1b3ea183cb956faa",
+        "order": 1,
+        "width": 3,
+        "height": 1,
+        "name": "8600 Label",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 700,
         "y": 240,
         "wires": []
     },
     {
+        "id": "5cd2119cb74a470c",
+        "type": "change",
+        "z": "8eef662251c0531b",
+        "name": "SET ON",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "POWER ON",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 500,
+        "y": 260,
+        "wires": [
+            [
+                "dd682853eed435f8"
+            ]
+        ]
+    },
+    {
+        "id": "1c862cbebd8cc7b6",
+        "type": "change",
+        "z": "8eef662251c0531b",
+        "name": "SET OFF",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "POWER OFF",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 500,
+        "y": 220,
+        "wires": [
+            [
+                "dd682853eed435f8"
+            ]
+        ]
+    },
+    {
+        "id": "b0e851259df58a07",
+        "type": "inject",
+        "z": "8eef662251c0531b",
+        "name": "Init To OFF",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "x": 290,
+        "y": 260,
+        "wires": [
+            [
+                "5cd2119cb74a470c",
+                "e456409174c04434"
+            ]
+        ]
+    },
+    {
+        "id": "9e189c149f50fb46",
+        "type": "ui_spacer",
+        "z": "8eef662251c0531b",
+        "name": "spacer",
+        "group": "1ddeecdd5e6a952b",
+        "order": 2,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "d21f44da6295134c",
+        "type": "ui_spacer",
+        "z": "8eef662251c0531b",
+        "name": "spacer",
+        "group": "6353d2ec29a336a7",
+        "order": 7,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "aadfc7c27cf472dc",
+        "type": "ui_spacer",
+        "z": "8eef662251c0531b",
+        "name": "spacer",
+        "group": "6353d2ec29a336a7",
+        "order": 8,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "46dd9b4788d7cdef",
+        "type": "ui_spacer",
+        "z": "8eef662251c0531b",
+        "name": "spacer",
+        "group": "6353d2ec29a336a7",
+        "order": 9,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "fb39d95f7f75aa32",
+        "type": "ui_spacer",
+        "z": "8eef662251c0531b",
+        "name": "spacer",
+        "group": "6353d2ec29a336a7",
+        "order": 10,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "5a004ae3ba5de829",
+        "type": "ui_spacer",
+        "z": "8eef662251c0531b",
+        "name": "spacer",
+        "group": "6353d2ec29a336a7",
+        "order": 14,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "5db5a75ef82fe69b",
+        "type": "ui_spacer",
+        "z": "8eef662251c0531b",
+        "name": "spacer",
+        "group": "3db16ff2d329e118",
+        "order": 4,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "5d924446bb02d82a",
+        "type": "ui_spacer",
+        "z": "8eef662251c0531b",
+        "name": "spacer",
+        "group": "3db16ff2d329e118",
+        "order": 7,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "94027f9dd71be357",
+        "type": "ui_spacer",
+        "z": "8eef662251c0531b",
+        "name": "spacer",
+        "group": "3db16ff2d329e118",
+        "order": 8,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "36c3ecf939291497",
+        "type": "ui_spacer",
+        "z": "8eef662251c0531b",
+        "name": "spacer",
+        "group": "3db16ff2d329e118",
+        "order": 9,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "68f0178cf1496774",
+        "type": "ui_spacer",
+        "z": "8eef662251c0531b",
+        "name": "spacer",
+        "group": "3db16ff2d329e118",
+        "order": 10,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "4ca60cae40ffb4a3",
+        "type": "ui_spacer",
+        "z": "8eef662251c0531b",
+        "name": "spacer",
+        "group": "3db16ff2d329e118",
+        "order": 12,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "c0e208a3809a6efb",
+        "type": "ui_spacer",
+        "z": "8eef662251c0531b",
+        "name": "spacer",
+        "group": "3db16ff2d329e118",
+        "order": 15,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "2dccc84093270c87",
+        "type": "ui_spacer",
+        "z": "8eef662251c0531b",
+        "name": "spacer",
+        "group": "3db16ff2d329e118",
+        "order": 16,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "a02422b3347eaeb9",
+        "type": "ui_spacer",
+        "z": "8eef662251c0531b",
+        "name": "spacer",
+        "group": "3db16ff2d329e118",
+        "order": 17,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "19e6b68e9cd8b9f0",
+        "type": "ui_spacer",
+        "z": "8eef662251c0531b",
+        "name": "spacer",
+        "group": "3db16ff2d329e118",
+        "order": 20,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "8834998cc0204d29",
+        "type": "ui_spacer",
+        "z": "8eef662251c0531b",
+        "name": "spacer",
+        "group": "3db16ff2d329e118",
+        "order": 21,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "25a864c43422189b",
+        "type": "ui_spacer",
+        "z": "8eef662251c0531b",
+        "name": "spacer",
+        "group": "3db16ff2d329e118",
+        "order": 22,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "54f193fb60ad7245",
+        "type": "ui_spacer",
+        "z": "8eef662251c0531b",
+        "name": "spacer",
+        "group": "3db16ff2d329e118",
+        "order": 26,
+        "width": 3,
+        "height": 1
+    },
+    {
+        "id": "4dfb53641744a554",
+        "type": "ui_spacer",
+        "z": "8eef662251c0531b",
+        "name": "spacer",
+        "group": "3db16ff2d329e118",
+        "order": 27,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "4b3f984095429e7c",
+        "type": "ui_spacer",
+        "z": "8eef662251c0531b",
+        "name": "spacer",
+        "group": "3db16ff2d329e118",
+        "order": 28,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "ae1fecca4a543f7c",
+        "type": "ui_spacer",
+        "z": "8eef662251c0531b",
+        "name": "spacer",
+        "group": "7825e703afb2c79d",
+        "order": 4,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "22d1b095aa1d1cf0",
+        "type": "ui_spacer",
+        "z": "8eef662251c0531b",
+        "name": "spacer",
+        "group": "7825e703afb2c79d",
+        "order": 8,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "eb2c65563ae05d2d",
+        "type": "ui_spacer",
+        "z": "8eef662251c0531b",
+        "name": "spacer",
+        "group": "7825e703afb2c79d",
+        "order": 9,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "fb95043c8a6d6f28",
+        "type": "ui_spacer",
+        "z": "8eef662251c0531b",
+        "name": "spacer",
+        "group": "7825e703afb2c79d",
+        "order": 10,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "783a234bca7b026d",
+        "type": "ui_spacer",
+        "z": "8eef662251c0531b",
+        "name": "spacer",
+        "group": "7825e703afb2c79d",
+        "order": 11,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "957c9de48eaa1b58",
+        "type": "ui_spacer",
+        "z": "8eef662251c0531b",
+        "name": "spacer",
+        "group": "7825e703afb2c79d",
+        "order": 15,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "5d351d17a43c994c",
+        "type": "ui_spacer",
+        "z": "8eef662251c0531b",
+        "name": "spacer",
+        "group": "7825e703afb2c79d",
+        "order": 16,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "3c77ad7817ecbd79",
+        "type": "ui_spacer",
+        "z": "8eef662251c0531b",
+        "name": "spacer",
+        "group": "7825e703afb2c79d",
+        "order": 17,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "1ee664d5af2cbdfd",
+        "type": "ui_spacer",
+        "z": "8eef662251c0531b",
+        "name": "spacer",
+        "group": "7825e703afb2c79d",
+        "order": 20,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "923220cba9dad9b3",
+        "type": "ui_spacer",
+        "z": "8eef662251c0531b",
+        "name": "spacer",
+        "group": "7825e703afb2c79d",
+        "order": 21,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "ef19d52bbead930d",
+        "type": "ui_spacer",
+        "z": "8eef662251c0531b",
+        "name": "spacer",
+        "group": "7825e703afb2c79d",
+        "order": 22,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "eb2c68d52a5dce39",
+        "type": "ui_spacer",
+        "z": "8eef662251c0531b",
+        "name": "spacer",
+        "group": "7825e703afb2c79d",
+        "order": 23,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "690ae6f5423a7a27",
+        "type": "ui_spacer",
+        "z": "8eef662251c0531b",
+        "name": "spacer",
+        "group": "7825e703afb2c79d",
+        "order": 27,
+        "width": 6,
+        "height": 1
+    },
+    {
+        "id": "4b442822c1e17d64",
+        "type": "ui_spacer",
+        "z": "8eef662251c0531b",
+        "name": "spacer",
+        "group": "7825e703afb2c79d",
+        "order": 28,
+        "width": 6,
+        "height": 1
+    },
+    {
+        "id": "2b62ebadbf1e7255",
+        "type": "ui_spacer",
+        "z": "8eef662251c0531b",
+        "name": "spacer",
+        "group": "f569d1fe718ea608",
+        "order": 4,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "a7c949781ed44e09",
+        "type": "ui_spacer",
+        "z": "8eef662251c0531b",
+        "name": "spacer",
+        "group": "f569d1fe718ea608",
+        "order": 7,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "7b69ac35657098a6",
+        "type": "ui_spacer",
+        "z": "8eef662251c0531b",
+        "name": "spacer",
+        "group": "f569d1fe718ea608",
+        "order": 8,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "047fa7b78a81aac3",
+        "type": "ui_spacer",
+        "z": "8eef662251c0531b",
+        "name": "spacer",
+        "group": "f569d1fe718ea608",
+        "order": 9,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "a7209556dde75bfa",
+        "type": "ui_spacer",
+        "z": "8eef662251c0531b",
+        "name": "spacer",
+        "group": "f569d1fe718ea608",
+        "order": 10,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "8fde1992a981bd64",
+        "type": "ui_spacer",
+        "z": "8eef662251c0531b",
+        "name": "spacer",
+        "group": "f569d1fe718ea608",
+        "order": 14,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "069787e92cba2c73",
+        "type": "ui_spacer",
+        "z": "8eef662251c0531b",
+        "name": "spacer",
+        "group": "f569d1fe718ea608",
+        "order": 15,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "53d05599aa5c7466",
+        "type": "ui_spacer",
+        "z": "8eef662251c0531b",
+        "name": "spacer",
+        "group": "f569d1fe718ea608",
+        "order": 16,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "4346ead6476bb5f4",
+        "type": "ui_spacer",
+        "z": "8eef662251c0531b",
+        "name": "spacer",
+        "group": "f569d1fe718ea608",
+        "order": 20,
+        "width": 6,
+        "height": 1
+    },
+    {
+        "id": "ba752708a9ed62eb",
+        "type": "ui_spacer",
+        "z": "8eef662251c0531b",
+        "name": "spacer",
+        "group": "f569d1fe718ea608",
+        "order": 21,
+        "width": 6,
+        "height": 1
+    },
+    {
+        "id": "c64ecf59b638d718",
+        "type": "ui_spacer",
+        "z": "8eef662251c0531b",
+        "name": "spacer",
+        "group": "f569d1fe718ea608",
+        "order": 22,
+        "width": 6,
+        "height": 1
+    },
+    {
         "id": "1b3ea183cb956faa",
         "type": "ui_group",
-        "name": "Flex 6600 Power Control",
+        "name": "Flex 8600 Power Control",
         "tab": "2f150eb340621efc",
-        "order": 2,
+        "order": 3,
         "disp": true,
-        "width": "6",
+        "width": 8,
         "collapse": false,
         "className": ""
     },
@@ -279,10 +923,65 @@
         "type": "ui_group",
         "name": "Flex 6300 Power Control",
         "tab": "2f150eb340621efc",
+        "order": 4,
+        "disp": true,
+        "width": 8,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "1ddeecdd5e6a952b",
+        "type": "ui_group",
+        "name": "Temperature Summary",
+        "tab": "d08e06b5cdc29e38",
+        "order": 1,
+        "disp": true,
+        "width": 14,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "6353d2ec29a336a7",
+        "type": "ui_group",
+        "name": "St. Charles Weather",
+        "tab": "d08e06b5cdc29e38",
+        "order": 2,
+        "disp": true,
+        "width": "14",
+        "collapse": true,
+        "className": ""
+    },
+    {
+        "id": "3db16ff2d329e118",
+        "type": "ui_group",
+        "name": "Back Yard Conditions",
+        "tab": "d08e06b5cdc29e38",
         "order": 3,
         "disp": true,
-        "width": "6",
-        "collapse": false,
+        "width": "14",
+        "collapse": true,
+        "className": ""
+    },
+    {
+        "id": "7825e703afb2c79d",
+        "type": "ui_group",
+        "name": "Garage Conditions",
+        "tab": "d08e06b5cdc29e38",
+        "order": 4,
+        "disp": true,
+        "width": "14",
+        "collapse": true,
+        "className": ""
+    },
+    {
+        "id": "f569d1fe718ea608",
+        "type": "ui_group",
+        "name": "Basement Office",
+        "tab": "d08e06b5cdc29e38",
+        "order": 5,
+        "disp": true,
+        "width": "14",
+        "collapse": true,
         "className": ""
     },
     {
@@ -290,7 +989,16 @@
         "type": "ui_tab",
         "name": "HamShack",
         "icon": "dashboard",
-        "order": 3,
+        "order": 2,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "d08e06b5cdc29e38",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "order": 1,
         "disabled": false,
         "hidden": false
     }

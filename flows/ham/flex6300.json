@@ -8,54 +8,6 @@
         "env": []
     },
     {
-        "id": "1f6ce3077b935fb2",
-        "type": "flexradio-discovery",
-        "z": "6b97dc8102919a68",
-        "name": "Flex Radio Discovery",
-        "port": 4992,
-        "x": 646,
-        "y": 400,
-        "wires": [
-            [
-                "6d3be218ae968131",
-                "a05d3e037df05e8c"
-            ]
-        ]
-    },
-    {
-        "id": "6d3be218ae968131",
-        "type": "switch",
-        "z": "6b97dc8102919a68",
-        "name": "",
-        "property": "payload.nickname",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "cont",
-                "v": "N0SO-6300",
-                "vt": "str"
-            },
-            {
-                "t": "else"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 2,
-        "x": 850,
-        "y": 400,
-        "wires": [
-            [
-                "90456fff75c4e8eb",
-                "5a13e568f94c9f08",
-                "49d144a64128b7a8",
-                "4e8324d694d17636",
-                "0dbd213b1785328f"
-            ],
-            []
-        ]
-    },
-    {
         "id": "b81734d2fb4d3d3b",
         "type": "change",
         "z": "6b97dc8102919a68",
@@ -121,11 +73,11 @@
         "type": "ui_text",
         "z": "6b97dc8102919a68",
         "group": "bc2d850f3f12f4ca",
-        "order": 3,
+        "order": 4,
         "width": 0,
         "height": 0,
         "name": "Radio Name",
-        "label": "Radio Name",
+        "label": "Radio Name:",
         "format": "{{msg.payload.nickname}}",
         "layout": "row-left",
         "className": "",
@@ -142,11 +94,11 @@
         "type": "ui_text",
         "z": "6b97dc8102919a68",
         "group": "bc2d850f3f12f4ca",
-        "order": 4,
+        "order": 5,
         "width": 0,
         "height": 0,
         "name": "",
-        "label": "Radio Version",
+        "label": "Radio Version:",
         "format": "{{msg.payload.version}}",
         "layout": "row-left",
         "className": "",
@@ -163,11 +115,11 @@
         "type": "ui_text",
         "z": "6b97dc8102919a68",
         "group": "bc2d850f3f12f4ca",
-        "order": 5,
+        "order": 6,
         "width": 0,
         "height": 0,
         "name": "",
-        "label": "Radio IP",
+        "label": "Radio IP:",
         "format": "{{msg.payload.ip}}",
         "layout": "row-left",
         "className": "",
@@ -376,9 +328,9 @@
         "z": "6b97dc8102919a68",
         "name": "",
         "group": "bc2d850f3f12f4ca",
-        "order": 7,
-        "width": 0,
-        "height": 0,
+        "order": 8,
+        "width": 4,
+        "height": 3,
         "gtype": "gage",
         "title": "+13.8 VDC A",
         "label": "VDC",
@@ -395,7 +347,7 @@
         "diff": false,
         "className": "",
         "x": 1510,
-        "y": 200,
+        "y": 140,
         "wires": []
     },
     {
@@ -526,7 +478,8 @@
         "y": 280,
         "wires": [
             [
-                "0580404bad2d5299"
+                "0580404bad2d5299",
+                "b8570db4c784eb6e"
             ]
         ]
     },
@@ -536,9 +489,9 @@
         "z": "6b97dc8102919a68",
         "name": "",
         "group": "bc2d850f3f12f4ca",
-        "order": 6,
-        "width": 0,
-        "height": 0,
+        "order": 7,
+        "width": 4,
+        "height": 3,
         "gtype": "gage",
         "title": "PA Temp",
         "label": "C",
@@ -589,7 +542,8 @@
         "wires": [
             [
                 "0580404bad2d5299",
-                "f97aec0a82afc5b2"
+                "f97aec0a82afc5b2",
+                "b8570db4c784eb6e"
             ]
         ]
     },
@@ -780,13 +734,55 @@
         "wires": []
     },
     {
+        "id": "b8570db4c784eb6e",
+        "type": "ui_text",
+        "z": "6b97dc8102919a68",
+        "group": "7f9ce2c2b5876c23",
+        "order": 7,
+        "width": 3,
+        "height": 1,
+        "name": "Summary Temperature",
+        "label": "TEMP: ",
+        "format": "{{msg.payload}} C",
+        "layout": "row-left",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 1540,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "f50c5df9f632aafa",
+        "type": "link in",
+        "z": "6b97dc8102919a68",
+        "name": "link in 1",
+        "links": [
+            "ecb2959b8d49f30f"
+        ],
+        "x": 435,
+        "y": 460,
+        "wires": [
+            [
+                "4e8324d694d17636",
+                "0dbd213b1785328f",
+                "90456fff75c4e8eb",
+                "5a13e568f94c9f08",
+                "49d144a64128b7a8",
+                "a05d3e037df05e8c"
+            ]
+        ]
+    },
+    {
         "id": "bc2d850f3f12f4ca",
         "type": "ui_group",
         "name": "Flex 6300 Power Control",
         "tab": "2f150eb340621efc",
-        "order": 3,
+        "order": 4,
         "disp": true,
-        "width": "6",
+        "width": 8,
         "collapse": false,
         "className": ""
     },
@@ -804,11 +800,22 @@
         "timeout": "15"
     },
     {
+        "id": "7f9ce2c2b5876c23",
+        "type": "ui_group",
+        "name": "Summary",
+        "tab": "2f150eb340621efc",
+        "order": 1,
+        "disp": true,
+        "width": 16,
+        "collapse": false,
+        "className": ""
+    },
+    {
         "id": "2f150eb340621efc",
         "type": "ui_tab",
         "name": "HamShack",
         "icon": "dashboard",
-        "order": 3,
+        "order": 2,
         "disabled": false,
         "hidden": false
     }
