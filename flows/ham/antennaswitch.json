@@ -8,38 +8,60 @@
         "env": []
     },
     {
-        "id": "2bbf55eb99f2c091",
-        "type": "ui_switch",
+        "id": "c73bc327cab02cdc",
+        "type": "group",
         "z": "537f14c91b13fa17",
-        "name": "HF Antenna Connect",
-        "label": "",
-        "tooltip": "Connects the main HF antenna to the station.",
-        "group": "30c71f768b286eca",
-        "order": 5,
-        "width": 3,
-        "height": 1,
-        "passthru": true,
-        "decouple": "false",
-        "topic": "topic",
-        "topicType": "msg",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "fa-power-off",
-        "oncolor": "green",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "fa-power-off",
-        "offcolor": "grey",
-        "animate": false,
-        "className": "",
-        "x": 220,
-        "y": 100,
-        "wires": [
-            [
-                "8cec805fe2ce2b59"
-            ]
-        ]
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "084154bf6aab1874",
+            "bfb734006b5aab07",
+            "85860be15bdcda56",
+            "82093c6c0e26417d",
+            "61311b3b9e1e96da",
+            "cdc406e18f7253ac",
+            "a8cdd0c9f71f1746",
+            "01556955272cf109"
+        ],
+        "x": 154,
+        "y": 239,
+        "w": 582,
+        "h": 302
+    },
+    {
+        "id": "40152d5389bb4e79",
+        "type": "group",
+        "z": "537f14c91b13fa17",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "68214b9f8bcc15bf",
+            "11d59af6cafe2ae2",
+            "6ab35d3d6e935a62",
+            "e6ab8655f8c71a8c",
+            "3457ec4876fa0dfb",
+            "039e7069c7666830",
+            "b67939b73000fea6",
+            "5d71df917376823a"
+        ],
+        "x": 154,
+        "y": 559,
+        "w": 592,
+        "h": 302
     },
     {
         "id": "ea5e4ba795737e0a",
@@ -57,8 +79,8 @@
         "authType": "",
         "senderr": false,
         "headers": [],
-        "x": 580,
-        "y": 80,
+        "x": 980,
+        "y": 340,
         "wires": [
             [
                 "d004403c5a64f28a"
@@ -78,8 +100,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 860,
-        "y": 80,
+        "x": 1260,
+        "y": 340,
         "wires": []
     },
     {
@@ -91,25 +113,27 @@
         "propertyType": "msg",
         "rules": [
             {
-                "t": "true"
+                "t": "eq",
+                "v": "open",
+                "vt": "str"
             },
             {
-                "t": "false"
+                "t": "eq",
+                "v": "close",
+                "vt": "str"
             }
         ],
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 410,
-        "y": 100,
+        "x": 810,
+        "y": 360,
         "wires": [
             [
-                "ea5e4ba795737e0a",
-                "53a7c97fc0ee3630"
+                "ea5e4ba795737e0a"
             ],
             [
-                "193d7b1b8518c61c",
-                "6d615a22af64b8d8"
+                "193d7b1b8518c61c"
             ]
         ]
     },
@@ -129,45 +153,11 @@
         "authType": "",
         "senderr": false,
         "headers": [],
-        "x": 590,
-        "y": 120,
+        "x": 990,
+        "y": 380,
         "wires": [
             [
                 "d004403c5a64f28a"
-            ]
-        ]
-    },
-    {
-        "id": "4ead748fd6a44927",
-        "type": "ui_switch",
-        "z": "537f14c91b13fa17",
-        "name": "Antenna Select",
-        "label": "",
-        "tooltip": "Switches to the 6M dipole.",
-        "group": "30c71f768b286eca",
-        "order": 12,
-        "width": 3,
-        "height": 1,
-        "passthru": true,
-        "decouple": "false",
-        "topic": "topic",
-        "topicType": "msg",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "",
-        "oncolor": "",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "",
-        "offcolor": "",
-        "animate": false,
-        "className": "",
-        "x": 200,
-        "y": 300,
-        "wires": [
-            [
-                "7b8eecd92172a68e"
             ]
         ]
     },
@@ -180,17 +170,21 @@
         "propertyType": "msg",
         "rules": [
             {
-                "t": "true"
+                "t": "eq",
+                "v": "open",
+                "vt": "str"
             },
             {
-                "t": "false"
+                "t": "eq",
+                "v": "close",
+                "vt": "str"
             }
         ],
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 410,
-        "y": 300,
+        "x": 830,
+        "y": 680,
         "wires": [
             [
                 "814cdb161d8f7c68"
@@ -216,8 +210,8 @@
         "authType": "",
         "senderr": false,
         "headers": [],
-        "x": 560,
-        "y": 280,
+        "x": 980,
+        "y": 660,
         "wires": [
             [
                 "4bcf0f7dbba2c05b"
@@ -240,8 +234,8 @@
         "authType": "",
         "senderr": false,
         "headers": [],
-        "x": 570,
-        "y": 320,
+        "x": 990,
+        "y": 700,
         "wires": [
             [
                 "4bcf0f7dbba2c05b"
@@ -261,22 +255,46 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 770,
-        "y": 320,
+        "x": 1190,
+        "y": 700,
         "wires": []
     },
     {
-        "id": "53a7c97fc0ee3630",
+        "id": "084154bf6aab1874",
+        "type": "gate",
+        "z": "537f14c91b13fa17",
+        "g": "c73bc327cab02cdc",
+        "name": "",
+        "controlTopic": "control",
+        "defaultState": "closed",
+        "openCmd": "open",
+        "closeCmd": "close",
+        "toggleCmd": "toggle",
+        "defaultCmd": "default",
+        "statusCmd": "status",
+        "persist": false,
+        "storeName": "memoryOnly",
+        "x": 430,
+        "y": 280,
+        "wires": [
+            [
+                "82093c6c0e26417d"
+            ]
+        ]
+    },
+    {
+        "id": "bfb734006b5aab07",
         "type": "change",
         "z": "537f14c91b13fa17",
-        "name": "SET DISCONNECT",
+        "g": "c73bc327cab02cdc",
+        "name": "",
         "rules": [
             {
                 "t": "set",
-                "p": "payload",
+                "p": "topic",
                 "pt": "msg",
-                "to": "DISCONNECT",
-                "tot": "str"
+                "to": "label",
+                "tot": "msg"
             }
         ],
         "action": "",
@@ -284,130 +302,107 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 410,
-        "y": 220,
+        "x": 500,
+        "y": 500,
         "wires": [
             [
-                "eaa4c15ce0dd04fc"
+                "cdc406e18f7253ac"
             ]
         ]
     },
     {
-        "id": "eaa4c15ce0dd04fc",
-        "type": "ui_text",
+        "id": "85860be15bdcda56",
+        "type": "debug",
         "z": "537f14c91b13fa17",
+        "g": "c73bc327cab02cdc",
+        "name": "debug 61",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 630,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "82093c6c0e26417d",
+        "type": "debug",
+        "z": "537f14c91b13fa17",
+        "g": "c73bc327cab02cdc",
+        "name": "debug 60",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 600,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "61311b3b9e1e96da",
+        "type": "function",
+        "z": "537f14c91b13fa17",
+        "g": "c73bc327cab02cdc",
+        "name": "button logic",
+        "func": "\nlet payload=msg.payload;\nlet state=context.get(\"state\");\nif(msg.topic==\"init\")\n{\n    state = \"open\";\n    msg.payload = \"close\";\n    msg.background = \"red\";\n    msg.label = \"Connect Antenna\";\n    msg.myicon = \"fa-toggle-off\";\n    msg.topic=\"control\";\n    context.set(\"state\", \"closed\");\n    return msg;\n}\n//toggle\nif (typeof state == \"undefined\" || state==\"open\")\n{\n//state=\"open\";\nmsg.payload= \"close\";\nmsg.background = \"red\";\nmsg.label = \"Connect Antenna\";\nmsg.myicon = \"fa-toggle-off\";\nstate=\"closed\";\n\n}\nelse if (typeof state == \"undefined\" || state == \"closed\") {\n//state = \"close\";\nmsg.payload= \"open\";\nmsg.background = \"green\";\nmsg.label = \"Disconnect Antenna\";\nmsg.myicon=\"fa-toggle-on\";\nstate=\"open\";\n\n}\ncontext.set(\"state\",state);\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "// Code added here will be run once\n// whenever the node is started.\ncontext.set(\"state\", \"closed\");",
+        "finalize": "",
+        "libs": [],
+        "x": 470,
+        "y": 360,
+        "wires": [
+            [
+                "084154bf6aab1874",
+                "bfb734006b5aab07",
+                "85860be15bdcda56",
+                "8cec805fe2ce2b59"
+            ]
+        ]
+    },
+    {
+        "id": "cdc406e18f7253ac",
+        "type": "ui_button",
+        "z": "537f14c91b13fa17",
+        "g": "c73bc327cab02cdc",
+        "name": "Paradan Antenna Disconnect",
         "group": "30c71f768b286eca",
         "order": 2,
-        "width": 3,
+        "width": 4,
         "height": 1,
-        "name": "Switch Label",
-        "label": "",
-        "format": "{{msg.payload}}",
-        "layout": "col-center",
+        "passthru": false,
+        "label": "{{topic}}",
+        "tooltip": "Toggles Paradan Antenna Disconnect ON/OFF",
+        "color": "",
+        "bgcolor": "{{background}}",
         "className": "",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#000000",
-        "x": 670,
-        "y": 200,
-        "wires": []
-    },
-    {
-        "id": "6d615a22af64b8d8",
-        "type": "change",
-        "z": "537f14c91b13fa17",
-        "name": "SET CONNECT",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "CONNECT",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 480,
-        "y": 180,
+        "icon": "{{myicon}}",
+        "payload": "open",
+        "payloadType": "str",
+        "topic": "control",
+        "topicType": "str",
+        "x": 320,
+        "y": 420,
         "wires": [
             [
-                "eaa4c15ce0dd04fc"
+                "61311b3b9e1e96da"
             ]
         ]
     },
     {
-        "id": "0fc9bb9f54f1077e",
-        "type": "ui_text",
-        "z": "537f14c91b13fa17",
-        "group": "30c71f768b286eca",
-        "order": 8,
-        "width": 3,
-        "height": 1,
-        "name": "",
-        "label": "SELECT",
-        "format": "{{msg.payload}}",
-        "layout": "col-center",
-        "className": "",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#000000",
-        "x": 340,
-        "y": 420,
-        "wires": []
-    },
-    {
-        "id": "43263ec1b4383841",
-        "type": "ui_text",
-        "z": "537f14c91b13fa17",
-        "group": "30c71f768b286eca",
-        "order": 13,
-        "width": 2,
-        "height": 1,
-        "name": "",
-        "label": "6M DIPOLE",
-        "format": "{{msg.payload}}",
-        "layout": "row-right",
-        "className": "",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#000000",
-        "x": 650,
-        "y": 420,
-        "wires": []
-    },
-    {
-        "id": "a4e928528c103412",
-        "type": "ui_text",
-        "z": "537f14c91b13fa17",
-        "group": "30c71f768b286eca",
-        "order": 11,
-        "width": 2,
-        "height": 1,
-        "name": "",
-        "label": "HF VERTICAL",
-        "format": "{{msg.payload}}",
-        "layout": "col-center",
-        "className": "",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#000000",
-        "x": 490,
-        "y": 420,
-        "wires": []
-    },
-    {
-        "id": "98b9759f624b4edc",
+        "id": "a8cdd0c9f71f1746",
         "type": "inject",
         "z": "537f14c91b13fa17",
-        "name": "Init To OFF",
+        "g": "c73bc327cab02cdc",
+        "name": "init",
         "props": [
             {
                 "p": "payload"
@@ -420,37 +415,771 @@
         "repeat": "",
         "crontab": "",
         "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "false",
-        "payloadType": "bool",
-        "x": 170,
-        "y": 220,
+        "onceDelay": "2",
+        "topic": "init",
+        "payload": "close",
+        "payloadType": "str",
+        "x": 250,
+        "y": 340,
         "wires": [
             [
-                "53a7c97fc0ee3630"
+                "61311b3b9e1e96da"
             ]
         ]
     },
     {
-        "id": "862a75e16c0c4447",
-        "type": "comment",
+        "id": "01556955272cf109",
+        "type": "inject",
         "z": "537f14c91b13fa17",
-        "name": "Used as dynamic dashboard labels",
-        "info": "",
-        "x": 500,
-        "y": 460,
+        "g": "c73bc327cab02cdc",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 280,
+        "y": 280,
+        "wires": [
+            [
+                "084154bf6aab1874"
+            ]
+        ]
+    },
+    {
+        "id": "68214b9f8bcc15bf",
+        "type": "gate",
+        "z": "537f14c91b13fa17",
+        "g": "40152d5389bb4e79",
+        "name": "",
+        "controlTopic": "control",
+        "defaultState": "closed",
+        "openCmd": "open",
+        "closeCmd": "close",
+        "toggleCmd": "toggle",
+        "defaultCmd": "default",
+        "statusCmd": "status",
+        "persist": false,
+        "storeName": "memoryOnly",
+        "x": 430,
+        "y": 600,
+        "wires": [
+            [
+                "e6ab8655f8c71a8c"
+            ]
+        ]
+    },
+    {
+        "id": "11d59af6cafe2ae2",
+        "type": "change",
+        "z": "537f14c91b13fa17",
+        "g": "40152d5389bb4e79",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "label",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 530,
+        "y": 820,
+        "wires": [
+            [
+                "039e7069c7666830"
+            ]
+        ]
+    },
+    {
+        "id": "6ab35d3d6e935a62",
+        "type": "debug",
+        "z": "537f14c91b13fa17",
+        "g": "40152d5389bb4e79",
+        "name": "debug 61",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 640,
+        "y": 740,
         "wires": []
+    },
+    {
+        "id": "e6ab8655f8c71a8c",
+        "type": "debug",
+        "z": "537f14c91b13fa17",
+        "g": "40152d5389bb4e79",
+        "name": "debug 60",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 610,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "3457ec4876fa0dfb",
+        "type": "function",
+        "z": "537f14c91b13fa17",
+        "g": "40152d5389bb4e79",
+        "name": "button logic",
+        "func": "\nlet payload=msg.payload;\nlet state=context.get(\"state\");\nif(msg.topic==\"init\")\n{\n    state = \"open\";\n    msg.payload = \"close\";\n    msg.background = \"blue\";\n    msg.label = \"Select 6M Dipole\";\n    msg.myicon = \"fa-toggle-off\";\n    msg.topic=\"control\";\n    context.set(\"state\", \"closed\");\n    return msg;\n}\n//toggle\nif (typeof state == \"undefined\" || state==\"open\")\n{\n//state=\"open\";\nmsg.payload= \"close\";\nmsg.background = \"blue\";\nmsg.label = \"Select 6M Dipole\";\nmsg.myicon = \"fa-toggle-off\";\nstate=\"closed\";\n\n}\nelse if (typeof state == \"undefined\" || state == \"closed\") {\n//state = \"close\";\nmsg.payload= \"open\";\nmsg.background = \"green\";\nmsg.label = \"Select HF Vertical\";\nmsg.myicon=\"fa-toggle-on\";\nstate=\"open\";\n\n}\ncontext.set(\"state\",state);\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "// Code added here will be run once\n// whenever the node is started.\ncontext.set(\"state\", \"closed\");",
+        "finalize": "",
+        "libs": [],
+        "x": 490,
+        "y": 680,
+        "wires": [
+            [
+                "68214b9f8bcc15bf",
+                "11d59af6cafe2ae2",
+                "6ab35d3d6e935a62",
+                "7b8eecd92172a68e"
+            ]
+        ]
+    },
+    {
+        "id": "039e7069c7666830",
+        "type": "ui_button",
+        "z": "537f14c91b13fa17",
+        "g": "40152d5389bb4e79",
+        "name": "Antenna Selector",
+        "group": "30c71f768b286eca",
+        "order": 5,
+        "width": 4,
+        "height": 1,
+        "passthru": false,
+        "label": "{{topic}}",
+        "tooltip": "Toggles between HF vertical and 6M dipole.",
+        "color": "",
+        "bgcolor": "{{background}}",
+        "className": "",
+        "icon": "{{myicon}}",
+        "payload": "open",
+        "payloadType": "str",
+        "topic": "control",
+        "topicType": "str",
+        "x": 360,
+        "y": 740,
+        "wires": [
+            [
+                "3457ec4876fa0dfb"
+            ]
+        ]
+    },
+    {
+        "id": "b67939b73000fea6",
+        "type": "inject",
+        "z": "537f14c91b13fa17",
+        "g": "40152d5389bb4e79",
+        "name": "init",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "2",
+        "topic": "init",
+        "payload": "close",
+        "payloadType": "str",
+        "x": 250,
+        "y": 660,
+        "wires": [
+            [
+                "3457ec4876fa0dfb"
+            ]
+        ]
+    },
+    {
+        "id": "5d71df917376823a",
+        "type": "inject",
+        "z": "537f14c91b13fa17",
+        "g": "40152d5389bb4e79",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 290,
+        "y": 600,
+        "wires": [
+            [
+                "68214b9f8bcc15bf"
+            ]
+        ]
+    },
+    {
+        "id": "d9dc670e06bf57d5",
+        "type": "ui_spacer",
+        "z": "537f14c91b13fa17",
+        "name": "spacer",
+        "group": "7f9ce2c2b5876c23",
+        "order": 6,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "499839860feea75e",
+        "type": "ui_spacer",
+        "z": "537f14c91b13fa17",
+        "name": "spacer",
+        "group": "7f9ce2c2b5876c23",
+        "order": 9,
+        "width": 10,
+        "height": 1
+    },
+    {
+        "id": "1a3e65c36fc5104a",
+        "type": "ui_spacer",
+        "z": "537f14c91b13fa17",
+        "name": "spacer",
+        "group": "30c71f768b286eca",
+        "order": 1,
+        "width": 6,
+        "height": 1
+    },
+    {
+        "id": "9f4548507bec4ec5",
+        "type": "ui_spacer",
+        "z": "537f14c91b13fa17",
+        "name": "spacer",
+        "group": "30c71f768b286eca",
+        "order": 3,
+        "width": 6,
+        "height": 1
+    },
+    {
+        "id": "14b71b86a689913b",
+        "type": "ui_spacer",
+        "z": "537f14c91b13fa17",
+        "name": "spacer",
+        "group": "1b3ea183cb956faa",
+        "order": 1,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "31d95a11b73b75f4",
+        "type": "ui_spacer",
+        "z": "537f14c91b13fa17",
+        "name": "spacer",
+        "group": "1b3ea183cb956faa",
+        "order": 3,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "f219be0176f3e924",
+        "type": "ui_spacer",
+        "z": "537f14c91b13fa17",
+        "name": "spacer",
+        "group": "bc2d850f3f12f4ca",
+        "order": 1,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "60b3e922e0a82540",
+        "type": "ui_spacer",
+        "z": "537f14c91b13fa17",
+        "name": "spacer",
+        "group": "bc2d850f3f12f4ca",
+        "order": 3,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "da664eb2d6f3ce5b",
+        "type": "ui_spacer",
+        "z": "537f14c91b13fa17",
+        "name": "spacer",
+        "group": "f57646e009934699",
+        "order": 2,
+        "width": 11,
+        "height": 1
+    },
+    {
+        "id": "acc30b11eee0603c",
+        "type": "ui_spacer",
+        "z": "537f14c91b13fa17",
+        "name": "spacer",
+        "group": "f57646e009934699",
+        "order": 4,
+        "width": 11,
+        "height": 1
+    },
+    {
+        "id": "1f40fb7b2c9f0cf1",
+        "type": "ui_spacer",
+        "z": "537f14c91b13fa17",
+        "name": "spacer",
+        "group": "c64dfde351e348df",
+        "order": 3,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "1dffdd3e0192a8e9",
+        "type": "ui_spacer",
+        "z": "537f14c91b13fa17",
+        "name": "spacer",
+        "group": "c64dfde351e348df",
+        "order": 4,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "90dbd1c47c5a8eb5",
+        "type": "ui_spacer",
+        "z": "537f14c91b13fa17",
+        "name": "spacer",
+        "group": "c64dfde351e348df",
+        "order": 5,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "6e7b849977181156",
+        "type": "ui_spacer",
+        "z": "537f14c91b13fa17",
+        "name": "spacer",
+        "group": "c64dfde351e348df",
+        "order": 6,
+        "width": 4,
+        "height": 1
+    },
+    {
+        "id": "e39ff7893f90204d",
+        "type": "ui_spacer",
+        "z": "537f14c91b13fa17",
+        "name": "spacer",
+        "group": "c64dfde351e348df",
+        "order": 7,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "05a810783bf7600a",
+        "type": "ui_spacer",
+        "z": "537f14c91b13fa17",
+        "name": "spacer",
+        "group": "c64dfde351e348df",
+        "order": 8,
+        "width": 4,
+        "height": 1
+    },
+    {
+        "id": "b7befe2a9215be89",
+        "type": "ui_spacer",
+        "z": "537f14c91b13fa17",
+        "name": "spacer",
+        "group": "c64dfde351e348df",
+        "order": 9,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "6441fe6a34077756",
+        "type": "ui_spacer",
+        "z": "537f14c91b13fa17",
+        "name": "spacer",
+        "group": "c64dfde351e348df",
+        "order": 12,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "f9873696fe8c1393",
+        "type": "ui_spacer",
+        "z": "537f14c91b13fa17",
+        "name": "spacer",
+        "group": "c64dfde351e348df",
+        "order": 13,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "9f399aeccfc6d662",
+        "type": "ui_spacer",
+        "z": "537f14c91b13fa17",
+        "name": "spacer",
+        "group": "c64dfde351e348df",
+        "order": 14,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "5685b750ba5b190b",
+        "type": "ui_spacer",
+        "z": "537f14c91b13fa17",
+        "name": "spacer",
+        "group": "c64dfde351e348df",
+        "order": 15,
+        "width": 4,
+        "height": 1
+    },
+    {
+        "id": "7490cfe73d79575a",
+        "type": "ui_spacer",
+        "z": "537f14c91b13fa17",
+        "name": "spacer",
+        "group": "c64dfde351e348df",
+        "order": 16,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "04ef017582e46f93",
+        "type": "ui_spacer",
+        "z": "537f14c91b13fa17",
+        "name": "spacer",
+        "group": "c64dfde351e348df",
+        "order": 17,
+        "width": 4,
+        "height": 1
+    },
+    {
+        "id": "46e81811912413e7",
+        "type": "ui_spacer",
+        "z": "537f14c91b13fa17",
+        "name": "spacer",
+        "group": "c64dfde351e348df",
+        "order": 18,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "31b53b0bcb5e654d",
+        "type": "ui_spacer",
+        "z": "537f14c91b13fa17",
+        "name": "spacer",
+        "group": "c64dfde351e348df",
+        "order": 22,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "768da451aa38668d",
+        "type": "ui_spacer",
+        "z": "537f14c91b13fa17",
+        "name": "spacer",
+        "group": "c64dfde351e348df",
+        "order": 23,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "2ba58b603ef1168a",
+        "type": "ui_spacer",
+        "z": "537f14c91b13fa17",
+        "name": "spacer",
+        "group": "c64dfde351e348df",
+        "order": 24,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "010ac2b7497ed3b4",
+        "type": "ui_spacer",
+        "z": "537f14c91b13fa17",
+        "name": "spacer",
+        "group": "c64dfde351e348df",
+        "order": 26,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "fdd6a57e54f3e17e",
+        "type": "ui_spacer",
+        "z": "537f14c91b13fa17",
+        "name": "spacer",
+        "group": "c64dfde351e348df",
+        "order": 29,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "c58ceced30c533d5",
+        "type": "ui_spacer",
+        "z": "537f14c91b13fa17",
+        "name": "spacer",
+        "group": "c64dfde351e348df",
+        "order": 30,
+        "width": 4,
+        "height": 1
+    },
+    {
+        "id": "938893e06b03cbb3",
+        "type": "ui_spacer",
+        "z": "537f14c91b13fa17",
+        "name": "spacer",
+        "group": "c64dfde351e348df",
+        "order": 31,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "b5cea9b734dd55f9",
+        "type": "ui_spacer",
+        "z": "537f14c91b13fa17",
+        "name": "spacer",
+        "group": "c64dfde351e348df",
+        "order": 32,
+        "width": 4,
+        "height": 1
+    },
+    {
+        "id": "638430c51aa8db9c",
+        "type": "ui_spacer",
+        "z": "537f14c91b13fa17",
+        "name": "spacer",
+        "group": "c64dfde351e348df",
+        "order": 33,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "e589cf9c62213bfb",
+        "type": "ui_spacer",
+        "z": "537f14c91b13fa17",
+        "name": "spacer",
+        "group": "c64dfde351e348df",
+        "order": 34,
+        "width": 4,
+        "height": 1
+    },
+    {
+        "id": "8d6619aad4afd3ca",
+        "type": "ui_spacer",
+        "z": "537f14c91b13fa17",
+        "name": "spacer",
+        "group": "c64dfde351e348df",
+        "order": 35,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "eacfcbc824cd7977",
+        "type": "ui_spacer",
+        "z": "537f14c91b13fa17",
+        "name": "spacer",
+        "group": "c64dfde351e348df",
+        "order": 39,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "a1e61a9745ee7031",
+        "type": "ui_spacer",
+        "z": "537f14c91b13fa17",
+        "name": "spacer",
+        "group": "c64dfde351e348df",
+        "order": 40,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "646a7e410b6d4032",
+        "type": "ui_spacer",
+        "z": "537f14c91b13fa17",
+        "name": "spacer",
+        "group": "c64dfde351e348df",
+        "order": 41,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "2f71b852f1241929",
+        "type": "ui_spacer",
+        "z": "537f14c91b13fa17",
+        "name": "spacer",
+        "group": "c64dfde351e348df",
+        "order": 42,
+        "width": 8,
+        "height": 1
+    },
+    {
+        "id": "d7649abe7cfc7565",
+        "type": "ui_spacer",
+        "z": "537f14c91b13fa17",
+        "name": "spacer",
+        "group": "c64dfde351e348df",
+        "order": 43,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "890de493f8312ca4",
+        "type": "ui_spacer",
+        "z": "537f14c91b13fa17",
+        "name": "spacer",
+        "group": "c64dfde351e348df",
+        "order": 44,
+        "width": 8,
+        "height": 1
+    },
+    {
+        "id": "46112d9aad3f9b41",
+        "type": "ui_spacer",
+        "z": "537f14c91b13fa17",
+        "name": "spacer",
+        "group": "c64dfde351e348df",
+        "order": 45,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "2031a8e64b0005e5",
+        "type": "ui_spacer",
+        "z": "537f14c91b13fa17",
+        "name": "spacer",
+        "group": "86dd895c94f5ee59",
+        "order": 3,
+        "width": 4,
+        "height": 1
+    },
+    {
+        "id": "1356ac4a1a4dc18b",
+        "type": "ui_spacer",
+        "z": "537f14c91b13fa17",
+        "name": "spacer",
+        "group": "86dd895c94f5ee59",
+        "order": 4,
+        "width": 4,
+        "height": 1
+    },
+    {
+        "id": "e1314b3ee49f9a90",
+        "type": "ui_spacer",
+        "z": "537f14c91b13fa17",
+        "name": "spacer",
+        "group": "86dd895c94f5ee59",
+        "order": 5,
+        "width": 4,
+        "height": 1
     },
     {
         "id": "30c71f768b286eca",
         "type": "ui_group",
-        "name": "Antenna",
+        "name": "Antenna Selection",
         "tab": "2f150eb340621efc",
         "order": 2,
         "disp": true,
+        "width": "16",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "7f9ce2c2b5876c23",
+        "type": "ui_group",
+        "name": "Summary",
+        "tab": "2f150eb340621efc",
+        "order": 1,
+        "disp": true,
         "width": 16,
         "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "1b3ea183cb956faa",
+        "type": "ui_group",
+        "name": "Flex 8600 Power Control",
+        "tab": "2f150eb340621efc",
+        "order": 3,
+        "disp": true,
+        "width": 8,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "bc2d850f3f12f4ca",
+        "type": "ui_group",
+        "name": "Flex 6300 Power Control",
+        "tab": "2f150eb340621efc",
+        "order": 4,
+        "disp": true,
+        "width": 8,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "f57646e009934699",
+        "type": "ui_group",
+        "name": "Shack Lights",
+        "tab": "2f150eb340621efc",
+        "order": 5,
+        "disp": true,
+        "width": 16,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "c64dfde351e348df",
+        "type": "ui_group",
+        "name": "Remote Antenna Switch Battery Status",
+        "tab": "2f150eb340621efc",
+        "order": 6,
+        "disp": true,
+        "width": 16,
+        "collapse": true,
+        "className": ""
+    },
+    {
+        "id": "86dd895c94f5ee59",
+        "type": "ui_group",
+        "name": "CPU Params",
+        "tab": "2f150eb340621efc",
+        "order": 7,
+        "disp": true,
+        "width": 16,
+        "collapse": true,
         "className": ""
     },
     {

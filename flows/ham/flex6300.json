@@ -69,69 +69,6 @@
         ]
     },
     {
-        "id": "90456fff75c4e8eb",
-        "type": "ui_text",
-        "z": "6b97dc8102919a68",
-        "group": "bc2d850f3f12f4ca",
-        "order": 4,
-        "width": 0,
-        "height": 0,
-        "name": "Radio Name",
-        "label": "Radio Name:",
-        "format": "{{msg.payload.nickname}}",
-        "layout": "row-left",
-        "className": "",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#000000",
-        "x": 1510,
-        "y": 280,
-        "wires": []
-    },
-    {
-        "id": "5a13e568f94c9f08",
-        "type": "ui_text",
-        "z": "6b97dc8102919a68",
-        "group": "bc2d850f3f12f4ca",
-        "order": 5,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "Radio Version:",
-        "format": "{{msg.payload.version}}",
-        "layout": "row-left",
-        "className": "",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#000000",
-        "x": 1520,
-        "y": 320,
-        "wires": []
-    },
-    {
-        "id": "49d144a64128b7a8",
-        "type": "ui_text",
-        "z": "6b97dc8102919a68",
-        "group": "bc2d850f3f12f4ca",
-        "order": 6,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "Radio IP:",
-        "format": "{{msg.payload.ip}}",
-        "layout": "row-left",
-        "className": "",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#000000",
-        "x": 1500,
-        "y": 360,
-        "wires": []
-    },
-    {
         "id": "ce372a542eb6c725",
         "type": "inject",
         "z": "6b97dc8102919a68",
@@ -217,9 +154,7 @@
         "y": 200,
         "wires": [
             [
-                "49d144a64128b7a8",
-                "5a13e568f94c9f08",
-                "90456fff75c4e8eb"
+                "01a8797549739e5c"
             ]
         ]
     },
@@ -328,7 +263,7 @@
         "z": "6b97dc8102919a68",
         "name": "",
         "group": "bc2d850f3f12f4ca",
-        "order": 8,
+        "order": 6,
         "width": 4,
         "height": 3,
         "gtype": "gage",
@@ -474,7 +409,7 @@
         "topic": "TX-/4/PATEMP",
         "topic_type": "mqtt",
         "output_mode": "value",
-        "x": 1246,
+        "x": 1210,
         "y": 280,
         "wires": [
             [
@@ -489,7 +424,7 @@
         "z": "6b97dc8102919a68",
         "name": "",
         "group": "bc2d850f3f12f4ca",
-        "order": 7,
+        "order": 5,
         "width": 4,
         "height": 3,
         "gtype": "gage",
@@ -738,7 +673,7 @@
         "type": "ui_text",
         "z": "6b97dc8102919a68",
         "group": "7f9ce2c2b5876c23",
-        "order": 7,
+        "order": 8,
         "width": 3,
         "height": 1,
         "name": "Summary Temperature",
@@ -768,23 +703,31 @@
             [
                 "4e8324d694d17636",
                 "0dbd213b1785328f",
-                "90456fff75c4e8eb",
-                "5a13e568f94c9f08",
-                "49d144a64128b7a8",
-                "a05d3e037df05e8c"
+                "a05d3e037df05e8c",
+                "01a8797549739e5c"
             ]
         ]
     },
     {
-        "id": "bc2d850f3f12f4ca",
-        "type": "ui_group",
-        "name": "Flex 6300 Power Control",
-        "tab": "2f150eb340621efc",
+        "id": "01a8797549739e5c",
+        "type": "ui_template",
+        "z": "6b97dc8102919a68",
+        "group": "bc2d850f3f12f4ca",
+        "name": "Flex 6300 Info",
         "order": 4,
-        "disp": true,
-        "width": 8,
-        "collapse": false,
-        "className": ""
+        "width": 0,
+        "height": 0,
+        "format": "<fieldset>\n    <legend class=\"{{msg.box}}\" ; style=\"text-align: center\" ;>{{msg.payload.model}} Info:</legend>\n    <div style=\"text-align: center\" ;><b>Radio Name: </b>{{msg.payload.nickname}}</div>\n    <div style=\"text-align: center\" ;><b>Radio Version: </b>{{msg.payload.version}}</div>\n    <div style=\"text-align: center\" ;><b>Radio IP: </b>{{msg.payload.ip}}</div>\n</fieldset>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 1520,
+        "y": 300,
+        "wires": [
+            []
+        ]
     },
     {
         "id": "2ac00beec0029621",
@@ -798,6 +741,17 @@
         "slice_mode": "headless",
         "slice_name": "A",
         "timeout": "15"
+    },
+    {
+        "id": "bc2d850f3f12f4ca",
+        "type": "ui_group",
+        "name": "Flex 6300 Power Control",
+        "tab": "2f150eb340621efc",
+        "order": 4,
+        "disp": true,
+        "width": 8,
+        "collapse": false,
+        "className": ""
     },
     {
         "id": "7f9ce2c2b5876c23",

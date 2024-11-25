@@ -8,67 +8,140 @@
         "env": []
     },
     {
-        "id": "9bf064507738970d",
-        "type": "ui_switch",
+        "id": "c808a418a38a99d7",
+        "type": "group",
         "z": "8eef662251c0531b",
-        "name": "Flex-8600 Power",
-        "label": "",
-        "tooltip": "Applies / Removes Flex 6600 Power",
-        "group": "1b3ea183cb956faa",
-        "order": 2,
-        "width": 3,
-        "height": 1,
-        "passthru": true,
-        "decouple": "false",
-        "topic": "topic",
-        "topicType": "msg",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "fa-power-off",
-        "oncolor": "green",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "fa-power-off",
-        "offcolor": "gray",
-        "animate": true,
-        "className": "",
-        "x": 170,
-        "y": 120,
-        "wires": [
-            [
-                "dcb2b9c70757a279"
-            ]
-        ]
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "e7ee71c0fc8ed166",
+            "373c087b454cadb8",
+            "b8fa7669e907f3b3",
+            "16eac3657916ead6"
+        ],
+        "x": 694,
+        "y": 479,
+        "w": 572,
+        "h": 142
+    },
+    {
+        "id": "8a627998db0c8522",
+        "type": "group",
+        "z": "8eef662251c0531b",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "7a298908622521f7",
+            "f22b2d4005b84c98",
+            "2ebac09b430fcefa",
+            "dcb2b9c70757a279"
+        ],
+        "x": 694,
+        "y": 119,
+        "w": 582,
+        "h": 142
+    },
+    {
+        "id": "d0bf0eea5447bb29",
+        "type": "group",
+        "z": "8eef662251c0531b",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "d35fafdc2f0cadff",
+            "27ca0097a6287377",
+            "c422d55a023dc59c",
+            "955a8942505cb4b2",
+            "1e3a8cf10cd40b16",
+            "57973ede8fb2fc05",
+            "278bdd3813145e0c",
+            "ec7fe19d288fdf2b"
+        ],
+        "x": 64,
+        "y": 399,
+        "w": 602,
+        "h": 282
+    },
+    {
+        "id": "2ca7adfc8b5eca4d",
+        "type": "group",
+        "z": "8eef662251c0531b",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "53cfd32f3674044f",
+            "9473d8782e88e396",
+            "f75f628b69a83615",
+            "3c3032d473f91ea7",
+            "164eef2581c8b6f1",
+            "19c6292a0444afc8",
+            "9d3beeb2a4291a1c",
+            "e98f81e6de2dda81"
+        ],
+        "x": 54,
+        "y": 39,
+        "w": 612,
+        "h": 282
     },
     {
         "id": "dcb2b9c70757a279",
         "type": "switch",
         "z": "8eef662251c0531b",
+        "g": "8a627998db0c8522",
         "name": "",
         "property": "payload",
         "propertyType": "msg",
         "rules": [
             {
-                "t": "true"
+                "t": "eq",
+                "v": "open",
+                "vt": "str"
             },
             {
-                "t": "false"
+                "t": "eq",
+                "v": "close",
+                "vt": "str"
             }
         ],
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 340,
-        "y": 120,
+        "x": 770,
+        "y": 180,
         "wires": [
             [
-                "f22b2d4005b84c98",
-                "1c862cbebd8cc7b6"
+                "f22b2d4005b84c98"
             ],
             [
-                "7a298908622521f7",
-                "5cd2119cb74a470c"
+                "7a298908622521f7"
             ]
         ]
     },
@@ -76,6 +149,7 @@
         "id": "f22b2d4005b84c98",
         "type": "http request",
         "z": "8eef662251c0531b",
+        "g": "8a627998db0c8522",
         "name": "Connect ",
         "method": "GET",
         "ret": "txt",
@@ -88,8 +162,8 @@
         "authType": "",
         "senderr": false,
         "headers": [],
-        "x": 490,
-        "y": 100,
+        "x": 920,
+        "y": 160,
         "wires": [
             [
                 "2ebac09b430fcefa"
@@ -100,6 +174,7 @@
         "id": "7a298908622521f7",
         "type": "http request",
         "z": "8eef662251c0531b",
+        "g": "8a627998db0c8522",
         "name": "Disconnect",
         "method": "GET",
         "ret": "txt",
@@ -112,8 +187,8 @@
         "authType": "",
         "senderr": false,
         "headers": [],
-        "x": 500,
-        "y": 160,
+        "x": 930,
+        "y": 220,
         "wires": [
             [
                 "2ebac09b430fcefa"
@@ -124,6 +199,7 @@
         "id": "2ebac09b430fcefa",
         "type": "debug",
         "z": "8eef662251c0531b",
+        "g": "8a627998db0c8522",
         "name": "debug 8600 Power",
         "active": false,
         "tosidebar": true,
@@ -133,72 +209,41 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 710,
-        "y": 100,
+        "x": 1140,
+        "y": 160,
         "wires": []
-    },
-    {
-        "id": "825c0624923bb045",
-        "type": "ui_switch",
-        "z": "8eef662251c0531b",
-        "name": "Flex-6300 Power",
-        "label": "",
-        "tooltip": "Applies / Removes Flex 6300 Power",
-        "group": "bc2d850f3f12f4ca",
-        "order": 2,
-        "width": 3,
-        "height": 1,
-        "passthru": true,
-        "decouple": "false",
-        "topic": "topic",
-        "topicType": "msg",
-        "style": "",
-        "onvalue": "true",
-        "onvalueType": "bool",
-        "onicon": "fa-power-off",
-        "oncolor": "green",
-        "offvalue": "false",
-        "offvalueType": "bool",
-        "officon": "fa-power-off",
-        "offcolor": "gray",
-        "animate": true,
-        "className": "",
-        "x": 150,
-        "y": 540,
-        "wires": [
-            [
-                "e7ee71c0fc8ed166"
-            ]
-        ]
     },
     {
         "id": "e7ee71c0fc8ed166",
         "type": "switch",
         "z": "8eef662251c0531b",
+        "g": "c808a418a38a99d7",
         "name": "",
         "property": "payload",
         "propertyType": "msg",
         "rules": [
             {
-                "t": "true"
+                "t": "eq",
+                "v": "open",
+                "vt": "str"
             },
             {
-                "t": "false"
+                "t": "eq",
+                "v": "close",
+                "vt": "str"
             }
         ],
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 320,
+        "x": 770,
         "y": 540,
         "wires": [
             [
-                "373c087b454cadb8",
-                "fdc9bf0c9ef288af"
+                "373c087b454cadb8"
             ],
             [
-                "b8fa7669e907f3b3",
-                "e456409174c04434"
+                "b8fa7669e907f3b3"
             ]
         ]
     },
@@ -206,6 +251,7 @@
         "id": "373c087b454cadb8",
         "type": "http request",
         "z": "8eef662251c0531b",
+        "g": "c808a418a38a99d7",
         "name": "Connect ",
         "method": "GET",
         "ret": "txt",
@@ -218,7 +264,7 @@
         "authType": "",
         "senderr": false,
         "headers": [],
-        "x": 470,
+        "x": 910,
         "y": 520,
         "wires": [
             [
@@ -230,6 +276,7 @@
         "id": "b8fa7669e907f3b3",
         "type": "http request",
         "z": "8eef662251c0531b",
+        "g": "c808a418a38a99d7",
         "name": "Disconnect",
         "method": "GET",
         "ret": "txt",
@@ -242,7 +289,7 @@
         "authType": "",
         "senderr": false,
         "headers": [],
-        "x": 480,
+        "x": 920,
         "y": 580,
         "wires": [
             [
@@ -254,6 +301,7 @@
         "id": "16eac3657916ead6",
         "type": "debug",
         "z": "8eef662251c0531b",
+        "g": "c808a418a38a99d7",
         "name": "debug 6300 Power",
         "active": false,
         "tosidebar": true,
@@ -263,22 +311,23 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 690,
+        "x": 1130,
         "y": 520,
         "wires": []
     },
     {
-        "id": "fdc9bf0c9ef288af",
+        "id": "19c6292a0444afc8",
         "type": "change",
         "z": "8eef662251c0531b",
-        "name": "SET OFF",
+        "g": "2ca7adfc8b5eca4d",
+        "name": "",
         "rules": [
             {
                 "t": "set",
-                "p": "payload",
+                "p": "topic",
                 "pt": "msg",
-                "to": "POWER OFF",
-                "tot": "str"
+                "to": "label",
+                "tot": "msg"
             }
         ],
         "action": "",
@@ -286,142 +335,73 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 480,
-        "y": 640,
+        "x": 360,
+        "y": 280,
         "wires": [
             [
-                "ece762912b6f8605"
+                "f75f628b69a83615"
             ]
         ]
     },
     {
-        "id": "e456409174c04434",
-        "type": "change",
+        "id": "f75f628b69a83615",
+        "type": "ui_button",
         "z": "8eef662251c0531b",
-        "name": "SET ON",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "POWER ON",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 480,
-        "y": 680,
-        "wires": [
-            [
-                "ece762912b6f8605"
-            ]
-        ]
-    },
-    {
-        "id": "ece762912b6f8605",
-        "type": "ui_text",
-        "z": "8eef662251c0531b",
-        "group": "bc2d850f3f12f4ca",
-        "order": 1,
-        "width": 3,
-        "height": 1,
-        "name": "6300 Label",
-        "label": "",
-        "format": "{{msg.payload}}",
-        "layout": "col-center",
-        "className": "",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#000000",
-        "x": 670,
-        "y": 660,
-        "wires": []
-    },
-    {
-        "id": "dd682853eed435f8",
-        "type": "ui_text",
-        "z": "8eef662251c0531b",
+        "g": "2ca7adfc8b5eca4d",
+        "name": "Flex 8600 Power",
         "group": "1b3ea183cb956faa",
-        "order": 1,
-        "width": 3,
+        "order": 2,
+        "width": 4,
         "height": 1,
-        "name": "8600 Label",
-        "label": "",
-        "format": "{{msg.payload}}",
-        "layout": "col-center",
+        "passthru": false,
+        "label": "{{topic}}",
+        "tooltip": "Toggles Flex 8600 Power on/off",
+        "color": "",
+        "bgcolor": "{{background}}",
         "className": "",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#000000",
-        "x": 700,
-        "y": 240,
-        "wires": []
-    },
-    {
-        "id": "5cd2119cb74a470c",
-        "type": "change",
-        "z": "8eef662251c0531b",
-        "name": "SET ON",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "POWER ON",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 500,
-        "y": 260,
+        "icon": "{{myicon}}",
+        "payload": "open",
+        "payloadType": "str",
+        "topic": "control",
+        "topicType": "str",
+        "x": 170,
+        "y": 200,
         "wires": [
             [
-                "dd682853eed435f8"
+                "164eef2581c8b6f1"
             ]
         ]
     },
     {
-        "id": "1c862cbebd8cc7b6",
-        "type": "change",
+        "id": "164eef2581c8b6f1",
+        "type": "function",
         "z": "8eef662251c0531b",
-        "name": "SET OFF",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "POWER OFF",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 500,
-        "y": 220,
+        "g": "2ca7adfc8b5eca4d",
+        "name": "button logic",
+        "func": "\nlet payload=msg.payload;\nlet state=context.get(\"state\");\nif(msg.topic==\"init\")\n{\n    state = \"open\";\n    msg.payload = \"close\";\n    msg.background = \"red\";\n    msg.label = \"Press to Power-On\";\n    msg.myicon = \"fa-toggle-off\";\n    msg.topic=\"control\";\n    context.set(\"state\", \"closed\");\n    return msg;\n}\n//toggle\nif (typeof state == \"undefined\" || state==\"open\")\n{\n//state=\"open\";\nmsg.payload= \"close\";\nmsg.background = \"red\";\nmsg.label = \"Press to Power-On\";\nmsg.myicon = \"fa-toggle-off\";\nstate=\"closed\";\n\n}\nelse if (typeof state == \"undefined\" || state == \"closed\") {\n//state = \"close\";\nmsg.payload= \"open\";\nmsg.background = \"green\";\nmsg.label = \"Press to Power-Off\";\nmsg.myicon=\"fa-toggle-on\";\nstate=\"open\";\n\n}\ncontext.set(\"state\",state);\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "// Code added here will be run once\n// whenever the node is started.\ncontext.set(\"state\", \"closed\");",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 180,
         "wires": [
             [
-                "dd682853eed435f8"
+                "3c3032d473f91ea7",
+                "19c6292a0444afc8",
+                "9d3beeb2a4291a1c",
+                "dcb2b9c70757a279"
             ]
         ]
     },
     {
-        "id": "b0e851259df58a07",
+        "id": "9473d8782e88e396",
         "type": "inject",
         "z": "8eef662251c0531b",
-        "name": "Init To OFF",
+        "g": "2ca7adfc8b5eca4d",
+        "name": "init",
         "props": [
             {
                 "p": "payload"
@@ -434,16 +414,300 @@
         "repeat": "",
         "crontab": "",
         "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "false",
-        "payloadType": "bool",
-        "x": 290,
-        "y": 260,
+        "onceDelay": "2",
+        "topic": "init",
+        "payload": "close",
+        "payloadType": "str",
+        "x": 190,
+        "y": 140,
         "wires": [
             [
-                "5cd2119cb74a470c",
-                "e456409174c04434"
+                "164eef2581c8b6f1"
+            ]
+        ]
+    },
+    {
+        "id": "53cfd32f3674044f",
+        "type": "inject",
+        "z": "8eef662251c0531b",
+        "g": "2ca7adfc8b5eca4d",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 200,
+        "y": 80,
+        "wires": [
+            [
+                "3c3032d473f91ea7"
+            ]
+        ]
+    },
+    {
+        "id": "3c3032d473f91ea7",
+        "type": "gate",
+        "z": "8eef662251c0531b",
+        "g": "2ca7adfc8b5eca4d",
+        "name": "",
+        "controlTopic": "control",
+        "defaultState": "closed",
+        "openCmd": "open",
+        "closeCmd": "close",
+        "toggleCmd": "toggle",
+        "defaultCmd": "default",
+        "statusCmd": "status",
+        "persist": false,
+        "storeName": "memoryOnly",
+        "x": 370,
+        "y": 80,
+        "wires": [
+            [
+                "e98f81e6de2dda81"
+            ]
+        ]
+    },
+    {
+        "id": "e98f81e6de2dda81",
+        "type": "debug",
+        "z": "8eef662251c0531b",
+        "g": "2ca7adfc8b5eca4d",
+        "name": "debug 60",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "9d3beeb2a4291a1c",
+        "type": "debug",
+        "z": "8eef662251c0531b",
+        "g": "2ca7adfc8b5eca4d",
+        "name": "debug 61",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 560,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "27ca0097a6287377",
+        "type": "change",
+        "z": "8eef662251c0531b",
+        "g": "d0bf0eea5447bb29",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "label",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 390,
+        "y": 640,
+        "wires": [
+            [
+                "57973ede8fb2fc05"
+            ]
+        ]
+    },
+    {
+        "id": "c422d55a023dc59c",
+        "type": "debug",
+        "z": "8eef662251c0531b",
+        "g": "d0bf0eea5447bb29",
+        "name": "debug 61",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 560,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "1e3a8cf10cd40b16",
+        "type": "function",
+        "z": "8eef662251c0531b",
+        "g": "d0bf0eea5447bb29",
+        "name": "button logic",
+        "func": "\nlet payload=msg.payload;\nlet state=context.get(\"state\");\nif(msg.topic==\"init\")\n{\n    state = \"open\";\n    msg.payload = \"close\";\n    msg.background = \"red\";\n    msg.label = \"Press to Power-On\";\n    msg.myicon = \"fa-toggle-off\";\n    msg.topic=\"control\";\n    context.set(\"state\", \"closed\");\n    return msg;\n}\n//toggle\nif (typeof state == \"undefined\" || state==\"open\")\n{\n//state=\"open\";\nmsg.payload= \"close\";\nmsg.background = \"red\";\nmsg.label = \"Press to Power-On\";\nmsg.myicon = \"fa-toggle-off\";\nstate=\"closed\";\n\n}\nelse if (typeof state == \"undefined\" || state == \"closed\") {\n//state = \"close\";\nmsg.payload= \"open\";\nmsg.background = \"green\";\nmsg.label = \"Press to Power-Off\";\nmsg.myicon=\"fa-toggle-on\";\nstate=\"open\";\n\n}\ncontext.set(\"state\",state);\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "// Code added here will be run once\n// whenever the node is started.\ncontext.set(\"state\", \"closed\");",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 540,
+        "wires": [
+            [
+                "d35fafdc2f0cadff",
+                "27ca0097a6287377",
+                "c422d55a023dc59c",
+                "e7ee71c0fc8ed166"
+            ]
+        ]
+    },
+    {
+        "id": "955a8942505cb4b2",
+        "type": "debug",
+        "z": "8eef662251c0531b",
+        "g": "d0bf0eea5447bb29",
+        "name": "debug 60",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 530,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "d35fafdc2f0cadff",
+        "type": "gate",
+        "z": "8eef662251c0531b",
+        "g": "d0bf0eea5447bb29",
+        "name": "",
+        "controlTopic": "control",
+        "defaultState": "closed",
+        "openCmd": "open",
+        "closeCmd": "close",
+        "toggleCmd": "toggle",
+        "defaultCmd": "default",
+        "statusCmd": "status",
+        "persist": false,
+        "storeName": "memoryOnly",
+        "x": 370,
+        "y": 440,
+        "wires": [
+            [
+                "955a8942505cb4b2"
+            ]
+        ]
+    },
+    {
+        "id": "ec7fe19d288fdf2b",
+        "type": "inject",
+        "z": "8eef662251c0531b",
+        "g": "d0bf0eea5447bb29",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 210,
+        "y": 440,
+        "wires": [
+            [
+                "d35fafdc2f0cadff"
+            ]
+        ]
+    },
+    {
+        "id": "278bdd3813145e0c",
+        "type": "inject",
+        "z": "8eef662251c0531b",
+        "g": "d0bf0eea5447bb29",
+        "name": "init",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "2",
+        "topic": "init",
+        "payload": "close",
+        "payloadType": "str",
+        "x": 190,
+        "y": 500,
+        "wires": [
+            [
+                "1e3a8cf10cd40b16"
+            ]
+        ]
+    },
+    {
+        "id": "57973ede8fb2fc05",
+        "type": "ui_button",
+        "z": "8eef662251c0531b",
+        "g": "d0bf0eea5447bb29",
+        "name": "Flex 6300 Power",
+        "group": "bc2d850f3f12f4ca",
+        "order": 2,
+        "width": 4,
+        "height": 1,
+        "passthru": false,
+        "label": "{{topic}}",
+        "tooltip": "Toggles Flex 6300 Power on/off",
+        "color": "",
+        "bgcolor": "{{background}}",
+        "className": "",
+        "icon": "{{myicon}}",
+        "payload": "open",
+        "payloadType": "str",
+        "topic": "control",
+        "topicType": "str",
+        "x": 180,
+        "y": 560,
+        "wires": [
+            [
+                "1e3a8cf10cd40b16"
             ]
         ]
     },
