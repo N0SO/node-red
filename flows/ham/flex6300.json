@@ -1,31 +1,182 @@
 [
     {
-        "id": "6b97dc8102919a68",
+        "id": "8eef662251c0531b",
         "type": "tab",
-        "label": "Flex-6300",
+        "label": "Flex 6300",
         "disabled": false,
         "info": "",
         "env": []
     },
     {
-        "id": "b81734d2fb4d3d3b",
+        "id": "c808a418a38a99d7",
+        "type": "group",
+        "z": "8eef662251c0531b",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "e7ee71c0fc8ed166",
+            "373c087b454cadb8",
+            "b8fa7669e907f3b3",
+            "16eac3657916ead6"
+        ],
+        "x": 694,
+        "y": 479,
+        "w": 632,
+        "h": 122
+    },
+    {
+        "id": "d0bf0eea5447bb29",
+        "type": "group",
+        "z": "8eef662251c0531b",
+        "style": {
+            "stroke": "#999999",
+            "stroke-opacity": "1",
+            "fill": "none",
+            "fill-opacity": "1",
+            "label": true,
+            "label-position": "nw",
+            "color": "#a4a4a4"
+        },
+        "nodes": [
+            "d35fafdc2f0cadff",
+            "27ca0097a6287377",
+            "c422d55a023dc59c",
+            "955a8942505cb4b2",
+            "1e3a8cf10cd40b16",
+            "57973ede8fb2fc05",
+            "278bdd3813145e0c"
+        ],
+        "x": 64,
+        "y": 399,
+        "w": 602,
+        "h": 282
+    },
+    {
+        "id": "e7ee71c0fc8ed166",
+        "type": "switch",
+        "z": "8eef662251c0531b",
+        "g": "c808a418a38a99d7",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "open",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "close",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 770,
+        "y": 540,
+        "wires": [
+            [
+                "373c087b454cadb8",
+                "69a92baefe283626"
+            ],
+            [
+                "b8fa7669e907f3b3",
+                "277146ef8abcf2fd"
+            ]
+        ]
+    },
+    {
+        "id": "373c087b454cadb8",
+        "type": "http request",
+        "z": "8eef662251c0531b",
+        "g": "c808a418a38a99d7",
+        "name": "Connect ",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "192.168.1.199/FF0301",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 980,
+        "y": 520,
+        "wires": [
+            [
+                "16eac3657916ead6"
+            ]
+        ]
+    },
+    {
+        "id": "b8fa7669e907f3b3",
+        "type": "http request",
+        "z": "8eef662251c0531b",
+        "g": "c808a418a38a99d7",
+        "name": "Disconnect",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "192.168.1.199/FF0300",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 990,
+        "y": 560,
+        "wires": [
+            [
+                "16eac3657916ead6",
+                "ada87a07c7a1a453",
+                "d3d3f0a0edf08f69"
+            ]
+        ]
+    },
+    {
+        "id": "16eac3657916ead6",
+        "type": "debug",
+        "z": "8eef662251c0531b",
+        "g": "c808a418a38a99d7",
+        "name": "debug 6300 Power",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1190,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "27ca0097a6287377",
         "type": "change",
-        "z": "6b97dc8102919a68",
-        "name": "Initialize Counter",
+        "z": "8eef662251c0531b",
+        "g": "d0bf0eea5447bb29",
+        "name": "",
         "rules": [
             {
                 "t": "set",
-                "p": "counter",
-                "pt": "flow",
-                "to": "0",
-                "tot": "num"
-            },
-            {
-                "t": "set",
-                "p": "subscribe",
-                "pt": "flow",
-                "to": "false",
-                "tot": "bool"
+                "p": "topic",
+                "pt": "msg",
+                "to": "label",
+                "tot": "msg"
             }
         ],
         "action": "",
@@ -33,17 +184,101 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 766,
-        "y": 80,
+        "x": 390,
+        "y": 640,
         "wires": [
-            []
+            [
+                "57973ede8fb2fc05"
+            ]
         ]
     },
     {
-        "id": "357b70ed037c1dd8",
+        "id": "c422d55a023dc59c",
+        "type": "debug",
+        "z": "8eef662251c0531b",
+        "g": "d0bf0eea5447bb29",
+        "name": "debug 61",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 560,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "1e3a8cf10cd40b16",
+        "type": "function",
+        "z": "8eef662251c0531b",
+        "g": "d0bf0eea5447bb29",
+        "name": "button logic",
+        "func": "\nlet payload=msg.payload;\nlet state=context.get(\"state\");\nif(msg.topic==\"init\")\n{\n    state = \"open\";\n    msg.payload = \"close\";\n    msg.background = \"red\";\n    msg.label = \"Press to Power-On\";\n    msg.myicon = \"fa-toggle-off\";\n    msg.topic=\"control\";\n    context.set(\"state\", \"closed\");\n    return msg;\n}\n//toggle\nif (typeof state == \"undefined\" || state==\"open\")\n{\n//state=\"open\";\nmsg.payload= \"close\";\nmsg.background = \"red\";\nmsg.label = \"Press to Power-On\";\nmsg.myicon = \"fa-toggle-off\";\nstate=\"closed\";\n\n}\nelse if (typeof state == \"undefined\" || state == \"closed\") {\n//state = \"close\";\nmsg.payload= \"open\";\nmsg.background = \"green\";\nmsg.label = \"Press to Power-Off\";\nmsg.myicon=\"fa-toggle-on\";\nstate=\"open\";\n\n}\ncontext.set(\"state\",state);\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "// Code added here will be run once\n// whenever the node is started.\ncontext.set(\"state\", \"closed\");",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 540,
+        "wires": [
+            [
+                "d35fafdc2f0cadff",
+                "27ca0097a6287377",
+                "c422d55a023dc59c",
+                "e7ee71c0fc8ed166"
+            ]
+        ]
+    },
+    {
+        "id": "955a8942505cb4b2",
+        "type": "debug",
+        "z": "8eef662251c0531b",
+        "g": "d0bf0eea5447bb29",
+        "name": "debug 60",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 530,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "d35fafdc2f0cadff",
+        "type": "gate",
+        "z": "8eef662251c0531b",
+        "g": "d0bf0eea5447bb29",
+        "name": "",
+        "controlTopic": "control",
+        "defaultState": "closed",
+        "openCmd": "open",
+        "closeCmd": "close",
+        "toggleCmd": "toggle",
+        "defaultCmd": "default",
+        "statusCmd": "status",
+        "persist": false,
+        "storeName": "memoryOnly",
+        "x": 370,
+        "y": 440,
+        "wires": [
+            [
+                "955a8942505cb4b2"
+            ]
+        ]
+    },
+    {
+        "id": "278bdd3813145e0c",
         "type": "inject",
-        "z": "6b97dc8102919a68",
-        "name": "Init",
+        "z": "8eef662251c0531b",
+        "g": "d0bf0eea5447bb29",
+        "name": "init",
         "props": [
             {
                 "p": "payload"
@@ -56,274 +291,121 @@
         "repeat": "",
         "crontab": "",
         "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 506,
-        "y": 80,
+        "onceDelay": "2",
+        "topic": "init",
+        "payload": "close",
+        "payloadType": "str",
+        "x": 190,
+        "y": 500,
         "wires": [
             [
-                "b81734d2fb4d3d3b"
+                "1e3a8cf10cd40b16"
             ]
         ]
     },
     {
-        "id": "ce372a542eb6c725",
-        "type": "inject",
-        "z": "6b97dc8102919a68",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "1",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 546,
-        "y": 140,
+        "id": "57973ede8fb2fc05",
+        "type": "ui_button",
+        "z": "8eef662251c0531b",
+        "g": "d0bf0eea5447bb29",
+        "name": "Flex 6300 Power",
+        "group": "bc2d850f3f12f4ca",
+        "order": 2,
+        "width": 4,
+        "height": 1,
+        "passthru": false,
+        "label": "{{topic}}",
+        "tooltip": "Toggles Flex 6300 Power on/off",
+        "color": "",
+        "bgcolor": "{{background}}",
+        "className": "",
+        "icon": "{{myicon}}",
+        "payload": "open",
+        "payloadType": "str",
+        "topic": "control",
+        "topicType": "str",
+        "x": 180,
+        "y": 560,
         "wires": [
             [
-                "30e5232f33d6b42c"
+                "1e3a8cf10cd40b16"
             ]
         ]
     },
     {
-        "id": "30a327fba2cbfe4d",
-        "type": "switch",
-        "z": "6b97dc8102919a68",
-        "name": "Determine Timeout",
-        "property": "counter",
-        "propertyType": "flow",
-        "rules": [
-            {
-                "t": "gte",
-                "v": "7",
-                "vt": "num"
-            },
-            {
-                "t": "gte",
-                "v": "5",
-                "vt": "num"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 2,
-        "x": 1046,
-        "y": 140,
-        "wires": [
-            [
-                "d0654f9cd9950f86"
-            ],
-            [
-                "c9f3b209a309509a",
-                "cd25d0c2f0192b1e"
-            ]
-        ]
-    },
-    {
-        "id": "c9f3b209a309509a",
-        "type": "change",
-        "z": "6b97dc8102919a68",
-        "name": "Clear Radio Data",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "    ",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 1046,
-        "y": 200,
-        "wires": [
-            [
-                "01a8797549739e5c"
-            ]
-        ]
-    },
-    {
-        "id": "4e8324d694d17636",
-        "type": "change",
-        "z": "6b97dc8102919a68",
-        "name": "Reset Counter",
-        "rules": [
-            {
-                "t": "set",
-                "p": "counter",
-                "pt": "flow",
-                "to": "0",
-                "tot": "num"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 756,
-        "y": 340,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "a05d3e037df05e8c",
+        "id": "f1bacdac696bd052",
         "type": "debug",
-        "z": "6b97dc8102919a68",
-        "name": "debug 33",
-        "active": false,
+        "z": "8eef662251c0531b",
+        "name": "debug 26",
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 696,
-        "y": 540,
+        "x": 1060,
+        "y": 300,
         "wires": []
     },
     {
-        "id": "4a246037e428f462",
-        "type": "change",
-        "z": "6b97dc8102919a68",
-        "name": "PATEMP Request",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "sub meter TX-/4/PATEMP",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 786,
-        "y": 660,
+        "id": "37deec9263adb45c",
+        "type": "delay",
+        "z": "8eef662251c0531b",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "45",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 940,
+        "y": 360,
         "wires": [
             [
-                "3e72b4c2a26a9fce"
+                "2e285e0b28086cb9"
             ]
         ]
     },
     {
-        "id": "3e72b4c2a26a9fce",
+        "id": "2e285e0b28086cb9",
         "type": "flexradio-request",
-        "z": "6b97dc8102919a68",
+        "z": "8eef662251c0531b",
         "name": "",
-        "radio": "2ac00beec0029621",
-        "x": 1006,
-        "y": 660,
+        "radio": "7b25f636a9e83a06",
+        "x": 1130,
+        "y": 360,
         "wires": [
             [
-                "fedc3c18fa25c637"
+                "f1bacdac696bd052"
             ]
         ]
     },
     {
-        "id": "4f71d79d5c022fdb",
-        "type": "flexradio-meter",
-        "z": "6b97dc8102919a68",
-        "name": "Flex-6300 VDCA",
-        "radio": "2ac00beec0029621",
-        "topic": "RAD/208/+13.8A",
-        "topic_type": "mqtt",
-        "output_mode": "value",
-        "x": 1280,
-        "y": 180,
-        "wires": [
-            [
-                "f97aec0a82afc5b2"
-            ]
-        ]
-    },
-    {
-        "id": "f97aec0a82afc5b2",
-        "type": "ui_gauge",
-        "z": "6b97dc8102919a68",
-        "name": "",
-        "group": "bc2d850f3f12f4ca",
-        "order": 6,
-        "width": 4,
-        "height": 3,
-        "gtype": "gage",
-        "title": "+13.8 VDC A",
-        "label": "VDC",
-        "format": "{{value}}",
-        "min": "10",
-        "max": "18",
-        "colors": [
-            "#fff994",
-            "#64c466",
-            "#ca3838"
-        ],
-        "seg1": "12.5",
-        "seg2": "15.0",
-        "diff": false,
-        "className": "",
-        "x": 1510,
-        "y": 140,
-        "wires": []
-    },
-    {
-        "id": "3fe6732790f28286",
+        "id": "69a92baefe283626",
         "type": "change",
-        "z": "6b97dc8102919a68",
-        "name": "Set Subscribe",
+        "z": "8eef662251c0531b",
+        "name": "connect 6300",
         "rules": [
             {
                 "t": "set",
-                "p": "subscribe",
-                "pt": "flow",
-                "to": "true",
-                "tot": "bool"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 1376,
-        "y": 700,
-        "wires": [
-            [
-                "7b1f2a4bfa7b20bc"
-            ]
-        ]
-    },
-    {
-        "id": "2b09000ffbf9762e",
-        "type": "change",
-        "z": "6b97dc8102919a68",
-        "name": "DCV A Request",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
+                "p": "action",
                 "pt": "msg",
-                "to": "sub meter RAD/208/+13.8A",
+                "to": "connect",
                 "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "radio",
+                "pt": "msg",
+                "to": "{\"host_mode\":\"manual\",\"host\":\"192.168.1.244\",\"port\":4992}",
+                "tot": "json"
             }
         ],
         "action": "",
@@ -332,99 +414,126 @@
         "to": "",
         "reg": false,
         "x": 780,
-        "y": 720,
+        "y": 360,
         "wires": [
             [
-                "df568c5735a9f86d",
-                "61726e59850e09d0"
+                "37deec9263adb45c"
             ]
         ]
     },
     {
-        "id": "df568c5735a9f86d",
-        "type": "flexradio-request",
-        "z": "6b97dc8102919a68",
-        "name": "",
-        "radio": "2ac00beec0029621",
-        "x": 1006,
-        "y": 720,
+        "id": "277146ef8abcf2fd",
+        "type": "change",
+        "z": "8eef662251c0531b",
+        "name": "disconnect 6300",
+        "rules": [
+            {
+                "t": "set",
+                "p": "action",
+                "pt": "msg",
+                "to": "disconnect",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 882,
+        "y": 415,
         "wires": [
             [
-                "fedc3c18fa25c637"
+                "2e285e0b28086cb9"
             ]
         ]
     },
     {
-        "id": "7b1f2a4bfa7b20bc",
+        "id": "7d24774b7d3e50d2",
         "type": "debug",
-        "z": "6b97dc8102919a68",
-        "name": "debug 34",
-        "active": false,
+        "z": "8eef662251c0531b",
+        "name": "debug 27",
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1400,
-        "y": 640,
+        "x": 580,
+        "y": 820,
         "wires": []
     },
     {
-        "id": "32bd2c6b5818c745",
-        "type": "inject",
-        "z": "6b97dc8102919a68",
+        "id": "dab9a9782042f131",
+        "type": "flexradio-message",
+        "z": "8eef662251c0531b",
         "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
+        "radio": "7b25f636a9e83a06",
+        "client": "radio",
         "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 596,
-        "y": 780,
+        "topic_type": "mqtt",
+        "x": 400,
+        "y": 760,
         "wires": [
             [
-                "2b09000ffbf9762e",
-                "4a246037e428f462"
+                "7d24774b7d3e50d2",
+                "7dda46dc875a5cae"
             ]
         ]
     },
     {
-        "id": "10989f2987fe718f",
+        "id": "7dda46dc875a5cae",
+        "type": "switch",
+        "z": "8eef662251c0531b",
+        "name": "Connected",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "connected",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 610,
+        "y": 760,
+        "wires": [
+            [
+                "a396e5968354a2a4",
+                "67410c1c4b2f7ac9"
+            ]
+        ]
+    },
+    {
+        "id": "d1a66b3420de9d0f",
         "type": "flexradio-meter",
-        "z": "6b97dc8102919a68",
+        "z": "8eef662251c0531b",
         "name": "Flex 6300 PA Temp",
         "radio": "2ac00beec0029621",
         "topic": "TX-/4/PATEMP",
         "topic_type": "mqtt",
         "output_mode": "value",
-        "x": 1210,
-        "y": 280,
+        "x": 390,
+        "y": 980,
         "wires": [
             [
-                "0580404bad2d5299",
-                "b8570db4c784eb6e"
+                "17ffe92d28a210f6",
+                "2b0f6bd7f7e92e70",
+                "b6670a2e7e66fc74"
             ]
         ]
     },
     {
-        "id": "0580404bad2d5299",
+        "id": "17ffe92d28a210f6",
         "type": "ui_gauge",
-        "z": "6b97dc8102919a68",
+        "z": "8eef662251c0531b",
         "name": "",
         "group": "bc2d850f3f12f4ca",
-        "order": 5,
+        "order": 6,
         "width": 4,
         "height": 3,
         "gtype": "gage",
@@ -442,29 +551,22 @@
         "seg2": "65",
         "diff": false,
         "className": "",
-        "x": 1500,
-        "y": 240,
+        "x": 600,
+        "y": 980,
         "wires": []
     },
     {
-        "id": "cd25d0c2f0192b1e",
+        "id": "2b0f6bd7f7e92e70",
         "type": "change",
-        "z": "6b97dc8102919a68",
-        "name": "Clear Radio Meters",
+        "z": "8eef662251c0531b",
+        "name": "",
         "rules": [
             {
                 "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "0.0",
-                "tot": "num"
-            },
-            {
-                "t": "set",
-                "p": "subscribe",
-                "pt": "flow",
-                "to": "false",
-                "tot": "bool"
+                "p": "pa63",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
             }
         ],
         "action": "",
@@ -472,76 +574,17 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1266,
-        "y": 140,
+        "x": 620,
+        "y": 940,
         "wires": [
-            [
-                "0580404bad2d5299",
-                "f97aec0a82afc5b2",
-                "b8570db4c784eb6e"
-            ]
-        ]
-    },
-    {
-        "id": "0dbd213b1785328f",
-        "type": "switch",
-        "z": "6b97dc8102919a68",
-        "name": "",
-        "property": "subscribe",
-        "propertyType": "flow",
-        "rules": [
-            {
-                "t": "false"
-            },
-            {
-                "t": "else"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 2,
-        "x": 526,
-        "y": 600,
-        "wires": [
-            [
-                "4a246037e428f462",
-                "2b09000ffbf9762e"
-            ],
             []
         ]
     },
     {
-        "id": "5343a19d664d4925",
-        "type": "change",
-        "z": "6b97dc8102919a68",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "counter",
-                "tot": "flow"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 976,
-        "y": 80,
-        "wires": [
-            [
-                "45576227f2d4e97b"
-            ]
-        ]
-    },
-    {
-        "id": "45576227f2d4e97b",
+        "id": "b6670a2e7e66fc74",
         "type": "debug",
-        "z": "6b97dc8102919a68",
-        "name": "debug 35",
+        "z": "8eef662251c0531b",
+        "name": "debug 62",
         "active": false,
         "tosidebar": true,
         "console": false,
@@ -549,21 +592,47 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 916,
-        "y": 20,
+        "x": 600,
+        "y": 1020,
         "wires": []
     },
     {
-        "id": "d0654f9cd9950f86",
+        "id": "a396e5968354a2a4",
+        "type": "delay",
+        "z": "8eef662251c0531b",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 760,
+        "y": 760,
+        "wires": [
+            [
+                "05ea0c0dc41e5210",
+                "a0afba524a86811d"
+            ]
+        ]
+    },
+    {
+        "id": "67410c1c4b2f7ac9",
         "type": "change",
-        "z": "6b97dc8102919a68",
-        "name": "Hold counter",
+        "z": "8eef662251c0531b",
+        "name": "Radio Info Request",
         "rules": [
             {
                 "t": "set",
-                "p": "counter",
-                "pt": "flow",
-                "to": "12",
+                "p": "payload",
+                "pt": "msg",
+                "to": "info",
                 "tot": "str"
             }
         ],
@@ -572,92 +641,312 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1206,
-        "y": 80,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "30e5232f33d6b42c",
-        "type": "function",
-        "z": "6b97dc8102919a68",
-        "name": "IncCounter",
-        "func": "var myCount = flow.get(\"counter\");\nmyCount++;\nflow.set(\"counter\", myCount);\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 726,
-        "y": 140,
+        "x": 630,
+        "y": 900,
         "wires": [
             [
-                "5343a19d664d4925",
-                "30a327fba2cbfe4d"
+                "990eab745c2fedc3",
+                "4d50b82d10af6c68"
             ]
         ]
     },
     {
-        "id": "fedc3c18fa25c637",
-        "type": "switch",
-        "z": "6b97dc8102919a68",
-        "name": "",
-        "property": "payload",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "radio not available or connected.",
-                "vt": "str"
-            },
-            {
-                "t": "else"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 3,
-        "x": 1190,
-        "y": 720,
-        "wires": [
-            [
-                "3fe6732790f28286"
-            ],
-            [
-                "2fea94e3b368327a"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "2fea94e3b368327a",
+        "id": "990eab745c2fedc3",
         "type": "debug",
-        "z": "6b97dc8102919a68",
-        "name": "debug 36",
-        "active": false,
+        "z": "8eef662251c0531b",
+        "name": "debug 64",
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1240,
+        "x": 820,
+        "y": 960,
+        "wires": []
+    },
+    {
+        "id": "fa3541b43639f53b",
+        "type": "ui_template",
+        "z": "8eef662251c0531b",
+        "group": "bc2d850f3f12f4ca",
+        "name": "Flex 6300 Info",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "format": "<fieldset>\n    <legend class=\"{{msg.box}}\" ; style=\"text-align: center\" ;>{{msg.payload.model}} Info:</legend>\n    <div style=\"text-align: center\" ;><b>Radio Name: </b>{{msg.payload.name}}</div>\n    <div style=\"text-align: center\" ;><b>Radio Version: </b>{{msg.payload.software_ver}}</div>\n    <div style=\"text-align: center\" ;><b>Radio IP: </b>{{msg.payload.ip}}</div>\n</fieldset>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 1060,
+        "y": 900,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ada87a07c7a1a453",
+        "type": "change",
+        "z": "8eef662251c0531b",
+        "name": "ClearInfo",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 880,
+        "y": 860,
+        "wires": [
+            [
+                "fa3541b43639f53b"
+            ]
+        ]
+    },
+    {
+        "id": "d3d3f0a0edf08f69",
+        "type": "change",
+        "z": "8eef662251c0531b",
+        "name": "clear meters",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "0",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 390,
+        "y": 900,
+        "wires": [
+            [
+                "17ffe92d28a210f6",
+                "6ef290983647d7f2"
+            ]
+        ]
+    },
+    {
+        "id": "173a12b1dff97ae4",
+        "type": "inject",
+        "z": "8eef662251c0531b",
+        "name": "Meter List",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "sub meter TX-/4/PATEMP",
+        "payloadType": "str",
+        "x": 820,
+        "y": 300,
+        "wires": [
+            [
+                "2e285e0b28086cb9"
+            ]
+        ]
+    },
+    {
+        "id": "e3cef3c1e203b8c2",
+        "type": "flexradio-request",
+        "z": "8eef662251c0531b",
+        "name": "",
+        "radio": "2ac00beec0029621",
+        "x": 1210,
+        "y": 780,
+        "wires": [
+            [
+                "bf5136fb6d7e72e3"
+            ]
+        ]
+    },
+    {
+        "id": "05ea0c0dc41e5210",
+        "type": "change",
+        "z": "8eef662251c0531b",
+        "name": "PATEMP Request",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "sub meter TX-/4/PATEMP",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1010,
+        "y": 740,
+        "wires": [
+            [
+                "720867737b31c9df"
+            ]
+        ]
+    },
+    {
+        "id": "a0afba524a86811d",
+        "type": "change",
+        "z": "8eef662251c0531b",
+        "name": "DCV A Request",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "sub meter RAD/208/+13.8A",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1000,
+        "y": 780,
+        "wires": [
+            [
+                "e3cef3c1e203b8c2"
+            ]
+        ]
+    },
+    {
+        "id": "720867737b31c9df",
+        "type": "flexradio-request",
+        "z": "8eef662251c0531b",
+        "name": "",
+        "radio": "2ac00beec0029621",
+        "x": 1210,
+        "y": 740,
+        "wires": [
+            [
+                "94cba0e3951392b4"
+            ]
+        ]
+    },
+    {
+        "id": "94cba0e3951392b4",
+        "type": "debug",
+        "z": "8eef662251c0531b",
+        "name": "debug 67",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1380,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "bf5136fb6d7e72e3",
+        "type": "debug",
+        "z": "8eef662251c0531b",
+        "name": "debug 68",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1380,
         "y": 780,
         "wires": []
     },
     {
-        "id": "61726e59850e09d0",
+        "id": "c16a45879fbfcc53",
+        "type": "flexradio-meter",
+        "z": "8eef662251c0531b",
+        "name": "Flex-6300 VDCA",
+        "radio": "2ac00beec0029621",
+        "topic": "RAD/208/+13.8A",
+        "topic_type": "mqtt",
+        "output_mode": "value",
+        "x": 380,
+        "y": 1060,
+        "wires": [
+            [
+                "6ef290983647d7f2"
+            ]
+        ]
+    },
+    {
+        "id": "6ef290983647d7f2",
+        "type": "ui_gauge",
+        "z": "8eef662251c0531b",
+        "name": "",
+        "group": "bc2d850f3f12f4ca",
+        "order": 5,
+        "width": 4,
+        "height": 3,
+        "gtype": "gage",
+        "title": "+13.8 VDC A",
+        "label": "VDC",
+        "format": "{{value}}",
+        "min": "10",
+        "max": "18",
+        "colors": [
+            "#fff994",
+            "#64c466",
+            "#ca3838"
+        ],
+        "seg1": "12.5",
+        "seg2": "15.0",
+        "diff": false,
+        "className": "",
+        "x": 610,
+        "y": 1060,
+        "wires": []
+    },
+    {
+        "id": "4d50b82d10af6c68",
+        "type": "flexradio-request",
+        "z": "8eef662251c0531b",
+        "name": "",
+        "radio": "2ac00beec0029621",
+        "x": 850,
+        "y": 900,
+        "wires": [
+            [
+                "fa3541b43639f53b",
+                "3909c9927c2e3282"
+            ]
+        ]
+    },
+    {
+        "id": "3909c9927c2e3282",
         "type": "debug",
-        "z": "6b97dc8102919a68",
-        "name": "debug 38",
-        "active": false,
+        "z": "8eef662251c0531b",
+        "name": "debug 69",
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -665,69 +954,72 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 1040,
-        "y": 860,
+        "y": 960,
         "wires": []
     },
     {
-        "id": "b8570db4c784eb6e",
-        "type": "ui_text",
-        "z": "6b97dc8102919a68",
-        "group": "7f9ce2c2b5876c23",
-        "order": 8,
-        "width": 3,
-        "height": 1,
-        "name": "Summary Temperature",
-        "label": "TEMP: ",
-        "format": "{{msg.payload}} C",
-        "layout": "row-left",
-        "className": "",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#000000",
-        "x": 1540,
-        "y": 200,
-        "wires": []
+        "id": "b66bdb0178614ca6",
+        "type": "ui_spacer",
+        "z": "8eef662251c0531b",
+        "name": "spacer",
+        "group": "86dd895c94f5ee59",
+        "order": 5,
+        "width": 13,
+        "height": 1
     },
     {
-        "id": "f50c5df9f632aafa",
-        "type": "link in",
-        "z": "6b97dc8102919a68",
-        "name": "link in 1",
-        "links": [
-            "ecb2959b8d49f30f"
-        ],
-        "x": 435,
-        "y": 460,
-        "wires": [
-            [
-                "4e8324d694d17636",
-                "0dbd213b1785328f",
-                "a05d3e037df05e8c",
-                "01a8797549739e5c"
-            ]
-        ]
+        "id": "f62105fd1960b710",
+        "type": "ui_spacer",
+        "z": "8eef662251c0531b",
+        "name": "spacer",
+        "group": "86dd895c94f5ee59",
+        "order": 6,
+        "width": 13,
+        "height": 1
     },
     {
-        "id": "01a8797549739e5c",
-        "type": "ui_template",
-        "z": "6b97dc8102919a68",
+        "id": "6f69c49e1619bd15",
+        "type": "ui_spacer",
+        "z": "8eef662251c0531b",
+        "name": "spacer",
         "group": "bc2d850f3f12f4ca",
-        "name": "Flex 6300 Info",
+        "order": 1,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "075a59c6c0265ffd",
+        "type": "ui_spacer",
+        "z": "8eef662251c0531b",
+        "name": "spacer",
+        "group": "bc2d850f3f12f4ca",
+        "order": 3,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "bc2d850f3f12f4ca",
+        "type": "ui_group",
+        "name": "Flex 6300 Power Control",
+        "tab": "2f150eb340621efc",
         "order": 4,
-        "width": 0,
-        "height": 0,
-        "format": "<fieldset>\n    <legend class=\"{{msg.box}}\" ; style=\"text-align: center\" ;>{{msg.payload.model}} Info:</legend>\n    <div style=\"text-align: center\" ;><b>Radio Name: </b>{{msg.payload.nickname}}</div>\n    <div style=\"text-align: center\" ;><b>Radio Version: </b>{{msg.payload.version}}</div>\n    <div style=\"text-align: center\" ;><b>Radio IP: </b>{{msg.payload.ip}}</div>\n</fieldset>",
-        "storeOutMessages": true,
-        "fwdInMessages": true,
-        "resendOnRefresh": true,
-        "templateScope": "local",
-        "className": "",
-        "x": 1520,
-        "y": 300,
-        "wires": [
-            []
-        ]
+        "disp": true,
+        "width": 8,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "7b25f636a9e83a06",
+        "type": "flexradio-radio",
+        "name": "",
+        "host_mode": "dynamic",
+        "nickname": "",
+        "host": "",
+        "port": "",
+        "station_name": "NodeRed",
+        "slice_mode": "headless",
+        "slice_name": "A",
+        "timeout": "15"
     },
     {
         "id": "2ac00beec0029621",
@@ -743,20 +1035,9 @@
         "timeout": "15"
     },
     {
-        "id": "bc2d850f3f12f4ca",
+        "id": "86dd895c94f5ee59",
         "type": "ui_group",
-        "name": "Flex 6300 Power Control",
-        "tab": "2f150eb340621efc",
-        "order": 4,
-        "disp": true,
-        "width": 8,
-        "collapse": false,
-        "className": ""
-    },
-    {
-        "id": "7f9ce2c2b5876c23",
-        "type": "ui_group",
-        "name": "Summary",
+        "name": "CPU Params",
         "tab": "2f150eb340621efc",
         "order": 1,
         "disp": true,
@@ -767,7 +1048,7 @@
     {
         "id": "2f150eb340621efc",
         "type": "ui_tab",
-        "name": "HamShack",
+        "name": "Pi5One Status",
         "icon": "dashboard",
         "order": 2,
         "disabled": false,
