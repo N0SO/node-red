@@ -24,12 +24,14 @@
             "e7ee71c0fc8ed166",
             "373c087b454cadb8",
             "b8fa7669e907f3b3",
-            "16eac3657916ead6"
+            "16eac3657916ead6",
+            "9f05283e332fc818",
+            "d4d53bd0b35f8134"
         ],
         "x": 694,
         "y": 479,
-        "w": 632,
-        "h": 122
+        "w": 652,
+        "h": 262
     },
     {
         "id": "d0bf0eea5447bb29",
@@ -89,7 +91,8 @@
                 "69a92baefe283626"
             ],
             [
-                "b8fa7669e907f3b3",
+                "9f05283e332fc818",
+                "d4d53bd0b35f8134",
                 "277146ef8abcf2fd"
             ]
         ]
@@ -141,8 +144,8 @@
         "wires": [
             [
                 "16eac3657916ead6",
-                "ada87a07c7a1a453",
-                "d3d3f0a0edf08f69"
+                "d3d3f0a0edf08f69",
+                "ada87a07c7a1a453"
             ]
         ]
     },
@@ -160,7 +163,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1190,
+        "x": 1210,
         "y": 540,
         "wires": []
     },
@@ -299,7 +302,8 @@
         "y": 500,
         "wires": [
             [
-                "1e3a8cf10cd40b16"
+                "1e3a8cf10cd40b16",
+                "ca07973e8b5082a9"
             ]
         ]
     },
@@ -344,7 +348,7 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1060,
+        "x": 1180,
         "y": 300,
         "wires": []
     },
@@ -352,7 +356,7 @@
         "id": "37deec9263adb45c",
         "type": "delay",
         "z": "8eef662251c0531b",
-        "name": "",
+        "name": "Power-up Timer",
         "pauseType": "delay",
         "timeout": "45",
         "timeoutUnits": "seconds",
@@ -365,7 +369,7 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 940,
+        "x": 960,
         "y": 360,
         "wires": [
             [
@@ -379,7 +383,7 @@
         "z": "8eef662251c0531b",
         "name": "",
         "radio": "7b25f636a9e83a06",
-        "x": 1130,
+        "x": 1210,
         "y": 360,
         "wires": [
             [
@@ -453,7 +457,7 @@
         "type": "debug",
         "z": "8eef662251c0531b",
         "name": "debug 27",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -503,27 +507,7 @@
         "y": 760,
         "wires": [
             [
-                "a396e5968354a2a4",
                 "67410c1c4b2f7ac9"
-            ]
-        ]
-    },
-    {
-        "id": "d1a66b3420de9d0f",
-        "type": "flexradio-meter",
-        "z": "8eef662251c0531b",
-        "name": "Flex 6300 PA Temp",
-        "radio": "2ac00beec0029621",
-        "topic": "TX-/4/PATEMP",
-        "topic_type": "mqtt",
-        "output_mode": "value",
-        "x": 390,
-        "y": 980,
-        "wires": [
-            [
-                "17ffe92d28a210f6",
-                "2b0f6bd7f7e92e70",
-                "b6670a2e7e66fc74"
             ]
         ]
     },
@@ -585,14 +569,14 @@
         "type": "debug",
         "z": "8eef662251c0531b",
         "name": "debug 62",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 600,
+        "x": 640,
         "y": 1020,
         "wires": []
     },
@@ -613,7 +597,7 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 760,
+        "x": 820,
         "y": 760,
         "wires": [
             [
@@ -655,7 +639,7 @@
         "type": "debug",
         "z": "8eef662251c0531b",
         "name": "debug 64",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -681,8 +665,8 @@
         "resendOnRefresh": true,
         "templateScope": "local",
         "className": "",
-        "x": 1060,
-        "y": 900,
+        "x": 1340,
+        "y": 880,
         "wires": [
             []
         ]
@@ -706,8 +690,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 880,
-        "y": 860,
+        "x": 820,
+        "y": 1100,
         "wires": [
             [
                 "fa3541b43639f53b"
@@ -733,12 +717,13 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 390,
-        "y": 900,
+        "x": 830,
+        "y": 1140,
         "wires": [
             [
                 "17ffe92d28a210f6",
-                "6ef290983647d7f2"
+                "6ef290983647d7f2",
+                "2b0f6bd7f7e92e70"
             ]
         ]
     },
@@ -772,7 +757,7 @@
         "type": "flexradio-request",
         "z": "8eef662251c0531b",
         "name": "",
-        "radio": "2ac00beec0029621",
+        "radio": "7b25f636a9e83a06",
         "x": 1210,
         "y": 780,
         "wires": [
@@ -840,7 +825,7 @@
         "type": "flexradio-request",
         "z": "8eef662251c0531b",
         "name": "",
-        "radio": "2ac00beec0029621",
+        "radio": "7b25f636a9e83a06",
         "x": 1210,
         "y": 740,
         "wires": [
@@ -886,7 +871,7 @@
         "type": "flexradio-meter",
         "z": "8eef662251c0531b",
         "name": "Flex-6300 VDCA",
-        "radio": "2ac00beec0029621",
+        "radio": "7b25f636a9e83a06",
         "topic": "RAD/208/+13.8A",
         "topic_type": "mqtt",
         "output_mode": "value",
@@ -894,7 +879,8 @@
         "y": 1060,
         "wires": [
             [
-                "6ef290983647d7f2"
+                "6ef290983647d7f2",
+                "a89e52b05ca1421d"
             ]
         ]
     },
@@ -931,13 +917,13 @@
         "type": "flexradio-request",
         "z": "8eef662251c0531b",
         "name": "",
-        "radio": "2ac00beec0029621",
+        "radio": "7b25f636a9e83a06",
         "x": 850,
         "y": 900,
         "wires": [
             [
-                "fa3541b43639f53b",
-                "3909c9927c2e3282"
+                "3909c9927c2e3282",
+                "ebc9ab701b0b65a0"
             ]
         ]
     },
@@ -946,7 +932,7 @@
         "type": "debug",
         "z": "8eef662251c0531b",
         "name": "debug 69",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -958,44 +944,192 @@
         "wires": []
     },
     {
-        "id": "b66bdb0178614ca6",
-        "type": "ui_spacer",
+        "id": "a89e52b05ca1421d",
+        "type": "stoptimer2",
         "z": "8eef662251c0531b",
-        "name": "spacer",
-        "group": "86dd895c94f5ee59",
-        "order": 5,
-        "width": 13,
-        "height": 1
+        "duration": "5",
+        "durationType": "num",
+        "units": "Second",
+        "payloadtype": "num",
+        "payloadval": "0",
+        "name": "Radio Timeout",
+        "x": 620,
+        "y": 1120,
+        "wires": [
+            [
+                "ada87a07c7a1a453",
+                "d3d3f0a0edf08f69"
+            ],
+            []
+        ]
     },
     {
-        "id": "f62105fd1960b710",
-        "type": "ui_spacer",
+        "id": "ebc9ab701b0b65a0",
+        "type": "function",
         "z": "8eef662251c0531b",
-        "name": "spacer",
-        "group": "86dd895c94f5ee59",
-        "order": 6,
-        "width": 13,
-        "height": 1
+        "name": "VerifyRadioName",
+        "func": "var msgText = msg.payload;\nlet msg1 = {payload:false};\nif (typeof msgText.name !== 'undefined'){\n    if (msg.payload.name == flow.get(\"nickname\")) {\n        msg1.payload = true;\n        return[msg, msg1, null];\n    }\n}\nreturn [null, null, msg1];",
+        "outputs": 3,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1070,
+        "y": 900,
+        "wires": [
+            [
+                "fa3541b43639f53b"
+            ],
+            [
+                "a396e5968354a2a4"
+            ],
+            [
+                "d4d53bd0b35f8134"
+            ]
+        ]
     },
     {
-        "id": "6f69c49e1619bd15",
-        "type": "ui_spacer",
+        "id": "ca07973e8b5082a9",
+        "type": "change",
         "z": "8eef662251c0531b",
-        "name": "spacer",
-        "group": "bc2d850f3f12f4ca",
-        "order": 1,
-        "width": 2,
-        "height": 1
+        "name": "Flow variable Initialization",
+        "rules": [
+            {
+                "t": "set",
+                "p": "host",
+                "pt": "flow",
+                "to": "192.168.1.244",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "port",
+                "pt": "flow",
+                "to": "4992",
+                "tot": "num"
+            },
+            {
+                "t": "set",
+                "p": "nickname",
+                "pt": "flow",
+                "to": "N0SO-6300",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 330,
+        "y": 360,
+        "wires": [
+            []
+        ]
     },
     {
-        "id": "075a59c6c0265ffd",
-        "type": "ui_spacer",
+        "id": "9f05283e332fc818",
+        "type": "delay",
         "z": "8eef662251c0531b",
-        "name": "spacer",
-        "group": "bc2d850f3f12f4ca",
-        "order": 3,
-        "width": 2,
-        "height": 1
+        "g": "c808a418a38a99d7",
+        "name": "Power-down  Timer",
+        "pauseType": "delay",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 850,
+        "y": 640,
+        "wires": [
+            [
+                "b8fa7669e907f3b3"
+            ]
+        ]
+    },
+    {
+        "id": "d4d53bd0b35f8134",
+        "type": "change",
+        "z": "8eef662251c0531b",
+        "g": "c808a418a38a99d7",
+        "name": "Unsub Meter Request",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "unsub meter all",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 860,
+        "y": 700,
+        "wires": [
+            [
+                "720867737b31c9df",
+                "e3cef3c1e203b8c2"
+            ]
+        ]
+    },
+    {
+        "id": "58c8af8417caec1f",
+        "type": "flexradio-meter",
+        "z": "8eef662251c0531b",
+        "name": "Flex 6300 PA Temp",
+        "radio": "7b25f636a9e83a06",
+        "topic": "TX-/4/PATEMP",
+        "topic_type": "mqtt",
+        "output_mode": "value",
+        "x": 390,
+        "y": 980,
+        "wires": [
+            [
+                "17ffe92d28a210f6",
+                "b6670a2e7e66fc74",
+                "2b0f6bd7f7e92e70"
+            ]
+        ]
+    },
+    {
+        "id": "2015730c2fdb777d",
+        "type": "inject",
+        "z": "8eef662251c0531b",
+        "name": "UNSUB METERS",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 600,
+        "y": 700,
+        "wires": [
+            [
+                "d4d53bd0b35f8134"
+            ]
+        ]
     },
     {
         "id": "bc2d850f3f12f4ca",
@@ -1004,8 +1138,8 @@
         "tab": "2f150eb340621efc",
         "order": 4,
         "disp": true,
-        "width": 8,
-        "collapse": false,
+        "width": "8",
+        "collapse": true,
         "className": ""
     },
     {
@@ -1022,33 +1156,9 @@
         "timeout": "15"
     },
     {
-        "id": "2ac00beec0029621",
-        "type": "flexradio-radio",
-        "name": "",
-        "host_mode": "nickname",
-        "nickname": "N0SO-6300",
-        "host": "",
-        "port": "",
-        "station_name": "NodeRed",
-        "slice_mode": "headless",
-        "slice_name": "A",
-        "timeout": "15"
-    },
-    {
-        "id": "86dd895c94f5ee59",
-        "type": "ui_group",
-        "name": "CPU Params",
-        "tab": "2f150eb340621efc",
-        "order": 1,
-        "disp": true,
-        "width": 16,
-        "collapse": false,
-        "className": ""
-    },
-    {
         "id": "2f150eb340621efc",
         "type": "ui_tab",
-        "name": "Pi5One Status",
+        "name": "HamShack",
         "icon": "dashboard",
         "order": 2,
         "disabled": false,
