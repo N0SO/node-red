@@ -68,7 +68,7 @@
             [
                 "05a10a1ef936c2fc",
                 "a5cd0cc60fdc8cfb",
-                "72c728e1326c9194"
+                "e0bbbd2497f3e07c"
             ]
         ]
     },
@@ -136,9 +136,9 @@
         "order": 3,
         "width": 8,
         "height": 4,
-        "label": "",
+        "label": "Sensor Battery Voltage History",
         "chartType": "line",
-        "legend": "true",
+        "legend": "false",
         "xformat": "HH:mm:ss",
         "interpolate": "linear",
         "nodata": "",
@@ -205,8 +205,8 @@
         "z": "644a0e6589af788c",
         "name": "WishMesh Pocket SO01",
         "info": "",
-        "x": 990,
-        "y": 860,
+        "x": 1110,
+        "y": 900,
         "wires": []
     },
     {
@@ -240,7 +240,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 750,
-        "y": 880,
+        "y": 860,
         "wires": []
     },
     {
@@ -325,7 +325,8 @@
         "wires": [
             [
                 "7f550ba3e8321487",
-                "38eb73e373e8c33f"
+                "38eb73e373e8c33f",
+                "f9f857fa77e85789"
             ]
         ]
     },
@@ -391,7 +392,7 @@
         "dot": false,
         "ymin": "",
         "ymax": "",
-        "removeOlder": "12",
+        "removeOlder": "24",
         "removeOlderPoints": "",
         "removeOlderUnit": "3600",
         "cutout": 0,
@@ -425,7 +426,7 @@
         "group": "3db16ff2d329e118",
         "order": 23,
         "width": 3,
-        "height": 2,
+        "height": 3,
         "gtype": "gage",
         "title": "Battery Voltage",
         "label": "VDC",
@@ -479,8 +480,8 @@
         "z": "644a0e6589af788c",
         "name": "Node SOWX",
         "info": "",
-        "x": 990,
-        "y": 1120,
+        "x": 1330,
+        "y": 1020,
         "wires": []
     },
     {
@@ -501,7 +502,7 @@
         "dot": false,
         "ymin": "",
         "ymax": "",
-        "removeOlder": "12",
+        "removeOlder": "24",
         "removeOlderPoints": "",
         "removeOlderUnit": "3600",
         "cutout": 0,
@@ -562,7 +563,7 @@
         "group": "3db16ff2d329e118",
         "order": 5,
         "width": 5,
-        "height": 1,
+        "height": 2,
         "name": "",
         "label": "Humidity",
         "format": "{{value | number:1}}%",
@@ -625,7 +626,7 @@
         "type": "ui_text",
         "z": "644a0e6589af788c",
         "group": "3db16ff2d329e118",
-        "order": 14,
+        "order": 12,
         "width": 4,
         "height": 1,
         "name": "hPa Pressure",
@@ -646,7 +647,7 @@
         "type": "ui_text",
         "z": "644a0e6589af788c",
         "group": "3db16ff2d329e118",
-        "order": 11,
+        "order": 10,
         "width": 4,
         "height": 1,
         "name": "",
@@ -667,9 +668,9 @@
         "type": "ui_text",
         "z": "644a0e6589af788c",
         "group": "3db16ff2d329e118",
-        "order": 18,
+        "order": 15,
         "width": 5,
-        "height": 1,
+        "height": 2,
         "name": "",
         "label": "Gas Resistance (Air Quality):",
         "format": "{{value | number:1}} Ohms",
@@ -689,8 +690,8 @@
         "z": "644a0e6589af788c",
         "name": "Gas Res History",
         "group": "3db16ff2d329e118",
-        "order": 19,
-        "width": 9,
+        "order": 16,
+        "width": 8,
         "height": 4,
         "label": "Gas Resistance History",
         "chartType": "line",
@@ -858,7 +859,7 @@
             [
                 "1d878e458b03d035",
                 "f9169936b2314298",
-                "31b52e9460087241"
+                "3ce49fd524e38bb4"
             ]
         ]
     },
@@ -889,8 +890,8 @@
         "z": "644a0e6589af788c",
         "name": "Pressure History",
         "group": "3db16ff2d329e118",
-        "order": 13,
-        "width": 9,
+        "order": 11,
+        "width": 10,
         "height": 4,
         "label": "Pressure History (hPa)",
         "chartType": "line",
@@ -928,27 +929,6 @@
         ]
     },
     {
-        "id": "31b52e9460087241",
-        "type": "ui_text",
-        "z": "644a0e6589af788c",
-        "group": "1ddeecdd5e6a952b",
-        "order": 4,
-        "width": 3,
-        "height": 1,
-        "name": "Summary BYWX",
-        "label": "Back Yard: ",
-        "format": "{{msg.payload|number:1}} &deg F",
-        "layout": "col-center",
-        "className": "",
-        "style": false,
-        "font": "",
-        "fontSize": 16,
-        "color": "#000000",
-        "x": 1350,
-        "y": 1100,
-        "wires": []
-    },
-    {
         "id": "a68e79eb92c8c7a5",
         "type": "link in",
         "z": "644a0e6589af788c",
@@ -970,7 +950,7 @@
         "type": "debug",
         "z": "644a0e6589af788c",
         "name": "SOPN Data",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -987,7 +967,7 @@
         "type": "ui_gauge",
         "z": "644a0e6589af788c",
         "name": "Battery Level",
-        "group": "bfcabef255f8ba06",
+        "group": "9779aa5259add517",
         "order": 2,
         "width": 3,
         "height": 3,
@@ -1071,7 +1051,8 @@
             [
                 "db45ab258d6053a5",
                 "e8ded0c14b01fa53",
-                "547cf976952bc210"
+                "6ea02b8939a92e3c",
+                "cb84abc9c2b7ece9"
             ]
         ]
     },
@@ -1107,7 +1088,7 @@
         "type": "ui_gauge",
         "z": "644a0e6589af788c",
         "name": "",
-        "group": "bfcabef255f8ba06",
+        "group": "9779aa5259add517",
         "order": 1,
         "width": 3,
         "height": 3,
@@ -1135,20 +1116,20 @@
         "type": "ui_chart",
         "z": "644a0e6589af788c",
         "name": "Battery History",
-        "group": "bfcabef255f8ba06",
+        "group": "9779aa5259add517",
         "order": 3,
         "width": 8,
         "height": 4,
         "label": "Sensor Battery Voltage History",
         "chartType": "line",
-        "legend": "true",
+        "legend": "false",
         "xformat": "HH:mm:ss",
         "interpolate": "linear",
         "nodata": "",
         "dot": false,
         "ymin": "",
         "ymax": "",
-        "removeOlder": "12",
+        "removeOlder": "48",
         "removeOlderPoints": "",
         "removeOlderUnit": "3600",
         "cutout": 0,
@@ -1175,16 +1156,858 @@
         ]
     },
     {
-        "id": "72c728e1326c9194",
-        "type": "ui_text",
+        "id": "3ce49fd524e38bb4",
+        "type": "change",
+        "z": "644a0e6589af788c",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "bytemp",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1350,
+        "y": 1100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3d4635e7d4777d95",
+        "type": "ui_template",
         "z": "644a0e6589af788c",
         "group": "dcb7dd6006237647",
-        "order": 4,
+        "name": "Portable Node Battery Summary",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "format": "<div class=\"status2\">\n    <table class=\"table_status2\" ; style=\"border-collapse: collapse; width: 100%;\">\n        <tr>\n            <td style=\"text-align: center\">\n                <fieldset class=\"{{msg.box}}\" ; style=\"text-align: center\" ;>\n                    <legend><b>{{msg.payload.name1}} </b></legend>\n                    {{msg.payload.data1}}\n                </fieldset>\n            </td>\n            <td>\n                <fieldset class=\"{{msg.box}}\" ; style=\"text-align: center\" ;>\n                    <legend><b>{{msg.payload.name2}} </b></legend>\n                    {{msg.payload.data2}}\n                </fieldset>\n            </td>\n            <td>\n                <fieldset class=\"{{msg.box}}\" ; style=\"text-align: center\" ;>\n                    <legend><b>{{msg.payload.name3}} </b></legend>\n                    {{msg.payload.data3}}\n                </fieldset>\n            </td>\n            <td>\n                <fieldset class=\"{{msg.box}}\" ; style=\"text-align: center\" ;>\n                    <legend><b>{{msg.payload.name4}} </b></legend>\n                    {{msg.payload.data4}}\n                </fieldset>\n            </td>\n        </tr>\n    </table>\n</div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 1370,
+        "y": 780,
+        "wires": [
+            [
+                "c15faee460e3cdd3"
+            ]
+        ]
+    },
+    {
+        "id": "a9224e8479478cf6",
+        "type": "function",
+        "z": "644a0e6589af788c",
+        "name": "SensorSum",
+        "func": "let data1 = global.get(\"node4a5cBat\").toFixed(1);\nlet data2 = global.get(\"nodesoP2bat\").toFixed(1);\nlet data3 = flow.get(\"nodeso01Bat\").toFixed(1);\nlet data4 = flow.get(\"nodesoPNBat\").toFixed(1);\nmsg.payload = ({\n    name1: \"Node 4A5C\",\n    data1: data1.toString() + \" VDC\",\n    name2: \"Node SOP2\",\n    data2: data2.toString() + \" VDC\",\n    name3: \"Node SO01\",\n    data3: data3.toString() + \" VDC\",\n    name4: \"Node SOPN\",\n    data4: data4.toString() + \" VDC\"\n});\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1150,
+        "y": 780,
+        "wires": [
+            [
+                "3d4635e7d4777d95"
+            ]
+        ]
+    },
+    {
+        "id": "c15faee460e3cdd3",
+        "type": "debug",
+        "z": "644a0e6589af788c",
+        "name": "debug 63",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1600,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "e0bbbd2497f3e07c",
+        "type": "change",
+        "z": "644a0e6589af788c",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "nodeso01Bat",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 940,
+        "y": 780,
+        "wires": [
+            [
+                "a9224e8479478cf6"
+            ]
+        ]
+    },
+    {
+        "id": "6ea02b8939a92e3c",
+        "type": "change",
+        "z": "644a0e6589af788c",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "nodesoPNBat",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1220,
+        "y": 1720,
+        "wires": [
+            [
+                "a9224e8479478cf6"
+            ]
+        ]
+    },
+    {
+        "id": "7169aee278f42647",
+        "type": "inject",
+        "z": "644a0e6589af788c",
+        "name": "InitSummary",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "2",
+        "topic": "",
+        "payload": "0.0",
+        "payloadType": "num",
+        "x": 750,
+        "y": 720,
+        "wires": [
+            [
+                "e0bbbd2497f3e07c",
+                "6ea02b8939a92e3c",
+                "d39137ea2638f990"
+            ]
+        ]
+    },
+    {
+        "id": "5c83c0741f3b9405",
+        "type": "inject",
+        "z": "644a0e6589af788c",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "3.25",
+        "payloadType": "num",
+        "x": 790,
+        "y": 1960,
+        "wires": [
+            [
+                "cb84abc9c2b7ece9"
+            ]
+        ]
+    },
+    {
+        "id": "cb84abc9c2b7ece9",
+        "type": "switch",
+        "z": "644a0e6589af788c",
+        "name": "Low Voltage Detection",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "lte",
+                "v": "3.49",
+                "vt": "num"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 960,
+        "y": 1920,
+        "wires": [
+            [
+                "5aea9318612e5504"
+            ],
+            [
+                "fbbd7aa17305bb6b"
+            ]
+        ]
+    },
+    {
+        "id": "5aea9318612e5504",
+        "type": "change",
+        "z": "644a0e6589af788c",
+        "name": "Low Voltage Alert",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "SOPN (Pocket Node) sensor battery voltage <= 3.49 VDC. Charge battery soon!",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "channel",
+                "pt": "msg",
+                "to": "2",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1230,
+        "y": 1920,
+        "wires": [
+            [
+                "eaa91756c32497a0",
+                "f3512e27e796cb7e"
+            ]
+        ]
+    },
+    {
+        "id": "fbbd7aa17305bb6b",
+        "type": "change",
+        "z": "644a0e6589af788c",
+        "name": "Clear Low Voltage Alert",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1230,
+        "y": 1960,
+        "wires": [
+            [
+                "eaa91756c32497a0"
+            ]
+        ]
+    },
+    {
+        "id": "eaa91756c32497a0",
+        "type": "ui_text",
+        "z": "644a0e6589af788c",
+        "group": "9779aa5259add517",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "name": "Low Voltage Warning",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 1500,
+        "y": 1960,
+        "wires": []
+    },
+    {
+        "id": "f3512e27e796cb7e",
+        "type": "meshtastic-msg-send",
+        "z": "644a0e6589af788c",
+        "name": "",
+        "device": "907a3fd0216dbb85",
+        "x": 1480,
+        "y": 1920,
+        "wires": []
+    },
+    {
+        "id": "155920eb3eb41ac8",
+        "type": "link in",
+        "z": "644a0e6589af788c",
+        "name": "Sensor SO01 Data",
+        "links": [
+            "7475fc0cb503923f"
+        ],
+        "x": 575,
+        "y": 460,
+        "wires": [
+            [
+                "9768073c1841248c",
+                "61174f7122d5ccbd"
+            ]
+        ]
+    },
+    {
+        "id": "9768073c1841248c",
+        "type": "debug",
+        "z": "644a0e6589af788c",
+        "name": "SOM1 Data",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 750,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "53c1b6dca315b158",
+        "type": "inject",
+        "z": "644a0e6589af788c",
+        "name": "Mobile Node Low Bat. Test",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "3.25",
+        "payloadType": "num",
+        "x": 710,
+        "y": 540,
+        "wires": [
+            [
+                "61174f7122d5ccbd"
+            ]
+        ]
+    },
+    {
+        "id": "f30cd1259bf598db",
+        "type": "ui_gauge",
+        "z": "644a0e6589af788c",
+        "name": "Battery Level",
+        "group": "bfcabef255f8ba06",
+        "order": 2,
         "width": 3,
-        "height": 1,
-        "name": "Summary SO01",
-        "label": "SO01: ",
-        "format": "{{msg.payload|number:1}} VDC",
+        "height": 3,
+        "gtype": "donut",
+        "title": "Battery Level",
+        "label": "%",
+        "format": "{{value | number:1}}",
+        "min": 0,
+        "max": "105",
+        "colors": [
+            "#eb4d3d",
+            "#e6e600",
+            "#64c466"
+        ],
+        "seg1": "33",
+        "seg2": "66",
+        "diff": false,
+        "className": "",
+        "x": 1030,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "ee812d0f361b6f74",
+        "type": "ui_chart",
+        "z": "644a0e6589af788c",
+        "name": "Battery History",
+        "group": "bfcabef255f8ba06",
+        "order": 3,
+        "width": 10,
+        "height": 4,
+        "label": "Mobile Battery Voltage History",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "48",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1040,
+        "y": 440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "08d95978dc96bd5a",
+        "type": "ui_gauge",
+        "z": "644a0e6589af788c",
+        "name": "",
+        "group": "bfcabef255f8ba06",
+        "order": 1,
+        "width": 3,
+        "height": 3,
+        "gtype": "gage",
+        "title": "Battery Voltage",
+        "label": "VDC",
+        "format": "{{value | number:1}}",
+        "min": 0,
+        "max": "5.5",
+        "colors": [
+            "#eb4d3d",
+            "#e6e600",
+            "#64c466"
+        ],
+        "seg1": "3.3",
+        "seg2": "3.6",
+        "diff": false,
+        "className": "",
+        "x": 1040,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "70abb2a4e2a144a3",
+        "type": "meshtastic-msg-send",
+        "z": "644a0e6589af788c",
+        "name": "",
+        "device": "907a3fd0216dbb85",
+        "x": 1040,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "8aa1b66124a54a1b",
+        "type": "ui_text",
+        "z": "644a0e6589af788c",
+        "group": "bfcabef255f8ba06",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "name": "Low Voltage Warning",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 1060,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "eb7b6f97f91d1c5d",
+        "type": "inject",
+        "z": "644a0e6589af788c",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "3.25",
+        "payloadType": "num",
+        "x": 990,
+        "y": 1560,
+        "wires": [
+            [
+                "f9f857fa77e85789"
+            ]
+        ]
+    },
+    {
+        "id": "f9f857fa77e85789",
+        "type": "switch",
+        "z": "644a0e6589af788c",
+        "name": "Low Voltage Detection",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "lte",
+                "v": "3.49",
+                "vt": "num"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1210,
+        "y": 1520,
+        "wires": [
+            [
+                "dc0fb2a087814510"
+            ],
+            [
+                "07d870d121f8ecf8"
+            ]
+        ]
+    },
+    {
+        "id": "dc0fb2a087814510",
+        "type": "change",
+        "z": "644a0e6589af788c",
+        "name": "Low Voltage Alert",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "SOWX (Back Yard WX) sensor battery voltage <= 3.49 VDC. Charge battery soon!",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "channel",
+                "pt": "msg",
+                "to": "2",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1470,
+        "y": 1520,
+        "wires": [
+            [
+                "11d62bababa8a250",
+                "ea4f72a1eeeb755b"
+            ]
+        ]
+    },
+    {
+        "id": "07d870d121f8ecf8",
+        "type": "change",
+        "z": "644a0e6589af788c",
+        "name": "Clear Low Voltage Alert",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1490,
+        "y": 1560,
+        "wires": [
+            [
+                "11d62bababa8a250"
+            ]
+        ]
+    },
+    {
+        "id": "ea4f72a1eeeb755b",
+        "type": "meshtastic-msg-send",
+        "z": "644a0e6589af788c",
+        "name": "",
+        "device": "907a3fd0216dbb85",
+        "x": 1710,
+        "y": 1520,
+        "wires": []
+    },
+    {
+        "id": "11d62bababa8a250",
+        "type": "ui_text",
+        "z": "644a0e6589af788c",
+        "group": "3db16ff2d329e118",
+        "order": 28,
+        "width": 0,
+        "height": 0,
+        "name": "Low Voltage Warning",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 1750,
+        "y": 1560,
+        "wires": []
+    },
+    {
+        "id": "bc75500fa134b16d",
+        "type": "link in",
+        "z": "644a0e6589af788c",
+        "name": "SOPN Data in",
+        "links": [
+            "7aef913fc52f4a91"
+        ],
+        "x": 635,
+        "y": 2100,
+        "wires": [
+            [
+                "d80e3ba64c59027d",
+                "578c4e6d0b253211"
+            ]
+        ]
+    },
+    {
+        "id": "d80e3ba64c59027d",
+        "type": "debug",
+        "z": "644a0e6589af788c",
+        "name": "SOTD Data",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 800,
+        "y": 2040,
+        "wires": []
+    },
+    {
+        "id": "5906ba1b29dedaeb",
+        "type": "inject",
+        "z": "644a0e6589af788c",
+        "name": "Inject Test Data TD",
+        "props": [
+            {
+                "p": "payload.packet.decoded.payload.deviceMetrics.voltage",
+                "v": "{\"packet\":{\"from\":1127198744,\"to\":4294967295,\"channel\":0,\"decoded\":{\"portnum\":67,\"payload\":{\"time\":1736710854,\"deviceMetrics\":{\"batteryLevel\":96,\"voltage\":4.145999908447266,\"channelUtilization\":0,\"airUtilTx\":0.11563888937234879}},\"wantResponse\":false,\"dest\":0,\"source\":0,\"requestId\":0,\"replyId\":0,\"emoji\":0},\"id\":3863094830,\"rxTime\":1736710843,\"rxSnr\":6,\"hopLimit\":3,\"wantAck\":false,\"priority\":0,\"rxRssi\":-56,\"delayed\":0},\"channelId\":\"Telemetry\",\"gatewayId\":\"!4359dad4\"}",
+                "vt": "json"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 670,
+        "y": 2180,
+        "wires": [
+            [
+                "578c4e6d0b253211"
+            ]
+        ]
+    },
+    {
+        "id": "0f92c449236ca71d",
+        "type": "ui_gauge",
+        "z": "644a0e6589af788c",
+        "name": "",
+        "group": "809badbfbd196680",
+        "order": 1,
+        "width": 3,
+        "height": 3,
+        "gtype": "gage",
+        "title": "Battery Voltage",
+        "label": "VDC",
+        "format": "{{value | number:1}}",
+        "min": 0,
+        "max": "5.5",
+        "colors": [
+            "#eb4d3d",
+            "#e6e600",
+            "#64c466"
+        ],
+        "seg1": "3.3",
+        "seg2": "3.6",
+        "diff": false,
+        "className": "",
+        "x": 1080,
+        "y": 2040,
+        "wires": []
+    },
+    {
+        "id": "3e1f807fb01fc4bd",
+        "type": "ui_chart",
+        "z": "644a0e6589af788c",
+        "name": "Battery History",
+        "group": "809badbfbd196680",
+        "order": 3,
+        "width": 8,
+        "height": 4,
+        "label": "Sensor Battery Voltage History",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "48",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1080,
+        "y": 2080,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e27c762b8b7c4a61",
+        "type": "ui_gauge",
+        "z": "644a0e6589af788c",
+        "name": "Battery Level",
+        "group": "809badbfbd196680",
+        "order": 2,
+        "width": 3,
+        "height": 3,
+        "gtype": "donut",
+        "title": "Battery Level",
+        "label": "%",
+        "format": "{{value | number:1}}",
+        "min": 0,
+        "max": "105",
+        "colors": [
+            "#eb4d3d",
+            "#e6e600",
+            "#64c466"
+        ],
+        "seg1": "33",
+        "seg2": "66",
+        "diff": false,
+        "className": "",
+        "x": 1070,
+        "y": 2120,
+        "wires": []
+    },
+    {
+        "id": "f0984b299f1f21a0",
+        "type": "meshtastic-msg-send",
+        "z": "644a0e6589af788c",
+        "name": "",
+        "device": "907a3fd0216dbb85",
+        "x": 1080,
+        "y": 2160,
+        "wires": []
+    },
+    {
+        "id": "767d14ba0473e254",
+        "type": "ui_text",
+        "z": "644a0e6589af788c",
+        "group": "809badbfbd196680",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "name": "Low Voltage Warning",
+        "label": "",
+        "format": "{{msg.payload}}",
         "layout": "col-center",
         "className": "",
         "style": false,
@@ -1192,29 +2015,318 @@
         "fontSize": 16,
         "color": "#000000",
         "x": 1100,
-        "y": 900,
+        "y": 2200,
         "wires": []
     },
     {
-        "id": "547cf976952bc210",
+        "id": "1b577bd63cf9eea5",
+        "type": "link in",
+        "z": "644a0e6589af788c",
+        "name": "SOR1 Data in",
+        "links": [
+            "31ad8b0907106ac8"
+        ],
+        "x": 635,
+        "y": 2400,
+        "wires": [
+            [
+                "305f895fe9c60f92",
+                "67576034d16c9df6"
+            ]
+        ]
+    },
+    {
+        "id": "305f895fe9c60f92",
+        "type": "debug",
+        "z": "644a0e6589af788c",
+        "name": "SOR1 Data",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 850,
+        "y": 2340,
+        "wires": []
+    },
+    {
+        "id": "3459b6d6da0ec2a9",
+        "type": "ui_gauge",
+        "z": "644a0e6589af788c",
+        "name": "",
+        "group": "22ec3b9a61f367bf",
+        "order": 1,
+        "width": 3,
+        "height": 3,
+        "gtype": "gage",
+        "title": "Battery Voltage",
+        "label": "VDC",
+        "format": "{{value | number:1}}",
+        "min": 0,
+        "max": "5.5",
+        "colors": [
+            "#eb4d3d",
+            "#e6e600",
+            "#64c466"
+        ],
+        "seg1": "3.3",
+        "seg2": "3.6",
+        "diff": false,
+        "className": "",
+        "x": 1240,
+        "y": 2380,
+        "wires": []
+    },
+    {
+        "id": "5b0d9262d6e75cb1",
+        "type": "ui_chart",
+        "z": "644a0e6589af788c",
+        "name": "Battery History",
+        "group": "22ec3b9a61f367bf",
+        "order": 3,
+        "width": 8,
+        "height": 4,
+        "label": "Sensor Battery Voltage History",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "48",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1240,
+        "y": 2420,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "94b8dcbd9922f3f4",
+        "type": "ui_gauge",
+        "z": "644a0e6589af788c",
+        "name": "Battery Level",
+        "group": "22ec3b9a61f367bf",
+        "order": 2,
+        "width": 3,
+        "height": 3,
+        "gtype": "donut",
+        "title": "Battery Level",
+        "label": "%",
+        "format": "{{value | number:1}}",
+        "min": 0,
+        "max": "105",
+        "colors": [
+            "#eb4d3d",
+            "#e6e600",
+            "#64c466"
+        ],
+        "seg1": "33",
+        "seg2": "66",
+        "diff": false,
+        "className": "",
+        "x": 1230,
+        "y": 2460,
+        "wires": []
+    },
+    {
+        "id": "6ff74406755be0be",
+        "type": "meshtastic-msg-send",
+        "z": "644a0e6589af788c",
+        "name": "",
+        "device": "907a3fd0216dbb85",
+        "x": 1240,
+        "y": 2500,
+        "wires": []
+    },
+    {
+        "id": "250f47eb82440171",
         "type": "ui_text",
         "z": "644a0e6589af788c",
-        "group": "dcb7dd6006237647",
-        "order": 6,
-        "width": 3,
-        "height": 1,
-        "name": "Summary SO01",
-        "label": "SOPN: ",
-        "format": "{{msg.payload|number:1}} VDC",
+        "group": "22ec3b9a61f367bf",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "name": "Low Voltage Warning",
+        "label": "",
+        "format": "{{msg.payload}}",
         "layout": "col-center",
         "className": "",
         "style": false,
         "font": "",
         "fontSize": 16,
         "color": "#000000",
-        "x": 1200,
-        "y": 1760,
+        "x": 1260,
+        "y": 2540,
         "wires": []
+    },
+    {
+        "id": "67576034d16c9df6",
+        "type": "function",
+        "z": "644a0e6589af788c",
+        "name": "Node Battery Monitor",
+        "func": "var fMsg = msg.payload;\nvar batL = {payload: null};\nvar batV = {payload:null};\nvar batW = {payload:''};\nvar LOWV = 3.49;\nvar LVWARNING = 'Node N0SO battery voltage low: ';\n//if (typeof fMsg.packet.decoded.payload.environmentMetrics !== 'undefined') {\n    //envM = fMsg.packet.decoded.payload.environmentMetrics;\n//}\nif (typeof fMsg.packet.decoded.payload.deviceMetrics !== 'undefined') {\n    //devM = fMsg.packet.decoded.payload.deviceMetrics;\n    batV = {payload: fMsg.packet.decoded.payload.deviceMetrics.voltage};\n    batL = { payload: fMsg.packet.decoded.payload.deviceMetrics.batteryLevel };\n    if (batV.payload <= LOWV){\n        let v=batV.payload;\n        v = v.toFixed(2);\n        batW = { payload: LVWARNING + v +' VDC.',\n                 channel: 2 };\n    \n        // Order is battery guage/history, battery level, meshtastic alert, dashboard alert\n        return [batV, batL, batW, batW];\n    }\n    else {\n        return [batV, batL, null, batW];\n    }\n}",
+        "outputs": 4,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 840,
+        "y": 2400,
+        "wires": [
+            [
+                "3459b6d6da0ec2a9",
+                "5b0d9262d6e75cb1"
+            ],
+            [
+                "94b8dcbd9922f3f4"
+            ],
+            [
+                "6ff74406755be0be"
+            ],
+            [
+                "250f47eb82440171"
+            ]
+        ]
+    },
+    {
+        "id": "72939ee25ef6fc9f",
+        "type": "inject",
+        "z": "644a0e6589af788c",
+        "name": "Test Data SO",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"packet\":{\"from\":1294052111,\"to\":4294967295,\"channel\":0,\"decoded\":{\"portnum\":67,\"payload\":{\"time\":1736648773,\"deviceMetrics\":{\"batteryLevel\":80,\"voltage\":3.30000009536743,\"channelUtilization\":0,\"airUtilTx\":0.052000001072883606}},\"wantResponse\":false,\"dest\":0,\"source\":0,\"requestId\":0,\"replyId\":0,\"emoji\":0},\"id\":1979104076,\"rxTime\":1736648771,\"rxSnr\":6.5,\"hopLimit\":3,\"wantAck\":false,\"priority\":0,\"rxRssi\":-77,\"delayed\":0},\"channelId\":\"Telemetry\",\"gatewayId\":\"!4359dad4\"}",
+        "payloadType": "json",
+        "x": 650,
+        "y": 2460,
+        "wires": [
+            [
+                "67576034d16c9df6"
+            ]
+        ]
+    },
+    {
+        "id": "578c4e6d0b253211",
+        "type": "function",
+        "z": "644a0e6589af788c",
+        "name": "Node Battery Monitor",
+        "func": "var fMsg = msg.payload;\nvar batL = {payload: null};\nvar batV = {payload:null};\nvar batW = {payload:''};\nvar LOWV = 3.49;\nvar LVWARNING = 'Node SOTD battery voltage low: ';\n//if (typeof fMsg.packet.decoded.payload.environmentMetrics !== 'undefined') {\n    //envM = fMsg.packet.decoded.payload.environmentMetrics;\n//}\nif (typeof fMsg.packet.decoded.payload.deviceMetrics !== 'undefined') {\n    //devM = fMsg.packet.decoded.payload.deviceMetrics;\n    batV = {payload: fMsg.packet.decoded.payload.deviceMetrics.voltage};\n    batL = { payload: fMsg.packet.decoded.payload.deviceMetrics.batteryLevel };\n    if (batV.payload <= LOWV){\n        let v=batV.payload;\n        v = v.toFixed(2);\n        batW = { payload: LVWARNING + v +' VDC.',\n                 channel: 2 };\n        // Order is battery guage/history, battery level, meshtastic alert, dashboard alert\n        return [batV, batL, batW, batW];\n    } else {\n        return [batV, batL, null, batW];\n    }\n}\nreturn [null, null, null, null];\n",
+        "outputs": 4,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 820,
+        "y": 2100,
+        "wires": [
+            [
+                "0f92c449236ca71d",
+                "3e1f807fb01fc4bd"
+            ],
+            [
+                "e27c762b8b7c4a61"
+            ],
+            [
+                "f0984b299f1f21a0"
+            ],
+            [
+                "767d14ba0473e254"
+            ]
+        ]
+    },
+    {
+        "id": "61174f7122d5ccbd",
+        "type": "function",
+        "z": "644a0e6589af788c",
+        "name": "Node Battery Monitor",
+        "func": "var fMsg = msg.payload;\nvar batL = {payload: null};\nvar batV = {payload:null};\nvar batW = {payload:''};\nvar LOWV = 3.49;\nvar LVWARNING = 'Node SOM1 (Mobile Node) battery voltage low: ';\n//if (typeof fMsg.packet.decoded.payload.environmentMetrics !== 'undefined') {\n    //envM = fMsg.packet.decoded.payload.environmentMetrics;\n//}\nif (typeof fMsg.packet.decoded.payload.deviceMetrics !== 'undefined') {\n    //devM = fMsg.packet.decoded.payload.deviceMetrics;\n    batV = {payload: fMsg.packet.decoded.payload.deviceMetrics.voltage};\n    batL = { payload: fMsg.packet.decoded.payload.deviceMetrics.batteryLevel };\n    if (batV.payload <= LOWV){\n        let v=batV.payload;\n        v = v.toFixed(2);\n        batW = { payload: LVWARNING + v +' VDC.',\n                 channel: 2 };\n        // Order is battery guage/history, battery level, meshtastic alert, dashboard alert\n        return [batV, batL, batW, batW];\n    } else {\n        return [batV, batL, null, batW];\n    }\n}\nreturn [null, null, null, null];\n",
+        "outputs": 4,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 760,
+        "y": 460,
+        "wires": [
+            [
+                "08d95978dc96bd5a",
+                "ee812d0f361b6f74",
+                "d39137ea2638f990"
+            ],
+            [
+                "f30cd1259bf598db"
+            ],
+            [
+                "70abb2a4e2a144a3"
+            ],
+            [
+                "8aa1b66124a54a1b"
+            ]
+        ]
+    },
+    {
+        "id": "d39137ea2638f990",
+        "type": "change",
+        "z": "644a0e6589af788c",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "nodesoM1Bat",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1070,
+        "y": 360,
+        "wires": [
+            []
+        ]
     },
     {
         "id": "3a8074d492515160",
@@ -1237,47 +2349,7 @@
         "height": 1
     },
     {
-        "id": "c75f63992efa6632",
-        "type": "ui_spacer",
-        "z": "644a0e6589af788c",
-        "name": "spacer",
-        "group": "dcb7dd6006237647",
-        "order": 2,
-        "width": 1,
-        "height": 1
-    },
-    {
-        "id": "96b145bdbdb57c79",
-        "type": "ui_spacer",
-        "z": "644a0e6589af788c",
-        "name": "spacer",
-        "group": "dcb7dd6006237647",
-        "order": 5,
-        "width": 1,
-        "height": 1
-    },
-    {
-        "id": "890e33e6ea1bbac3",
-        "type": "ui_spacer",
-        "z": "644a0e6589af788c",
-        "name": "spacer",
-        "group": "4094c8229ec62653",
-        "order": 4,
-        "width": 6,
-        "height": 1
-    },
-    {
-        "id": "35282378e2954b54",
-        "type": "ui_spacer",
-        "z": "644a0e6589af788c",
-        "name": "spacer",
-        "group": "bfcabef255f8ba06",
-        "order": 4,
-        "width": 6,
-        "height": 1
-    },
-    {
-        "id": "3e132200443c878b",
+        "id": "2bcd4d43d8552ec8",
         "type": "ui_spacer",
         "z": "644a0e6589af788c",
         "name": "spacer",
@@ -1287,7 +2359,7 @@
         "height": 1
     },
     {
-        "id": "a5f9ee77a55a2143",
+        "id": "6e3edf0881cb3d72",
         "type": "ui_spacer",
         "z": "644a0e6589af788c",
         "name": "spacer",
@@ -1297,11 +2369,771 @@
         "height": 1
     },
     {
+        "id": "bc6a1584c7ec2341",
+        "type": "ui_spacer",
+        "z": "644a0e6589af788c",
+        "name": "spacer",
+        "group": "",
+        "order": 1,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "328429c5cbd78d83",
+        "type": "ui_spacer",
+        "z": "644a0e6589af788c",
+        "name": "spacer",
+        "group": "",
+        "order": 3,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "026c4fd42e512e94",
+        "type": "ui_spacer",
+        "z": "644a0e6589af788c",
+        "name": "spacer",
+        "group": "6353d2ec29a336a7",
+        "order": 7,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "7129d90479c37841",
+        "type": "ui_spacer",
+        "z": "644a0e6589af788c",
+        "name": "spacer",
+        "group": "6353d2ec29a336a7",
+        "order": 8,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "2d2be1bc9e1c704e",
+        "type": "ui_spacer",
+        "z": "644a0e6589af788c",
+        "name": "spacer",
+        "group": "6353d2ec29a336a7",
+        "order": 9,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "4a8fe4555162705a",
+        "type": "ui_spacer",
+        "z": "644a0e6589af788c",
+        "name": "spacer",
+        "group": "6353d2ec29a336a7",
+        "order": 10,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "e86ed1451bb2d6d7",
+        "type": "ui_spacer",
+        "z": "644a0e6589af788c",
+        "name": "spacer",
+        "group": "6353d2ec29a336a7",
+        "order": 14,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "1864fdf31605d75a",
+        "type": "ui_spacer",
+        "z": "644a0e6589af788c",
+        "name": "spacer",
+        "group": "3db16ff2d329e118",
+        "order": 4,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "c64b0349146f66f6",
+        "type": "ui_spacer",
+        "z": "644a0e6589af788c",
+        "name": "spacer",
+        "group": "3db16ff2d329e118",
+        "order": 7,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "00109df5104eda85",
+        "type": "ui_spacer",
+        "z": "644a0e6589af788c",
+        "name": "spacer",
+        "group": "3db16ff2d329e118",
+        "order": 8,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "4ff7a61ddd6199f8",
+        "type": "ui_spacer",
+        "z": "644a0e6589af788c",
+        "name": "spacer",
+        "group": "3db16ff2d329e118",
+        "order": 9,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "3e2b725d7c3ba39b",
+        "type": "ui_spacer",
+        "z": "644a0e6589af788c",
+        "name": "spacer",
+        "group": "3db16ff2d329e118",
+        "order": 13,
+        "width": 4,
+        "height": 1
+    },
+    {
+        "id": "b17c5515d0c39567",
+        "type": "ui_spacer",
+        "z": "644a0e6589af788c",
+        "name": "spacer",
+        "group": "3db16ff2d329e118",
+        "order": 14,
+        "width": 4,
+        "height": 1
+    },
+    {
+        "id": "5bc5161bdb354214",
+        "type": "ui_spacer",
+        "z": "644a0e6589af788c",
+        "name": "spacer",
+        "group": "3db16ff2d329e118",
+        "order": 17,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "5f71791b5b5576be",
+        "type": "ui_spacer",
+        "z": "644a0e6589af788c",
+        "name": "spacer",
+        "group": "3db16ff2d329e118",
+        "order": 18,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "f5a8a033a8e0c1be",
+        "type": "ui_spacer",
+        "z": "644a0e6589af788c",
+        "name": "spacer",
+        "group": "3db16ff2d329e118",
+        "order": 19,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "dd65b144ca015d67",
+        "type": "ui_spacer",
+        "z": "644a0e6589af788c",
+        "name": "spacer",
+        "group": "3db16ff2d329e118",
+        "order": 20,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "aa9cef50b3483fa7",
+        "type": "ui_spacer",
+        "z": "644a0e6589af788c",
+        "name": "spacer",
+        "group": "3db16ff2d329e118",
+        "order": 21,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "f2eaa93f2f56ebf9",
+        "type": "ui_spacer",
+        "z": "644a0e6589af788c",
+        "name": "spacer",
+        "group": "3db16ff2d329e118",
+        "order": 22,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "e1a058c88c153276",
+        "type": "ui_spacer",
+        "z": "644a0e6589af788c",
+        "name": "spacer",
+        "group": "3db16ff2d329e118",
+        "order": 26,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "41820174e137efd3",
+        "type": "ui_spacer",
+        "z": "644a0e6589af788c",
+        "name": "spacer",
+        "group": "3db16ff2d329e118",
+        "order": 27,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "e50adb57a94eb044",
+        "type": "ui_spacer",
+        "z": "644a0e6589af788c",
+        "name": "spacer",
+        "group": "7825e703afb2c79d",
+        "order": 4,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "0508e277820dd8c6",
+        "type": "ui_spacer",
+        "z": "644a0e6589af788c",
+        "name": "spacer",
+        "group": "7825e703afb2c79d",
+        "order": 5,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "6f696a596ab144ef",
+        "type": "ui_spacer",
+        "z": "644a0e6589af788c",
+        "name": "spacer",
+        "group": "7825e703afb2c79d",
+        "order": 8,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "97076ecc8ecf3a19",
+        "type": "ui_spacer",
+        "z": "644a0e6589af788c",
+        "name": "spacer",
+        "group": "7825e703afb2c79d",
+        "order": 9,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "f09d23226e2a53b0",
+        "type": "ui_spacer",
+        "z": "644a0e6589af788c",
+        "name": "spacer",
+        "group": "7825e703afb2c79d",
+        "order": 10,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "889ba032d2a834df",
+        "type": "ui_spacer",
+        "z": "644a0e6589af788c",
+        "name": "spacer",
+        "group": "7825e703afb2c79d",
+        "order": 15,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "bdda89a4ccb37300",
+        "type": "ui_spacer",
+        "z": "644a0e6589af788c",
+        "name": "spacer",
+        "group": "7825e703afb2c79d",
+        "order": 16,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "d030e4a413554c20",
+        "type": "ui_spacer",
+        "z": "644a0e6589af788c",
+        "name": "spacer",
+        "group": "7825e703afb2c79d",
+        "order": 17,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "36c6a66756daa171",
+        "type": "ui_spacer",
+        "z": "644a0e6589af788c",
+        "name": "spacer",
+        "group": "7825e703afb2c79d",
+        "order": 20,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "b144ed019fcdd04a",
+        "type": "ui_spacer",
+        "z": "644a0e6589af788c",
+        "name": "spacer",
+        "group": "7825e703afb2c79d",
+        "order": 21,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "724fa87ca66ee616",
+        "type": "ui_spacer",
+        "z": "644a0e6589af788c",
+        "name": "spacer",
+        "group": "7825e703afb2c79d",
+        "order": 22,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "aa8efc5429710fdc",
+        "type": "ui_spacer",
+        "z": "644a0e6589af788c",
+        "name": "spacer",
+        "group": "7825e703afb2c79d",
+        "order": 23,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "143aa1801cb60a0f",
+        "type": "ui_spacer",
+        "z": "644a0e6589af788c",
+        "name": "spacer",
+        "group": "7825e703afb2c79d",
+        "order": 27,
+        "width": 6,
+        "height": 1
+    },
+    {
+        "id": "94d71f3d857a9312",
+        "type": "ui_spacer",
+        "z": "644a0e6589af788c",
+        "name": "spacer",
+        "group": "7825e703afb2c79d",
+        "order": 28,
+        "width": 6,
+        "height": 1
+    },
+    {
+        "id": "f776c46b180397fc",
+        "type": "ui_spacer",
+        "z": "644a0e6589af788c",
+        "name": "spacer",
+        "group": "f569d1fe718ea608",
+        "order": 4,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "e31b09252762f27e",
+        "type": "ui_spacer",
+        "z": "644a0e6589af788c",
+        "name": "spacer",
+        "group": "f569d1fe718ea608",
+        "order": 7,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "41e1bdfc498ecfa3",
+        "type": "ui_spacer",
+        "z": "644a0e6589af788c",
+        "name": "spacer",
+        "group": "f569d1fe718ea608",
+        "order": 8,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "5eeb719fca7ed5bf",
+        "type": "ui_spacer",
+        "z": "644a0e6589af788c",
+        "name": "spacer",
+        "group": "f569d1fe718ea608",
+        "order": 9,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "a4c117315a8557a1",
+        "type": "ui_spacer",
+        "z": "644a0e6589af788c",
+        "name": "spacer",
+        "group": "f569d1fe718ea608",
+        "order": 10,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "a5630674d1179496",
+        "type": "ui_spacer",
+        "z": "644a0e6589af788c",
+        "name": "spacer",
+        "group": "f569d1fe718ea608",
+        "order": 14,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "b3dcbf6183b92e56",
+        "type": "ui_spacer",
+        "z": "644a0e6589af788c",
+        "name": "spacer",
+        "group": "f569d1fe718ea608",
+        "order": 15,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "51699f0f8bbd29f1",
+        "type": "ui_spacer",
+        "z": "644a0e6589af788c",
+        "name": "spacer",
+        "group": "f569d1fe718ea608",
+        "order": 16,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "ed70ef9ce9df6ddc",
+        "type": "ui_spacer",
+        "z": "644a0e6589af788c",
+        "name": "spacer",
+        "group": "f569d1fe718ea608",
+        "order": 20,
+        "width": 6,
+        "height": 1
+    },
+    {
+        "id": "9519ed5afebc7e34",
+        "type": "ui_spacer",
+        "z": "644a0e6589af788c",
+        "name": "spacer",
+        "group": "f569d1fe718ea608",
+        "order": 21,
+        "width": 6,
+        "height": 1
+    },
+    {
+        "id": "cee68ca4756e5412",
+        "type": "ui_spacer",
+        "z": "644a0e6589af788c",
+        "name": "spacer",
+        "group": "f569d1fe718ea608",
+        "order": 22,
+        "width": 6,
+        "height": 1
+    },
+    {
+        "id": "9888f2a0198f60ce",
+        "type": "ui_spacer",
+        "z": "644a0e6589af788c",
+        "name": "spacer",
+        "group": "4094c8229ec62653",
+        "order": 4,
+        "width": 6,
+        "height": 1
+    },
+    {
+        "id": "6c0c78642f8f7a76",
+        "type": "ui_spacer",
+        "z": "644a0e6589af788c",
+        "name": "spacer",
+        "group": "9779aa5259add517",
+        "order": 4,
+        "width": 6,
+        "height": 1
+    },
+    {
+        "id": "d2d9e0c5382b66d5",
+        "type": "ui_spacer",
+        "z": "644a0e6589af788c",
+        "name": "spacer",
+        "group": "809badbfbd196680",
+        "order": 4,
+        "width": 6,
+        "height": 1
+    },
+    {
+        "id": "15a769ab30ec528f",
+        "type": "ui_spacer",
+        "z": "644a0e6589af788c",
+        "name": "spacer",
+        "group": "22ec3b9a61f367bf",
+        "order": 4,
+        "width": 6,
+        "height": 1
+    },
+    {
+        "id": "1219b0d206bcd915",
+        "type": "ui_spacer",
+        "z": "644a0e6589af788c",
+        "name": "spacer",
+        "group": "b925acd637e4229a",
+        "order": 10,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "10fd23a36ab32f20",
+        "type": "ui_spacer",
+        "z": "644a0e6589af788c",
+        "name": "spacer",
+        "group": "ab5588fca5a724f6",
+        "order": 1,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "6f2025b342a00aaf",
+        "type": "ui_spacer",
+        "z": "644a0e6589af788c",
+        "name": "spacer",
+        "group": "ab5588fca5a724f6",
+        "order": 3,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "4a05313110384b57",
+        "type": "ui_spacer",
+        "z": "644a0e6589af788c",
+        "name": "spacer",
+        "group": "bc2d850f3f12f4ca",
+        "order": 1,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "66bcae320d50be34",
+        "type": "ui_spacer",
+        "z": "644a0e6589af788c",
+        "name": "spacer",
+        "group": "bc2d850f3f12f4ca",
+        "order": 3,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "2451a1a9c6c98085",
+        "type": "ui_spacer",
+        "z": "644a0e6589af788c",
+        "name": "spacer",
+        "group": "30c71f768b286eca",
+        "order": 1,
+        "width": 6,
+        "height": 1
+    },
+    {
+        "id": "8024652e0d38eac3",
+        "type": "ui_spacer",
+        "z": "644a0e6589af788c",
+        "name": "spacer",
+        "group": "30c71f768b286eca",
+        "order": 3,
+        "width": 6,
+        "height": 1
+    },
+    {
+        "id": "d66a77c8496e100d",
+        "type": "ui_spacer",
+        "z": "644a0e6589af788c",
+        "name": "spacer",
+        "group": "c64dfde351e348df",
+        "order": 3,
+        "width": 4,
+        "height": 1
+    },
+    {
+        "id": "0a8ca5e4ab966ff9",
+        "type": "ui_spacer",
+        "z": "644a0e6589af788c",
+        "name": "spacer",
+        "group": "c64dfde351e348df",
+        "order": 6,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "9041288aca022bc5",
+        "type": "ui_spacer",
+        "z": "644a0e6589af788c",
+        "name": "spacer",
+        "group": "c64dfde351e348df",
+        "order": 8,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "f228d243ca91ab20",
+        "type": "ui_spacer",
+        "z": "644a0e6589af788c",
+        "name": "spacer",
+        "group": "c64dfde351e348df",
+        "order": 9,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "08b676cf40c52186",
+        "type": "ui_spacer",
+        "z": "644a0e6589af788c",
+        "name": "spacer",
+        "group": "c64dfde351e348df",
+        "order": 10,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "f93b1cf412ff3ade",
+        "type": "ui_spacer",
+        "z": "644a0e6589af788c",
+        "name": "spacer",
+        "group": "c64dfde351e348df",
+        "order": 12,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "c50d5501b71eb6e0",
+        "type": "ui_spacer",
+        "z": "644a0e6589af788c",
+        "name": "spacer",
+        "group": "c64dfde351e348df",
+        "order": 14,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "f4b4cc8abb86e873",
+        "type": "ui_spacer",
+        "z": "644a0e6589af788c",
+        "name": "spacer",
+        "group": "c64dfde351e348df",
+        "order": 16,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "8d2ed4ea6ec49003",
+        "type": "ui_spacer",
+        "z": "644a0e6589af788c",
+        "name": "spacer",
+        "group": "c64dfde351e348df",
+        "order": 19,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "dae6d9308416d1bd",
+        "type": "ui_spacer",
+        "z": "644a0e6589af788c",
+        "name": "spacer",
+        "group": "c64dfde351e348df",
+        "order": 20,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "e563d5f5d849dd7d",
+        "type": "ui_spacer",
+        "z": "644a0e6589af788c",
+        "name": "spacer",
+        "group": "c64dfde351e348df",
+        "order": 21,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "af81c5f9635f3aa1",
+        "type": "ui_spacer",
+        "z": "644a0e6589af788c",
+        "name": "spacer",
+        "group": "c64dfde351e348df",
+        "order": 24,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "0c4c4e052537bed8",
+        "type": "ui_spacer",
+        "z": "644a0e6589af788c",
+        "name": "spacer",
+        "group": "c64dfde351e348df",
+        "order": 26,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "f3692b4ea1d7287c",
+        "type": "ui_spacer",
+        "z": "644a0e6589af788c",
+        "name": "spacer",
+        "group": "c64dfde351e348df",
+        "order": 27,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "3288d7c47c475a70",
+        "type": "ui_spacer",
+        "z": "644a0e6589af788c",
+        "name": "spacer",
+        "group": "c64dfde351e348df",
+        "order": 28,
+        "width": 8,
+        "height": 1
+    },
+    {
+        "id": "337bb934dfba9625",
+        "type": "ui_spacer",
+        "z": "644a0e6589af788c",
+        "name": "spacer",
+        "group": "bfcabef255f8ba06",
+        "order": 4,
+        "width": 6,
+        "height": 1
+    },
+    {
+        "id": "7201f627a94729d9",
+        "type": "ui_spacer",
+        "z": "644a0e6589af788c",
+        "name": "spacer",
+        "group": "86dd895c94f5ee59",
+        "order": 3,
+        "width": 4,
+        "height": 1
+    },
+    {
+        "id": "f191117adee382cd",
+        "type": "ui_spacer",
+        "z": "644a0e6589af788c",
+        "name": "spacer",
+        "group": "86dd895c94f5ee59",
+        "order": 4,
+        "width": 4,
+        "height": 1
+    },
+    {
+        "id": "cda471bc93afa111",
+        "type": "ui_spacer",
+        "z": "644a0e6589af788c",
+        "name": "spacer",
+        "group": "86dd895c94f5ee59",
+        "order": 5,
+        "width": 4,
+        "height": 1
+    },
+    {
         "id": "4094c8229ec62653",
         "type": "ui_group",
         "name": "Node SO01",
-        "tab": "731a31680cfe6753",
-        "order": 2,
+        "tab": "d08e06b5cdc29e38",
+        "order": 6,
         "disp": true,
         "width": "14",
         "collapse": true,
@@ -1319,22 +3151,11 @@
         "className": ""
     },
     {
-        "id": "1ddeecdd5e6a952b",
+        "id": "9779aa5259add517",
         "type": "ui_group",
-        "name": "Temperature Summary",
+        "name": "SOPN",
         "tab": "d08e06b5cdc29e38",
-        "order": 1,
-        "disp": true,
-        "width": 14,
-        "collapse": false,
-        "className": ""
-    },
-    {
-        "id": "bfcabef255f8ba06",
-        "type": "ui_group",
-        "name": "Node SOPN",
-        "tab": "731a31680cfe6753",
-        "order": 3,
+        "order": 7,
         "disp": true,
         "width": "14",
         "collapse": true,
@@ -1343,20 +3164,62 @@
     {
         "id": "dcb7dd6006237647",
         "type": "ui_group",
+        "d": true,
         "name": "Power Summary",
-        "tab": "731a31680cfe6753",
+        "tab": "",
         "order": 1,
         "disp": true,
-        "width": 14,
+        "width": "14",
         "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "907a3fd0216dbb85",
+        "type": "meshtastic-msg-device",
+        "fetch_interval": "2000",
+        "tls": "false",
+        "ip_address": "192.168.1.123"
+    },
+    {
+        "id": "bfcabef255f8ba06",
+        "type": "ui_group",
+        "name": "Node SOMobile",
+        "tab": "2f150eb340621efc",
+        "order": 6,
+        "disp": true,
+        "width": 16,
+        "collapse": true,
+        "className": ""
+    },
+    {
+        "id": "809badbfbd196680",
+        "type": "ui_group",
+        "name": "SOTD",
+        "tab": "d08e06b5cdc29e38",
+        "order": 8,
+        "disp": true,
+        "width": "14",
+        "collapse": true,
+        "className": ""
+    },
+    {
+        "id": "22ec3b9a61f367bf",
+        "type": "ui_group",
+        "name": "SOR1 Node",
+        "tab": "d08e06b5cdc29e38",
+        "order": 9,
+        "disp": true,
+        "width": 14,
+        "collapse": true,
         "className": ""
     },
     {
         "id": "23838ebe8e8e0377",
         "type": "ui_group",
+        "d": true,
         "name": "Node 7F44",
-        "tab": "731a31680cfe6753",
-        "order": 4,
+        "tab": "",
+        "order": 2,
         "disp": true,
         "width": "14",
         "collapse": true,
@@ -1365,8 +3228,42 @@
     {
         "id": "29e2d88428d37922",
         "type": "ui_group",
+        "d": true,
         "name": "Node 4A5C",
-        "tab": "731a31680cfe6753",
+        "tab": "",
+        "order": 3,
+        "disp": true,
+        "width": "14",
+        "collapse": true,
+        "className": ""
+    },
+    {
+        "id": "6353d2ec29a336a7",
+        "type": "ui_group",
+        "name": "St. Charles Weather",
+        "tab": "d08e06b5cdc29e38",
+        "order": 2,
+        "disp": true,
+        "width": "14",
+        "collapse": true,
+        "className": ""
+    },
+    {
+        "id": "7825e703afb2c79d",
+        "type": "ui_group",
+        "name": "Garage Conditions",
+        "tab": "d08e06b5cdc29e38",
+        "order": 4,
+        "disp": true,
+        "width": "14",
+        "collapse": true,
+        "className": ""
+    },
+    {
+        "id": "f569d1fe718ea608",
+        "type": "ui_group",
+        "name": "Basement Office",
+        "tab": "d08e06b5cdc29e38",
         "order": 5,
         "disp": true,
         "width": "14",
@@ -1374,20 +3271,75 @@
         "className": ""
     },
     {
-        "id": "731a31680cfe6753",
-        "type": "ui_tab",
-        "name": "Sensors",
-        "icon": "dashboard",
+        "id": "ab5588fca5a724f6",
+        "type": "ui_group",
+        "name": "Flex 8600 Power Control",
+        "tab": "2f150eb340621efc",
+        "order": 2,
+        "disp": true,
+        "width": "8",
+        "collapse": true,
+        "className": ""
+    },
+    {
+        "id": "bc2d850f3f12f4ca",
+        "type": "ui_group",
+        "name": "Flex 6300 Power Control",
+        "tab": "2f150eb340621efc",
         "order": 3,
-        "disabled": false,
-        "hidden": false
+        "disp": true,
+        "width": "8",
+        "collapse": true,
+        "className": ""
+    },
+    {
+        "id": "30c71f768b286eca",
+        "type": "ui_group",
+        "name": "Antenna Selection",
+        "tab": "2f150eb340621efc",
+        "order": 4,
+        "disp": true,
+        "width": "16",
+        "collapse": true,
+        "className": ""
+    },
+    {
+        "id": "c64dfde351e348df",
+        "type": "ui_group",
+        "name": "Remote Antenna Switch Battery Status",
+        "tab": "2f150eb340621efc",
+        "order": 5,
+        "disp": true,
+        "width": 16,
+        "collapse": true,
+        "className": ""
+    },
+    {
+        "id": "86dd895c94f5ee59",
+        "type": "ui_group",
+        "name": "CPU Params",
+        "tab": "2f150eb340621efc",
+        "order": 8,
+        "disp": true,
+        "width": 16,
+        "collapse": true,
+        "className": ""
     },
     {
         "id": "d08e06b5cdc29e38",
         "type": "ui_tab",
         "name": "Home",
-        "icon": "dashboard",
+        "icon": "fa-home",
         "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "2f150eb340621efc",
+        "type": "ui_tab",
+        "name": "HamShack",
+        "icon": "dashboard",
+        "order": 2,
         "disabled": false,
         "hidden": false
     }

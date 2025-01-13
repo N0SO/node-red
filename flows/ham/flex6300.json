@@ -26,7 +26,8 @@
             "b8fa7669e907f3b3",
             "16eac3657916ead6",
             "9f05283e332fc818",
-            "d4d53bd0b35f8134"
+            "d4d53bd0b35f8134",
+            "a01a6abc89aa0196"
         ],
         "x": 694,
         "y": 479,
@@ -118,7 +119,8 @@
         "y": 520,
         "wires": [
             [
-                "16eac3657916ead6"
+                "16eac3657916ead6",
+                "a01a6abc89aa0196"
             ]
         ]
     },
@@ -145,7 +147,8 @@
             [
                 "16eac3657916ead6",
                 "d3d3f0a0edf08f69",
-                "ada87a07c7a1a453"
+                "ada87a07c7a1a453",
+                "a01a6abc89aa0196"
             ]
         ]
     },
@@ -164,7 +167,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 1210,
-        "y": 540,
+        "y": 520,
         "wires": []
     },
     {
@@ -303,7 +306,8 @@
         "wires": [
             [
                 "1e3a8cf10cd40b16",
-                "ca07973e8b5082a9"
+                "ca07973e8b5082a9",
+                "d5c13b9da1efbd29"
             ]
         ]
     },
@@ -382,7 +386,7 @@
         "type": "flexradio-request",
         "z": "8eef662251c0531b",
         "name": "",
-        "radio": "7b25f636a9e83a06",
+        "radio": "687b4401daa57031",
         "x": 1210,
         "y": 360,
         "wires": [
@@ -408,8 +412,8 @@
                 "t": "set",
                 "p": "radio",
                 "pt": "msg",
-                "to": "{\"host_mode\":\"manual\",\"host\":\"192.168.1.244\",\"port\":4992}",
-                "tot": "json"
+                "to": "radio",
+                "tot": "flow"
             }
         ],
         "action": "",
@@ -444,8 +448,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 882,
-        "y": 415,
+        "x": 930,
+        "y": 440,
         "wires": [
             [
                 "2e285e0b28086cb9"
@@ -473,7 +477,7 @@
         "type": "flexradio-message",
         "z": "8eef662251c0531b",
         "name": "",
-        "radio": "7b25f636a9e83a06",
+        "radio": "687b4401daa57031",
         "client": "radio",
         "topic": "",
         "topic_type": "mqtt",
@@ -602,7 +606,7 @@
         "wires": [
             [
                 "05ea0c0dc41e5210",
-                "a0afba524a86811d"
+                "01f8342bd8727485"
             ]
         ]
     },
@@ -744,8 +748,8 @@
         "topic": "",
         "payload": "sub meter TX-/4/PATEMP",
         "payloadType": "str",
-        "x": 820,
-        "y": 300,
+        "x": 940,
+        "y": 280,
         "wires": [
             [
                 "2e285e0b28086cb9"
@@ -757,7 +761,7 @@
         "type": "flexradio-request",
         "z": "8eef662251c0531b",
         "name": "",
-        "radio": "7b25f636a9e83a06",
+        "radio": "687b4401daa57031",
         "x": 1210,
         "y": 780,
         "wires": [
@@ -825,7 +829,7 @@
         "type": "flexradio-request",
         "z": "8eef662251c0531b",
         "name": "",
-        "radio": "7b25f636a9e83a06",
+        "radio": "687b4401daa57031",
         "x": 1210,
         "y": 740,
         "wires": [
@@ -871,7 +875,7 @@
         "type": "flexradio-meter",
         "z": "8eef662251c0531b",
         "name": "Flex-6300 VDCA",
-        "radio": "7b25f636a9e83a06",
+        "radio": "687b4401daa57031",
         "topic": "RAD/208/+13.8A",
         "topic_type": "mqtt",
         "output_mode": "value",
@@ -917,7 +921,7 @@
         "type": "flexradio-request",
         "z": "8eef662251c0531b",
         "name": "",
-        "radio": "7b25f636a9e83a06",
+        "radio": "687b4401daa57031",
         "x": 850,
         "y": 900,
         "wires": [
@@ -997,17 +1001,10 @@
         "rules": [
             {
                 "t": "set",
-                "p": "host",
+                "p": "radio",
                 "pt": "flow",
-                "to": "192.168.1.244",
-                "tot": "str"
-            },
-            {
-                "t": "set",
-                "p": "port",
-                "pt": "flow",
-                "to": "4992",
-                "tot": "num"
+                "to": "{\"host_mode\":\"manual\",\"host\":\"192.168.1.244\",\"port\":4992}",
+                "tot": "json"
             },
             {
                 "t": "set",
@@ -1088,7 +1085,7 @@
         "type": "flexradio-meter",
         "z": "8eef662251c0531b",
         "name": "Flex 6300 PA Temp",
-        "radio": "7b25f636a9e83a06",
+        "radio": "687b4401daa57031",
         "topic": "TX-/4/PATEMP",
         "topic_type": "mqtt",
         "output_mode": "value",
@@ -1132,25 +1129,90 @@
         ]
     },
     {
+        "id": "a01a6abc89aa0196",
+        "type": "link out",
+        "z": "8eef662251c0531b",
+        "g": "c808a418a38a99d7",
+        "name": "link out 3",
+        "mode": "link",
+        "links": [
+            "f1b5b6d254e12af9"
+        ],
+        "x": 1205,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "01f8342bd8727485",
+        "type": "delay",
+        "z": "8eef662251c0531b",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 800,
+        "y": 840,
+        "wires": [
+            [
+                "a0afba524a86811d"
+            ]
+        ]
+    },
+    {
+        "id": "d5c13b9da1efbd29",
+        "type": "change",
+        "z": "8eef662251c0531b",
+        "d": true,
+        "name": "Initialize radio connect parameters",
+        "rules": [
+            {
+                "t": "set",
+                "p": "radio",
+                "pt": "flow",
+                "to": "{\"host_mode\":\"nickname\",\"nickname\":\"N0SO-6300\"}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 360,
+        "y": 320,
+        "wires": [
+            []
+        ]
+    },
+    {
         "id": "bc2d850f3f12f4ca",
         "type": "ui_group",
         "name": "Flex 6300 Power Control",
         "tab": "2f150eb340621efc",
-        "order": 4,
+        "order": 3,
         "disp": true,
         "width": "8",
         "collapse": true,
         "className": ""
     },
     {
-        "id": "7b25f636a9e83a06",
+        "id": "687b4401daa57031",
         "type": "flexradio-radio",
         "name": "",
         "host_mode": "dynamic",
         "nickname": "",
         "host": "",
         "port": "",
-        "station_name": "NodeRed",
+        "station_name": "Node-RED",
         "slice_mode": "headless",
         "slice_name": "A",
         "timeout": "15"
