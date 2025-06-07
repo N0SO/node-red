@@ -8,13 +8,16 @@ Update History:
 - V0.1.1 - Moved switch definitions to __init__.py.      
 - Added VALIDSWITCHNAMES as choices for the argparser.
 - All because I forgot what I called the switch names!       
+* Wed Jun 04 2025 Mike Heitmann, N0SO <n0so@arrl.net>
+- V1.0.0 - Updated for Flex 8600 name, 
+-          New router drove IP address change.      
 """
-VERSION = '0.1.0' 
-SWITCH_URL = 'http://192.168.1.199/'
+VERSION = '1.0.0' 
+SWITCH_URL = 'http://192.168.4.67/'
 CALLSIGN = 'N0SO'
 
 VALIDSWITCHNAMES = [\
-                     '1','flex6600pwr',
+                     '1','flex8600pwr',
                      '3','flex6300pwr',
                      '7','hfantenna',
                      '8','6mantenna',

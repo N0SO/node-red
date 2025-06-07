@@ -21,6 +21,7 @@ class stationSwitch():
         if (url) == None:
             url= self.switch_url + 'FF0500'
         html_text = requests.get(url)
+        #print(f'URL: {url} \nResponse: {html_text}')
         soup = BeautifulSoup(html_text.text, 'html.parser')
         stat_text=soup.find('p').get_text()
         return stat_text
@@ -40,22 +41,18 @@ class stationSwitch():
         return relays
 
     def showStat(self):
-        print ("""Station Relay Status:
-              Relays:             {}
-              Flex 6600 Power:    {}
-              Flex 6300 Power:    {} 
-              HF Antenna Connect: {}
-              6M Dipole Select:   {}""".format(self.relays,
-                                                self.relays[0],
-                                                self.relays[2],
-                                                self.relays[6],
-                                                self.relays[7]))
+        print (f"""Station Relay Status:
+              Relays:             {self.relays}
+              Flex 8600 Power:    {self.relays[0]}
+              Flex 6300 Power:    {self.relays[2]} 
+              HF Antenna Connect: {self.relays[6]}
+              6M Dipole Select:   {self.relays[7]}""")
         return True
         
     def _selectSwitch(self, switch):
         if switch in VALIDSWITCHNAMES:
-            print('Valid switch: {}.'.format(switch))
-            if (switch == '1') or (switch == 'flex6600pwr'):
+            print(f'Valid switch: {switch}.')
+            if (switch == '1') or (switch == 'flex8600pwr'):
                 relay = 'FF01'
             if (switch == '3') or (switch == 'flex6300pwr'):
                 relay = 'FF03'
